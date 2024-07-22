@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:i_assistant/domain/entities/note/text_note/text_note.dart';
 import 'package:i_assistant/presentation/resources/app_colors.dart';
 import 'package:i_assistant/presentation/resources/app_styles.dart';
 import 'package:i_assistant/presentation/widgets/buttons/custom_button.dart';
@@ -14,7 +15,8 @@ import 'package:intl/intl.dart';
 import '../dialogs/date_picker_dialog.dart';
 
 class TextNoteBottomSheet extends StatefulWidget {
-  const TextNoteBottomSheet({super.key});
+  final DateTime? dateTime;
+  const TextNoteBottomSheet({super.key, this.dateTime});
 
   @override
   State<TextNoteBottomSheet> createState() => _TextNoteBottomSheetState();
@@ -24,6 +26,18 @@ class _TextNoteBottomSheetState extends State<TextNoteBottomSheet> {
   final nameController = TextEditingController();
   final descriptionController = TextEditingController();
   DateTime? dateTime;
+
+  bool validate() {
+    return nameController.text.isNotEmpty && descriptionController.text.isNotEmpty &&dateTime !=null;
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    dateTime = widget.dateTime;
+  }
+
   @override
   Widget build(BuildContext context) {
     final bottom = MediaQuery.of(context).viewInsets.bottom;
@@ -109,6 +123,11 @@ class _TextNoteBottomSheetState extends State<TextNoteBottomSheet> {
                             AppStyles.mediumHead.copyWith(color: Colors.black)),
                         CustomTextField(
                             controller: descriptionController,
+                            onChanged: (_) {
+                              setState(() {
+
+                              });
+                            },
                             hint: 'Введите текст заметки',
                             maxLength: 300,
                             minLines: 5,
@@ -138,11 +157,13 @@ class _TextNoteBottomSheetState extends State<TextNoteBottomSheet> {
                             ),
                             SizedBox(width: 20,),
                             Expanded(
-                              child: CustomButton(title: 'Сохранить', active: nameController.text.isNotEmpty, onTap: nameController.text.isNotEmpty ? () {
-                                Navigator.of(context, rootNavigator: true).pop();
+                              child: CustomButton(title: 'Сохранить', active: validate(), onTap: validate() ? () {
+                                Navigator.of(context, rootNavigator: true).pop(
+                                  TextNote(id: -1, dateTime: dateTime!, name: nameController.text, comment: descriptionController.text)
+                                );
 
                               } : null,
-                                textColor: nameController.text.isEmpty ? Colors.black : null,
+                                textColor: !validate() ? Colors.black : null,
                               ),
                             )
                           ],

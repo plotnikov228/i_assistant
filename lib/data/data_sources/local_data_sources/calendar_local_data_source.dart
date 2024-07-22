@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:i_assistant/utils/extensions/calendar_day_extension.dart';
+import 'package:i_assistant/utils/extensions/date_extension.dart';
 
 import '../../../domain/entities/calendar_day/calendar_day.dart';
 import '../../database/hive_database.dart';
@@ -17,15 +19,18 @@ class CalendarLocalDataSourceImpl extends CalendarLocalDataSource {
   Future<List<CalendarDay>> getCalendarDays({DateTime? startPeriod, DateTime? endPeriod}) async {
     await HiveDatabase.initDB();
     await HiveDatabase.openBox(HiveDBTags.calendarDays);
-    final list = [..._sortByDate((await HiveDatabase.getBox(HiveDBTags.calendarDays)).map((e) => CalendarDay.fromJson(jsonDecode(e))).toList())];
+    final dataList = (await HiveDatabase.getBox(HiveDBTags.calendarDays));
+    if(startPeriod != null && startPeriod == endPeriod) {
+      dataList.removeWhere((element) => !startPeriod.equalDate(DateTime.parse(jsonDecode(element)['date'])));
+    }
+    final list = [...(dataList.map((e) => CalendarDay.fromJson(jsonDecode(e))).toList()).sortByDate()];
 
-    debugPrint(list.length.toString());
     return list;
   }
 
   @override
   Future<List<CalendarDay>> setCalendarDays(List<CalendarDay> list)  async {
-    final _sortedListForChanges = _sortByDate(list);
+    final _sortedListForChanges = (list).sortByDate();
     final _fullList = [...await getCalendarDays()];
     for (var day in _sortedListForChanges) {
       int index = _fullList.indexWhere((obj1) => obj1.date == day.date);
@@ -35,7 +40,6 @@ class CalendarLocalDataSourceImpl extends CalendarLocalDataSource {
         _fullList.add(day);
       }
     }
-    debugPrint(_fullList.toString());
     await HiveDatabase.deleteBox(HiveDBTags.calendarDays);
     await HiveDatabase.openBox(HiveDBTags.calendarDays);
     for(var item in _fullList) {
@@ -46,13 +50,5 @@ class CalendarLocalDataSourceImpl extends CalendarLocalDataSource {
 
 
 
-  }
-
-  List<CalendarDay> _sortByDate (List<CalendarDay> list) {
-    final _list = [...list];
-    _list.sort((a, b) {
-        return a.date.compareTo(b.date);
-      });
-    return _list;
   }
 }

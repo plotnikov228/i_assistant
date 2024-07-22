@@ -11,6 +11,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../../domain/entities/note/voice_note/voice_note.dart';
+
 part 'event.dart';
 
 part 'state.dart';
@@ -20,55 +22,76 @@ part 'bloc.freezed.dart';
 class VoiceNoteBloc extends Bloc<VoiceNoteEvent, VoiceNoteState> {
   VoiceNoteBloc()
       : super(_Initial(
+      canSave: false,
             audio: null,
             recording: false,
-            amplitudeStream: StreamController<Amplitude>().stream)) {
+            amplitudeStream: StreamController<Amplitude>().stream, started: false)) {
     on<VoiceNoteEvent>((events, emit) async {
-      events.map(record: _record);
+      events.map(record: _record, save: _save);
     });
   }
 
   File? _audio;
   bool _recording = false;
+  bool _canSave = false;
+
+  _save (_Save value) async {
+    _subs?.cancel();
+
+    await _recorder.stop().then((value) {
+      final path = value;
+      if (path != null) {
+        _audio = File(path);
+        emit(_Initial(
+          canSave: _canSave,
+            audio: _audio,
+            recording: _recording,
+            amplitudeStream: _controller.stream, started: _fileStarted));
+
+      }
+
+    });
+
+    Navigator.of(value.context,
+        rootNavigator: true)
+        .pop(VoiceNote(id: -1, dateTime: value.dateTime!, name: value.text, filePath: state.audio!.path!));
+
+
+    _controller.add(Amplitude(current: 0, max: 10));
+  }
+
+  bool _fileStarted = false;
 
   _record(_Record value) async {
     try {
       if (_recording) {
 
       _subs?.cancel();
-       await _recorder.stop().then((value) {
-          final path = value;
-          if (path != null) {
-            _audio = File(path);
-            debugPrint('path.toString()');
-            emit(_Initial(
-                audio: _audio,
-                recording: _recording,
-                amplitudeStream: _controller.stream));
 
-          }
+       await _recorder.pause();
 
-        });
-
+      _fileStarted = true;
+      _canSave =  true;
 
         _controller.add(Amplitude(current: 0, max: 10));
       _recording = false;
 
       } else {
         if (await _recorder.hasPermission()) {
-          debugPrint('a1');
-          const encoder = AudioEncoder.aacLc;
+          final encoder = Platform.isIOS ? AudioEncoder.aacLc : AudioEncoder.amrNb;
           if (!(await _isEncoderSupported(encoder) )) {
             return;
           }
-          debugPrint('a2');
+          _canSave = false;
 
-          const config = RecordConfig(encoder: encoder, numChannels: 1);
-          _recorder.start(config, path: await _getPath());
-
+          final config = RecordConfig(encoder: encoder, numChannels: 1);
+          if(_fileStarted) {
+            _recorder.resume();
+          } else {
+            _recorder.start(config, path: await _getPath());
+          }
           Timer.periodic(const Duration(milliseconds: 50), (timer) async{
             final amp = await _recorder.getAmplitude();
-            debugPrint(amp.current.toString() + ' ' + amp.max.toString() );
             _controller.add(amp);
             if(!_recording) timer.cancel();
           });
@@ -81,9 +104,10 @@ class VoiceNoteBloc extends Bloc<VoiceNoteEvent, VoiceNoteState> {
       debugPrint(_.toString());
     }
     emit(_Initial(
+      canSave: _canSave,
         audio: _audio,
         recording: _recording,
-        amplitudeStream: _controller.stream));
+        amplitudeStream: _controller.stream, started: _fileStarted));
   }
 
   StreamSubscription? _subs;

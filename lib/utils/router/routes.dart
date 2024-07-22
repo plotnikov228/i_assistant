@@ -2,7 +2,11 @@
 
 enum AppRoutes {
   calendar,
-  note
+  note,
+  notes,
+  day,
+  notesAndTasks,
+
 }
 
 extension AppPageExtension on AppRoutes {
@@ -10,9 +14,14 @@ extension AppPageExtension on AppRoutes {
     switch (this) {
       case AppRoutes.calendar:
         return "/calendar";
+      case AppRoutes.notes:
+        return "notes";
+      case AppRoutes.notesAndTasks:
+        return "/notesAndTasks";
       case AppRoutes.note:
         return "note";
-
+      case AppRoutes.day:
+        return "day";
       default:
         return "/";
     }
@@ -24,6 +33,13 @@ extension AppPageExtension on AppRoutes {
         return "calendar";
       case AppRoutes.note:
         return "note";
+
+      case AppRoutes.notesAndTasks:
+        return "notesAndTasks";
+      case AppRoutes.notes:
+        return "notes";
+      case AppRoutes.day:
+        return "day";
 
       default:
         return "calendar";

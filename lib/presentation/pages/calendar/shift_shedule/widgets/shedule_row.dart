@@ -18,7 +18,7 @@ class SheduleRow extends StatelessWidget {
     return Container(
       height: 60,
       //width: double.infinity,
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       decoration: BoxDecoration(
         border:
             Border.all(color: selected ? AppColors.blue : AppColors.dividerGrey),
@@ -39,6 +39,7 @@ class SheduleRow extends StatelessWidget {
                       child: ShiftWidget(
                         shiftType: e,
                         showSvg: true,
+
                       ),
                     ))
                 .toList(),

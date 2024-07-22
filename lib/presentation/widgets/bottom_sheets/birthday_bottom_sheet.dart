@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:i_assistant/domain/entities/task/task.dart';
 
 import 'package:i_assistant/presentation/resources/app_colors.dart';
 import 'package:i_assistant/presentation/resources/app_styles.dart';
 import 'package:i_assistant/presentation/widgets/buttons/custom_button.dart';
 import 'package:i_assistant/presentation/widgets/custom_switcher.dart';
+import 'package:i_assistant/presentation/widgets/remind_container.dart';
 import 'package:i_assistant/presentation/widgets/text_fields/custom_text_field.dart';
 import 'package:i_assistant/utils/size_utils.dart';
 import 'package:intl/intl.dart';
@@ -12,7 +14,8 @@ import 'package:intl/intl.dart';
 import '../dialogs/date_picker_dialog.dart';
 
 class BirthdayBottomSheet extends StatefulWidget {
-  const BirthdayBottomSheet({super.key});
+  final DateTime? dateTime;
+  const BirthdayBottomSheet({super.key,  this.dateTime});
 
   @override
   State<BirthdayBottomSheet> createState() => _BirthdayBottomSheetState();
@@ -21,10 +24,19 @@ class BirthdayBottomSheet extends StatefulWidget {
 class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
   final nameController = TextEditingController();
   DateTime? dateTime;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    dateTime = widget.dateTime;
+  }
 
   final descriptionController = TextEditingController();
-  bool remind = false;
+  DateTime? dateTimeRemind;
 
+  bool validate() {
+    return nameController.text.isNotEmpty &&  dateTime !=null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,10 +125,15 @@ class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
                                 AppStyles.mediumHead.copyWith(color: Colors.black)),
                         CustomTextField(
                             controller: descriptionController,
+                            onChanged: (_) {
+                              setState(() {
+
+                              });
+                            },
                             hint: 'Введите комментарий',
                             maxLength: 300,
-                            minLines: 5,
-                            maxLines: 5,
+                            minLines: 4,
+                            maxLines: 4,
                             textStyle: AppStyles.body.copyWith(color: Colors.black))
                       ],
                     ),
@@ -126,47 +143,18 @@ class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
-                      Divider(
-                        indent: 0,
-                        endIndent: 0,
-                        height: 1,
-                        thickness: 1,
-                        color: AppColors.lightGrey,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                SvgPicture.asset(
-                                  'assets/images/svg/clock.svg',
-                                  height: 20,
-                                  width: 20,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Напоминание',
-                                  style: AppStyles.mediumHead
-                                      .copyWith(color: Colors.black),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              width: 40,
-                              height: 24,
-                              child: CustomSwitch(value: remind, onChange: (val) {
-                                remind = val;
-                              },),
-                            )
-                          ],
-                        ),
+                      RemindContainer(
+                        initialDateTime: dateTimeRemind,
+                        onModeSwitch: (_) {
+                          if(!_) {
+                            dateTimeRemind=null;
+                          }
+                        },
+                        onSwitch: (_) {
+                          dateTimeRemind = _;
+                        },
                       ),
                       Padding(padding: EdgeInsets.all(20),
                       child: Row(
@@ -182,11 +170,13 @@ class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
                           ),
                           SizedBox(width: 20,),
                           Expanded(
-                            child: CustomButton(title: 'Сохранить', active: nameController.text.isNotEmpty, onTap: nameController.text.isNotEmpty ? () {
-                              Navigator.of(context, rootNavigator: true).pop();
+                            child: CustomButton(title: 'Сохранить', active: validate(), onTap: validate() ? () {
+                              
+                              final birthday = Task(id: -1, dateTime: dateTime!, name: nameController.text, comment: descriptionController.text, remindDateTime: dateTimeRemind, selected: false);
+                              Navigator.of(context, rootNavigator: true).pop(birthday);
 
                             } : null,
-                            textColor: nameController.text.isEmpty ? Colors.black : null,
+                            textColor: !validate() ? Colors.black : null,
                             ),
                           )
                         ],

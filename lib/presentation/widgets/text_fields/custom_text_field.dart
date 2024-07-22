@@ -8,8 +8,11 @@ class CustomTextField extends StatefulWidget {
   final int maxLines;
   final int minLines;
   final bool showHintAlways;
+  final bool filled;
   final int? maxLength;
   final Function(String)? onChanged;
+  final Function(String?)? onSubmit;
+
   final TextAlign textAlign;
   const CustomTextField({super.key,
     required this.controller,
@@ -19,7 +22,7 @@ class CustomTextField extends StatefulWidget {
     this.minLines = 1,
     this.maxLength,
     this.onChanged,
-    this.textAlign = TextAlign.start, this.showHintAlways = true});
+    this.textAlign = TextAlign.start, this.showHintAlways = true, this.filled = false, this.onSubmit});
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -58,15 +61,28 @@ class _CustomTextFieldState extends State<CustomTextField> {
       style: widget.textStyle,
       onTapOutside: (_) {
         FocusScope.of(context).unfocus();
+        widget.onSubmit?.call(widget.controller.text);
+
+      },
+      textInputAction: TextInputAction.done,
+      onEditingComplete: () {
+        FocusScope.of(context).unfocus();
+
+        widget.onSubmit?.call(widget.controller.text);
       },
       textAlign: widget.textAlign,
 
       decoration: InputDecoration(
+        fillColor: widget.filled ? AppColors.dividerGrey : null,
           hintText: showHint ? widget.hint : '',
           hintStyle: widget.textStyle.copyWith(color: AppColors.mediumGrey),
           counterText: '',
           counterStyle: TextStyle(fontSize: 0),
-          border: InputBorder.none),
+          filled: widget.filled,
+          border: widget.filled ? OutlineInputBorder(
+            borderRadius: BorderRadius.circular(24),
+            borderSide: BorderSide.none
+          ) :  InputBorder.none),
     );
   }
 }

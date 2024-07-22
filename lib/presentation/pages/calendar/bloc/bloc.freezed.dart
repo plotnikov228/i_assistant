@@ -18,6 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CalendarEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
     required TResult Function(CalendarDay day) selectDay,
     required TResult Function(DateTime dateTime) changeDate,
     required TResult Function(bool value) selectShiftTypes,
@@ -28,10 +32,16 @@ mixin _$CalendarEvent {
             List<ShiftType> shiftTypes, DateTime start, DateTime end)
         getShiftTypes,
     required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
     TResult? Function(CalendarDay day)? selectDay,
     TResult? Function(DateTime dateTime)? changeDate,
     TResult? Function(bool value)? selectShiftTypes,
@@ -40,10 +50,16 @@ mixin _$CalendarEvent {
     TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
     TResult Function(CalendarDay day)? selectDay,
     TResult Function(DateTime dateTime)? changeDate,
     TResult Function(bool value)? selectShiftTypes,
@@ -52,11 +68,17 @@ mixin _$CalendarEvent {
     TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
     required TResult Function(_SelectDay value) selectDay,
     required TResult Function(_ChangeDate value) changeDate,
     required TResult Function(_SelectShiftTypes value) selectShiftTypes,
@@ -65,10 +87,16 @@ mixin _$CalendarEvent {
         confirmShiftTypesChanges,
     required TResult Function(_GetShiftTypes value) getShiftTypes,
     required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
     TResult? Function(_SelectDay value)? selectDay,
     TResult? Function(_ChangeDate value)? changeDate,
     TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -77,10 +105,16 @@ mixin _$CalendarEvent {
         confirmShiftTypesChanges,
     TResult? Function(_GetShiftTypes value)? getShiftTypes,
     TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
     TResult Function(_SelectDay value)? selectDay,
     TResult Function(_ChangeDate value)? changeDate,
     TResult Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -88,6 +122,8 @@ mixin _$CalendarEvent {
     TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
     TResult Function(_GetShiftTypes value)? getShiftTypes,
     TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -109,6 +145,803 @@ class _$CalendarEventCopyWithImpl<$Res, $Val extends CalendarEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$FetchImplCopyWith<$Res> {
+  factory _$$FetchImplCopyWith(
+          _$FetchImpl value, $Res Function(_$FetchImpl) then) =
+      __$$FetchImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime? date});
+}
+
+/// @nodoc
+class __$$FetchImplCopyWithImpl<$Res>
+    extends _$CalendarEventCopyWithImpl<$Res, _$FetchImpl>
+    implements _$$FetchImplCopyWith<$Res> {
+  __$$FetchImplCopyWithImpl(
+      _$FetchImpl _value, $Res Function(_$FetchImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = freezed,
+  }) {
+    return _then(_$FetchImpl(
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchImpl implements _Fetch {
+  const _$FetchImpl({this.date});
+
+  @override
+  final DateTime? date;
+
+  @override
+  String toString() {
+    return 'CalendarEvent.fetch(date: $date)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchImpl &&
+            (identical(other.date, date) || other.date == date));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, date);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchImplCopyWith<_$FetchImpl> get copyWith =>
+      __$$FetchImplCopyWithImpl<_$FetchImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
+    required TResult Function(CalendarDay day) selectDay,
+    required TResult Function(DateTime dateTime) changeDate,
+    required TResult Function(bool value) selectShiftTypes,
+    required TResult Function(ShiftType value, CalendarDay calendarDay)
+        addShiftType,
+    required TResult Function() confirmShiftTypesChanges,
+    required TResult Function(
+            List<ShiftType> shiftTypes, DateTime start, DateTime end)
+        getShiftTypes,
+    required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
+  }) {
+    return fetch(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
+    TResult? Function(CalendarDay day)? selectDay,
+    TResult? Function(DateTime dateTime)? changeDate,
+    TResult? Function(bool value)? selectShiftTypes,
+    TResult? Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult? Function()? confirmShiftTypesChanges,
+    TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
+  }) {
+    return fetch?.call(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
+    TResult Function(CalendarDay day)? selectDay,
+    TResult Function(DateTime dateTime)? changeDate,
+    TResult Function(bool value)? selectShiftTypes,
+    TResult Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult Function()? confirmShiftTypesChanges,
+    TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (fetch != null) {
+      return fetch(date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
+    required TResult Function(_SelectDay value) selectDay,
+    required TResult Function(_ChangeDate value) changeDate,
+    required TResult Function(_SelectShiftTypes value) selectShiftTypes,
+    required TResult Function(_AddShiftType value) addShiftType,
+    required TResult Function(_ConfirmShiftTypesChanges value)
+        confirmShiftTypesChanges,
+    required TResult Function(_GetShiftTypes value) getShiftTypes,
+    required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
+  }) {
+    return fetch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
+    TResult? Function(_SelectDay value)? selectDay,
+    TResult? Function(_ChangeDate value)? changeDate,
+    TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult? Function(_AddShiftType value)? addShiftType,
+    TResult? Function(_ConfirmShiftTypesChanges value)?
+        confirmShiftTypesChanges,
+    TResult? Function(_GetShiftTypes value)? getShiftTypes,
+    TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
+  }) {
+    return fetch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
+    TResult Function(_SelectDay value)? selectDay,
+    TResult Function(_ChangeDate value)? changeDate,
+    TResult Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult Function(_AddShiftType value)? addShiftType,
+    TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
+    TResult Function(_GetShiftTypes value)? getShiftTypes,
+    TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (fetch != null) {
+      return fetch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Fetch implements CalendarEvent {
+  const factory _Fetch({final DateTime? date}) = _$FetchImpl;
+
+  DateTime? get date;
+  @JsonKey(ignore: true)
+  _$$FetchImplCopyWith<_$FetchImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectCalendarImplCopyWith<$Res> {
+  factory _$$SelectCalendarImplCopyWith(_$SelectCalendarImpl value,
+          $Res Function(_$SelectCalendarImpl) then) =
+      __$$SelectCalendarImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CalendarEntity calendarEntity});
+}
+
+/// @nodoc
+class __$$SelectCalendarImplCopyWithImpl<$Res>
+    extends _$CalendarEventCopyWithImpl<$Res, _$SelectCalendarImpl>
+    implements _$$SelectCalendarImplCopyWith<$Res> {
+  __$$SelectCalendarImplCopyWithImpl(
+      _$SelectCalendarImpl _value, $Res Function(_$SelectCalendarImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? calendarEntity = null,
+  }) {
+    return _then(_$SelectCalendarImpl(
+      null == calendarEntity
+          ? _value.calendarEntity
+          : calendarEntity // ignore: cast_nullable_to_non_nullable
+              as CalendarEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectCalendarImpl implements _SelectCalendar {
+  const _$SelectCalendarImpl(this.calendarEntity);
+
+  @override
+  final CalendarEntity calendarEntity;
+
+  @override
+  String toString() {
+    return 'CalendarEvent.selectCalendar(calendarEntity: $calendarEntity)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectCalendarImpl &&
+            (identical(other.calendarEntity, calendarEntity) ||
+                other.calendarEntity == calendarEntity));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, calendarEntity);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectCalendarImplCopyWith<_$SelectCalendarImpl> get copyWith =>
+      __$$SelectCalendarImplCopyWithImpl<_$SelectCalendarImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
+    required TResult Function(CalendarDay day) selectDay,
+    required TResult Function(DateTime dateTime) changeDate,
+    required TResult Function(bool value) selectShiftTypes,
+    required TResult Function(ShiftType value, CalendarDay calendarDay)
+        addShiftType,
+    required TResult Function() confirmShiftTypesChanges,
+    required TResult Function(
+            List<ShiftType> shiftTypes, DateTime start, DateTime end)
+        getShiftTypes,
+    required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
+  }) {
+    return selectCalendar(calendarEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
+    TResult? Function(CalendarDay day)? selectDay,
+    TResult? Function(DateTime dateTime)? changeDate,
+    TResult? Function(bool value)? selectShiftTypes,
+    TResult? Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult? Function()? confirmShiftTypesChanges,
+    TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
+  }) {
+    return selectCalendar?.call(calendarEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
+    TResult Function(CalendarDay day)? selectDay,
+    TResult Function(DateTime dateTime)? changeDate,
+    TResult Function(bool value)? selectShiftTypes,
+    TResult Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult Function()? confirmShiftTypesChanges,
+    TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (selectCalendar != null) {
+      return selectCalendar(calendarEntity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
+    required TResult Function(_SelectDay value) selectDay,
+    required TResult Function(_ChangeDate value) changeDate,
+    required TResult Function(_SelectShiftTypes value) selectShiftTypes,
+    required TResult Function(_AddShiftType value) addShiftType,
+    required TResult Function(_ConfirmShiftTypesChanges value)
+        confirmShiftTypesChanges,
+    required TResult Function(_GetShiftTypes value) getShiftTypes,
+    required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
+  }) {
+    return selectCalendar(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
+    TResult? Function(_SelectDay value)? selectDay,
+    TResult? Function(_ChangeDate value)? changeDate,
+    TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult? Function(_AddShiftType value)? addShiftType,
+    TResult? Function(_ConfirmShiftTypesChanges value)?
+        confirmShiftTypesChanges,
+    TResult? Function(_GetShiftTypes value)? getShiftTypes,
+    TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
+  }) {
+    return selectCalendar?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
+    TResult Function(_SelectDay value)? selectDay,
+    TResult Function(_ChangeDate value)? changeDate,
+    TResult Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult Function(_AddShiftType value)? addShiftType,
+    TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
+    TResult Function(_GetShiftTypes value)? getShiftTypes,
+    TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (selectCalendar != null) {
+      return selectCalendar(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectCalendar implements CalendarEvent {
+  const factory _SelectCalendar(final CalendarEntity calendarEntity) =
+      _$SelectCalendarImpl;
+
+  CalendarEntity get calendarEntity;
+  @JsonKey(ignore: true)
+  _$$SelectCalendarImplCopyWith<_$SelectCalendarImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectYearImplCopyWith<$Res> {
+  factory _$$SelectYearImplCopyWith(
+          _$SelectYearImpl value, $Res Function(_$SelectYearImpl) then) =
+      __$$SelectYearImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({YearEntity yearEntity});
+}
+
+/// @nodoc
+class __$$SelectYearImplCopyWithImpl<$Res>
+    extends _$CalendarEventCopyWithImpl<$Res, _$SelectYearImpl>
+    implements _$$SelectYearImplCopyWith<$Res> {
+  __$$SelectYearImplCopyWithImpl(
+      _$SelectYearImpl _value, $Res Function(_$SelectYearImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? yearEntity = null,
+  }) {
+    return _then(_$SelectYearImpl(
+      null == yearEntity
+          ? _value.yearEntity
+          : yearEntity // ignore: cast_nullable_to_non_nullable
+              as YearEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectYearImpl implements _SelectYear {
+  const _$SelectYearImpl(this.yearEntity);
+
+  @override
+  final YearEntity yearEntity;
+
+  @override
+  String toString() {
+    return 'CalendarEvent.selectYear(yearEntity: $yearEntity)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectYearImpl &&
+            (identical(other.yearEntity, yearEntity) ||
+                other.yearEntity == yearEntity));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, yearEntity);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectYearImplCopyWith<_$SelectYearImpl> get copyWith =>
+      __$$SelectYearImplCopyWithImpl<_$SelectYearImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
+    required TResult Function(CalendarDay day) selectDay,
+    required TResult Function(DateTime dateTime) changeDate,
+    required TResult Function(bool value) selectShiftTypes,
+    required TResult Function(ShiftType value, CalendarDay calendarDay)
+        addShiftType,
+    required TResult Function() confirmShiftTypesChanges,
+    required TResult Function(
+            List<ShiftType> shiftTypes, DateTime start, DateTime end)
+        getShiftTypes,
+    required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
+  }) {
+    return selectYear(yearEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
+    TResult? Function(CalendarDay day)? selectDay,
+    TResult? Function(DateTime dateTime)? changeDate,
+    TResult? Function(bool value)? selectShiftTypes,
+    TResult? Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult? Function()? confirmShiftTypesChanges,
+    TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
+  }) {
+    return selectYear?.call(yearEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
+    TResult Function(CalendarDay day)? selectDay,
+    TResult Function(DateTime dateTime)? changeDate,
+    TResult Function(bool value)? selectShiftTypes,
+    TResult Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult Function()? confirmShiftTypesChanges,
+    TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (selectYear != null) {
+      return selectYear(yearEntity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
+    required TResult Function(_SelectDay value) selectDay,
+    required TResult Function(_ChangeDate value) changeDate,
+    required TResult Function(_SelectShiftTypes value) selectShiftTypes,
+    required TResult Function(_AddShiftType value) addShiftType,
+    required TResult Function(_ConfirmShiftTypesChanges value)
+        confirmShiftTypesChanges,
+    required TResult Function(_GetShiftTypes value) getShiftTypes,
+    required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
+  }) {
+    return selectYear(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
+    TResult? Function(_SelectDay value)? selectDay,
+    TResult? Function(_ChangeDate value)? changeDate,
+    TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult? Function(_AddShiftType value)? addShiftType,
+    TResult? Function(_ConfirmShiftTypesChanges value)?
+        confirmShiftTypesChanges,
+    TResult? Function(_GetShiftTypes value)? getShiftTypes,
+    TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
+  }) {
+    return selectYear?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
+    TResult Function(_SelectDay value)? selectDay,
+    TResult Function(_ChangeDate value)? changeDate,
+    TResult Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult Function(_AddShiftType value)? addShiftType,
+    TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
+    TResult Function(_GetShiftTypes value)? getShiftTypes,
+    TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (selectYear != null) {
+      return selectYear(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectYear implements CalendarEvent {
+  const factory _SelectYear(final YearEntity yearEntity) = _$SelectYearImpl;
+
+  YearEntity get yearEntity;
+  @JsonKey(ignore: true)
+  _$$SelectYearImplCopyWith<_$SelectYearImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GoToSelectYearImplCopyWith<$Res> {
+  factory _$$GoToSelectYearImplCopyWith(_$GoToSelectYearImpl value,
+          $Res Function(_$GoToSelectYearImpl) then) =
+      __$$GoToSelectYearImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GoToSelectYearImplCopyWithImpl<$Res>
+    extends _$CalendarEventCopyWithImpl<$Res, _$GoToSelectYearImpl>
+    implements _$$GoToSelectYearImplCopyWith<$Res> {
+  __$$GoToSelectYearImplCopyWithImpl(
+      _$GoToSelectYearImpl _value, $Res Function(_$GoToSelectYearImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GoToSelectYearImpl implements _GoToSelectYear {
+  const _$GoToSelectYearImpl();
+
+  @override
+  String toString() {
+    return 'CalendarEvent.goToSelectYear()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GoToSelectYearImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
+    required TResult Function(CalendarDay day) selectDay,
+    required TResult Function(DateTime dateTime) changeDate,
+    required TResult Function(bool value) selectShiftTypes,
+    required TResult Function(ShiftType value, CalendarDay calendarDay)
+        addShiftType,
+    required TResult Function() confirmShiftTypesChanges,
+    required TResult Function(
+            List<ShiftType> shiftTypes, DateTime start, DateTime end)
+        getShiftTypes,
+    required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
+  }) {
+    return goToSelectYear();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
+    TResult? Function(CalendarDay day)? selectDay,
+    TResult? Function(DateTime dateTime)? changeDate,
+    TResult? Function(bool value)? selectShiftTypes,
+    TResult? Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult? Function()? confirmShiftTypesChanges,
+    TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
+  }) {
+    return goToSelectYear?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
+    TResult Function(CalendarDay day)? selectDay,
+    TResult Function(DateTime dateTime)? changeDate,
+    TResult Function(bool value)? selectShiftTypes,
+    TResult Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult Function()? confirmShiftTypesChanges,
+    TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (goToSelectYear != null) {
+      return goToSelectYear();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
+    required TResult Function(_SelectDay value) selectDay,
+    required TResult Function(_ChangeDate value) changeDate,
+    required TResult Function(_SelectShiftTypes value) selectShiftTypes,
+    required TResult Function(_AddShiftType value) addShiftType,
+    required TResult Function(_ConfirmShiftTypesChanges value)
+        confirmShiftTypesChanges,
+    required TResult Function(_GetShiftTypes value) getShiftTypes,
+    required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
+  }) {
+    return goToSelectYear(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
+    TResult? Function(_SelectDay value)? selectDay,
+    TResult? Function(_ChangeDate value)? changeDate,
+    TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult? Function(_AddShiftType value)? addShiftType,
+    TResult? Function(_ConfirmShiftTypesChanges value)?
+        confirmShiftTypesChanges,
+    TResult? Function(_GetShiftTypes value)? getShiftTypes,
+    TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
+  }) {
+    return goToSelectYear?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
+    TResult Function(_SelectDay value)? selectDay,
+    TResult Function(_ChangeDate value)? changeDate,
+    TResult Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult Function(_AddShiftType value)? addShiftType,
+    TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
+    TResult Function(_GetShiftTypes value)? getShiftTypes,
+    TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (goToSelectYear != null) {
+      return goToSelectYear(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GoToSelectYear implements CalendarEvent {
+  const factory _GoToSelectYear() = _$GoToSelectYearImpl;
 }
 
 /// @nodoc
@@ -185,6 +1018,10 @@ class _$SelectDayImpl implements _SelectDay {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
     required TResult Function(CalendarDay day) selectDay,
     required TResult Function(DateTime dateTime) changeDate,
     required TResult Function(bool value) selectShiftTypes,
@@ -195,6 +1032,8 @@ class _$SelectDayImpl implements _SelectDay {
             List<ShiftType> shiftTypes, DateTime start, DateTime end)
         getShiftTypes,
     required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
   }) {
     return selectDay(day);
   }
@@ -202,6 +1041,10 @@ class _$SelectDayImpl implements _SelectDay {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
     TResult? Function(CalendarDay day)? selectDay,
     TResult? Function(DateTime dateTime)? changeDate,
     TResult? Function(bool value)? selectShiftTypes,
@@ -210,6 +1053,8 @@ class _$SelectDayImpl implements _SelectDay {
     TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
   }) {
     return selectDay?.call(day);
   }
@@ -217,6 +1062,10 @@ class _$SelectDayImpl implements _SelectDay {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
     TResult Function(CalendarDay day)? selectDay,
     TResult Function(DateTime dateTime)? changeDate,
     TResult Function(bool value)? selectShiftTypes,
@@ -225,6 +1074,8 @@ class _$SelectDayImpl implements _SelectDay {
     TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
     required TResult orElse(),
   }) {
     if (selectDay != null) {
@@ -236,6 +1087,10 @@ class _$SelectDayImpl implements _SelectDay {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
     required TResult Function(_SelectDay value) selectDay,
     required TResult Function(_ChangeDate value) changeDate,
     required TResult Function(_SelectShiftTypes value) selectShiftTypes,
@@ -244,6 +1099,8 @@ class _$SelectDayImpl implements _SelectDay {
         confirmShiftTypesChanges,
     required TResult Function(_GetShiftTypes value) getShiftTypes,
     required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
   }) {
     return selectDay(this);
   }
@@ -251,6 +1108,10 @@ class _$SelectDayImpl implements _SelectDay {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
     TResult? Function(_SelectDay value)? selectDay,
     TResult? Function(_ChangeDate value)? changeDate,
     TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -259,6 +1120,8 @@ class _$SelectDayImpl implements _SelectDay {
         confirmShiftTypesChanges,
     TResult? Function(_GetShiftTypes value)? getShiftTypes,
     TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
   }) {
     return selectDay?.call(this);
   }
@@ -266,6 +1129,10 @@ class _$SelectDayImpl implements _SelectDay {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
     TResult Function(_SelectDay value)? selectDay,
     TResult Function(_ChangeDate value)? changeDate,
     TResult Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -273,6 +1140,8 @@ class _$SelectDayImpl implements _SelectDay {
     TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
     TResult Function(_GetShiftTypes value)? getShiftTypes,
     TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
     required TResult orElse(),
   }) {
     if (selectDay != null) {
@@ -356,6 +1225,10 @@ class _$ChangeDateImpl implements _ChangeDate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
     required TResult Function(CalendarDay day) selectDay,
     required TResult Function(DateTime dateTime) changeDate,
     required TResult Function(bool value) selectShiftTypes,
@@ -366,6 +1239,8 @@ class _$ChangeDateImpl implements _ChangeDate {
             List<ShiftType> shiftTypes, DateTime start, DateTime end)
         getShiftTypes,
     required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
   }) {
     return changeDate(dateTime);
   }
@@ -373,6 +1248,10 @@ class _$ChangeDateImpl implements _ChangeDate {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
     TResult? Function(CalendarDay day)? selectDay,
     TResult? Function(DateTime dateTime)? changeDate,
     TResult? Function(bool value)? selectShiftTypes,
@@ -381,6 +1260,8 @@ class _$ChangeDateImpl implements _ChangeDate {
     TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
   }) {
     return changeDate?.call(dateTime);
   }
@@ -388,6 +1269,10 @@ class _$ChangeDateImpl implements _ChangeDate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
     TResult Function(CalendarDay day)? selectDay,
     TResult Function(DateTime dateTime)? changeDate,
     TResult Function(bool value)? selectShiftTypes,
@@ -396,6 +1281,8 @@ class _$ChangeDateImpl implements _ChangeDate {
     TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
     required TResult orElse(),
   }) {
     if (changeDate != null) {
@@ -407,6 +1294,10 @@ class _$ChangeDateImpl implements _ChangeDate {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
     required TResult Function(_SelectDay value) selectDay,
     required TResult Function(_ChangeDate value) changeDate,
     required TResult Function(_SelectShiftTypes value) selectShiftTypes,
@@ -415,6 +1306,8 @@ class _$ChangeDateImpl implements _ChangeDate {
         confirmShiftTypesChanges,
     required TResult Function(_GetShiftTypes value) getShiftTypes,
     required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
   }) {
     return changeDate(this);
   }
@@ -422,6 +1315,10 @@ class _$ChangeDateImpl implements _ChangeDate {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
     TResult? Function(_SelectDay value)? selectDay,
     TResult? Function(_ChangeDate value)? changeDate,
     TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -430,6 +1327,8 @@ class _$ChangeDateImpl implements _ChangeDate {
         confirmShiftTypesChanges,
     TResult? Function(_GetShiftTypes value)? getShiftTypes,
     TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
   }) {
     return changeDate?.call(this);
   }
@@ -437,6 +1336,10 @@ class _$ChangeDateImpl implements _ChangeDate {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
     TResult Function(_SelectDay value)? selectDay,
     TResult Function(_ChangeDate value)? changeDate,
     TResult Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -444,6 +1347,8 @@ class _$ChangeDateImpl implements _ChangeDate {
     TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
     TResult Function(_GetShiftTypes value)? getShiftTypes,
     TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
     required TResult orElse(),
   }) {
     if (changeDate != null) {
@@ -527,6 +1432,10 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
     required TResult Function(CalendarDay day) selectDay,
     required TResult Function(DateTime dateTime) changeDate,
     required TResult Function(bool value) selectShiftTypes,
@@ -537,6 +1446,8 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
             List<ShiftType> shiftTypes, DateTime start, DateTime end)
         getShiftTypes,
     required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
   }) {
     return selectShiftTypes(value);
   }
@@ -544,6 +1455,10 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
     TResult? Function(CalendarDay day)? selectDay,
     TResult? Function(DateTime dateTime)? changeDate,
     TResult? Function(bool value)? selectShiftTypes,
@@ -552,6 +1467,8 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
     TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
   }) {
     return selectShiftTypes?.call(value);
   }
@@ -559,6 +1476,10 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
     TResult Function(CalendarDay day)? selectDay,
     TResult Function(DateTime dateTime)? changeDate,
     TResult Function(bool value)? selectShiftTypes,
@@ -567,6 +1488,8 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
     TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
     required TResult orElse(),
   }) {
     if (selectShiftTypes != null) {
@@ -578,6 +1501,10 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
     required TResult Function(_SelectDay value) selectDay,
     required TResult Function(_ChangeDate value) changeDate,
     required TResult Function(_SelectShiftTypes value) selectShiftTypes,
@@ -586,6 +1513,8 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
         confirmShiftTypesChanges,
     required TResult Function(_GetShiftTypes value) getShiftTypes,
     required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
   }) {
     return selectShiftTypes(this);
   }
@@ -593,6 +1522,10 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
     TResult? Function(_SelectDay value)? selectDay,
     TResult? Function(_ChangeDate value)? changeDate,
     TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -601,6 +1534,8 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
         confirmShiftTypesChanges,
     TResult? Function(_GetShiftTypes value)? getShiftTypes,
     TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
   }) {
     return selectShiftTypes?.call(this);
   }
@@ -608,6 +1543,10 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
     TResult Function(_SelectDay value)? selectDay,
     TResult Function(_ChangeDate value)? changeDate,
     TResult Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -615,6 +1554,8 @@ class _$SelectShiftTypesImpl implements _SelectShiftTypes {
     TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
     TResult Function(_GetShiftTypes value)? getShiftTypes,
     TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
     required TResult orElse(),
   }) {
     if (selectShiftTypes != null) {
@@ -716,6 +1657,10 @@ class _$AddShiftTypeImpl implements _AddShiftType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
     required TResult Function(CalendarDay day) selectDay,
     required TResult Function(DateTime dateTime) changeDate,
     required TResult Function(bool value) selectShiftTypes,
@@ -726,6 +1671,8 @@ class _$AddShiftTypeImpl implements _AddShiftType {
             List<ShiftType> shiftTypes, DateTime start, DateTime end)
         getShiftTypes,
     required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
   }) {
     return addShiftType(value, calendarDay);
   }
@@ -733,6 +1680,10 @@ class _$AddShiftTypeImpl implements _AddShiftType {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
     TResult? Function(CalendarDay day)? selectDay,
     TResult? Function(DateTime dateTime)? changeDate,
     TResult? Function(bool value)? selectShiftTypes,
@@ -741,6 +1692,8 @@ class _$AddShiftTypeImpl implements _AddShiftType {
     TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
   }) {
     return addShiftType?.call(value, calendarDay);
   }
@@ -748,6 +1701,10 @@ class _$AddShiftTypeImpl implements _AddShiftType {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
     TResult Function(CalendarDay day)? selectDay,
     TResult Function(DateTime dateTime)? changeDate,
     TResult Function(bool value)? selectShiftTypes,
@@ -756,6 +1713,8 @@ class _$AddShiftTypeImpl implements _AddShiftType {
     TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
     required TResult orElse(),
   }) {
     if (addShiftType != null) {
@@ -767,6 +1726,10 @@ class _$AddShiftTypeImpl implements _AddShiftType {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
     required TResult Function(_SelectDay value) selectDay,
     required TResult Function(_ChangeDate value) changeDate,
     required TResult Function(_SelectShiftTypes value) selectShiftTypes,
@@ -775,6 +1738,8 @@ class _$AddShiftTypeImpl implements _AddShiftType {
         confirmShiftTypesChanges,
     required TResult Function(_GetShiftTypes value) getShiftTypes,
     required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
   }) {
     return addShiftType(this);
   }
@@ -782,6 +1747,10 @@ class _$AddShiftTypeImpl implements _AddShiftType {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
     TResult? Function(_SelectDay value)? selectDay,
     TResult? Function(_ChangeDate value)? changeDate,
     TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -790,6 +1759,8 @@ class _$AddShiftTypeImpl implements _AddShiftType {
         confirmShiftTypesChanges,
     TResult? Function(_GetShiftTypes value)? getShiftTypes,
     TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
   }) {
     return addShiftType?.call(this);
   }
@@ -797,6 +1768,10 @@ class _$AddShiftTypeImpl implements _AddShiftType {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
     TResult Function(_SelectDay value)? selectDay,
     TResult Function(_ChangeDate value)? changeDate,
     TResult Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -804,6 +1779,8 @@ class _$AddShiftTypeImpl implements _AddShiftType {
     TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
     TResult Function(_GetShiftTypes value)? getShiftTypes,
     TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
     required TResult orElse(),
   }) {
     if (addShiftType != null) {
@@ -866,6 +1843,10 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
     required TResult Function(CalendarDay day) selectDay,
     required TResult Function(DateTime dateTime) changeDate,
     required TResult Function(bool value) selectShiftTypes,
@@ -876,6 +1857,8 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
             List<ShiftType> shiftTypes, DateTime start, DateTime end)
         getShiftTypes,
     required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
   }) {
     return confirmShiftTypesChanges();
   }
@@ -883,6 +1866,10 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
     TResult? Function(CalendarDay day)? selectDay,
     TResult? Function(DateTime dateTime)? changeDate,
     TResult? Function(bool value)? selectShiftTypes,
@@ -891,6 +1878,8 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
     TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
   }) {
     return confirmShiftTypesChanges?.call();
   }
@@ -898,6 +1887,10 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
     TResult Function(CalendarDay day)? selectDay,
     TResult Function(DateTime dateTime)? changeDate,
     TResult Function(bool value)? selectShiftTypes,
@@ -906,6 +1899,8 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
     TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
     required TResult orElse(),
   }) {
     if (confirmShiftTypesChanges != null) {
@@ -917,6 +1912,10 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
     required TResult Function(_SelectDay value) selectDay,
     required TResult Function(_ChangeDate value) changeDate,
     required TResult Function(_SelectShiftTypes value) selectShiftTypes,
@@ -925,6 +1924,8 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
         confirmShiftTypesChanges,
     required TResult Function(_GetShiftTypes value) getShiftTypes,
     required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
   }) {
     return confirmShiftTypesChanges(this);
   }
@@ -932,6 +1933,10 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
     TResult? Function(_SelectDay value)? selectDay,
     TResult? Function(_ChangeDate value)? changeDate,
     TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -940,6 +1945,8 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
         confirmShiftTypesChanges,
     TResult? Function(_GetShiftTypes value)? getShiftTypes,
     TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
   }) {
     return confirmShiftTypesChanges?.call(this);
   }
@@ -947,6 +1954,10 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
     TResult Function(_SelectDay value)? selectDay,
     TResult Function(_ChangeDate value)? changeDate,
     TResult Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -954,6 +1965,8 @@ class _$ConfirmShiftTypesChangesImpl implements _ConfirmShiftTypesChanges {
     TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
     TResult Function(_GetShiftTypes value)? getShiftTypes,
     TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
     required TResult orElse(),
   }) {
     if (confirmShiftTypesChanges != null) {
@@ -1057,6 +2070,10 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
     required TResult Function(CalendarDay day) selectDay,
     required TResult Function(DateTime dateTime) changeDate,
     required TResult Function(bool value) selectShiftTypes,
@@ -1067,6 +2084,8 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
             List<ShiftType> shiftTypes, DateTime start, DateTime end)
         getShiftTypes,
     required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
   }) {
     return getShiftTypes(shiftTypes, start, end);
   }
@@ -1074,6 +2093,10 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
     TResult? Function(CalendarDay day)? selectDay,
     TResult? Function(DateTime dateTime)? changeDate,
     TResult? Function(bool value)? selectShiftTypes,
@@ -1082,6 +2105,8 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
     TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
   }) {
     return getShiftTypes?.call(shiftTypes, start, end);
   }
@@ -1089,6 +2114,10 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
     TResult Function(CalendarDay day)? selectDay,
     TResult Function(DateTime dateTime)? changeDate,
     TResult Function(bool value)? selectShiftTypes,
@@ -1097,6 +2126,8 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
     TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
     required TResult orElse(),
   }) {
     if (getShiftTypes != null) {
@@ -1108,6 +2139,10 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
     required TResult Function(_SelectDay value) selectDay,
     required TResult Function(_ChangeDate value) changeDate,
     required TResult Function(_SelectShiftTypes value) selectShiftTypes,
@@ -1116,6 +2151,8 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
         confirmShiftTypesChanges,
     required TResult Function(_GetShiftTypes value) getShiftTypes,
     required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
   }) {
     return getShiftTypes(this);
   }
@@ -1123,6 +2160,10 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
     TResult? Function(_SelectDay value)? selectDay,
     TResult? Function(_ChangeDate value)? changeDate,
     TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -1131,6 +2172,8 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
         confirmShiftTypesChanges,
     TResult? Function(_GetShiftTypes value)? getShiftTypes,
     TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
   }) {
     return getShiftTypes?.call(this);
   }
@@ -1138,6 +2181,10 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
     TResult Function(_SelectDay value)? selectDay,
     TResult Function(_ChangeDate value)? changeDate,
     TResult Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -1145,6 +2192,8 @@ class _$GetShiftTypesImpl implements _GetShiftTypes {
     TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
     TResult Function(_GetShiftTypes value)? getShiftTypes,
     TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
     required TResult orElse(),
   }) {
     if (getShiftTypes != null) {
@@ -1206,6 +2255,10 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
     required TResult Function(CalendarDay day) selectDay,
     required TResult Function(DateTime dateTime) changeDate,
     required TResult Function(bool value) selectShiftTypes,
@@ -1216,6 +2269,8 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
             List<ShiftType> shiftTypes, DateTime start, DateTime end)
         getShiftTypes,
     required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
   }) {
     return removeAllShiftTypes();
   }
@@ -1223,6 +2278,10 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
     TResult? Function(CalendarDay day)? selectDay,
     TResult? Function(DateTime dateTime)? changeDate,
     TResult? Function(bool value)? selectShiftTypes,
@@ -1231,6 +2290,8 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
     TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
   }) {
     return removeAllShiftTypes?.call();
   }
@@ -1238,6 +2299,10 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
     TResult Function(CalendarDay day)? selectDay,
     TResult Function(DateTime dateTime)? changeDate,
     TResult Function(bool value)? selectShiftTypes,
@@ -1246,6 +2311,8 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
     TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
         getShiftTypes,
     TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
     required TResult orElse(),
   }) {
     if (removeAllShiftTypes != null) {
@@ -1257,6 +2324,10 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
     required TResult Function(_SelectDay value) selectDay,
     required TResult Function(_ChangeDate value) changeDate,
     required TResult Function(_SelectShiftTypes value) selectShiftTypes,
@@ -1265,6 +2336,8 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
         confirmShiftTypesChanges,
     required TResult Function(_GetShiftTypes value) getShiftTypes,
     required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
   }) {
     return removeAllShiftTypes(this);
   }
@@ -1272,6 +2345,10 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
     TResult? Function(_SelectDay value)? selectDay,
     TResult? Function(_ChangeDate value)? changeDate,
     TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -1280,6 +2357,8 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
         confirmShiftTypesChanges,
     TResult? Function(_GetShiftTypes value)? getShiftTypes,
     TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
   }) {
     return removeAllShiftTypes?.call(this);
   }
@@ -1287,6 +2366,10 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
     TResult Function(_SelectDay value)? selectDay,
     TResult Function(_ChangeDate value)? changeDate,
     TResult Function(_SelectShiftTypes value)? selectShiftTypes,
@@ -1294,6 +2377,8 @@ class _$RemoveAllShiftTypesImpl implements _RemoveAllShiftTypes {
     TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
     TResult Function(_GetShiftTypes value)? getShiftTypes,
     TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
     required TResult orElse(),
   }) {
     if (removeAllShiftTypes != null) {
@@ -1308,37 +2393,478 @@ abstract class _RemoveAllShiftTypes implements CalendarEvent {
 }
 
 /// @nodoc
-mixin _$CalendarState {
-  int get month => throw _privateConstructorUsedError;
-  int get year => throw _privateConstructorUsedError;
-  List<CalendarDay> get days => throw _privateConstructorUsedError;
-  CalendarDay? get selectedDay => throw _privateConstructorUsedError;
+abstract class _$$AddTaskImplCopyWith<$Res> {
+  factory _$$AddTaskImplCopyWith(
+          _$AddTaskImpl value, $Res Function(_$AddTaskImpl) then) =
+      __$$AddTaskImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Task task});
+
+  $TaskCopyWith<$Res> get task;
+}
+
+/// @nodoc
+class __$$AddTaskImplCopyWithImpl<$Res>
+    extends _$CalendarEventCopyWithImpl<$Res, _$AddTaskImpl>
+    implements _$$AddTaskImplCopyWith<$Res> {
+  __$$AddTaskImplCopyWithImpl(
+      _$AddTaskImpl _value, $Res Function(_$AddTaskImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? task = null,
+  }) {
+    return _then(_$AddTaskImpl(
+      null == task
+          ? _value.task
+          : task // ignore: cast_nullable_to_non_nullable
+              as Task,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TaskCopyWith<$Res> get task {
+    return $TaskCopyWith<$Res>(_value.task, (value) {
+      return _then(_value.copyWith(task: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AddTaskImpl implements _AddTask {
+  const _$AddTaskImpl(this.task);
+
+  @override
+  final Task task;
+
+  @override
+  String toString() {
+    return 'CalendarEvent.addTask(task: $task)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddTaskImpl &&
+            (identical(other.task, task) || other.task == task));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, task);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddTaskImplCopyWith<_$AddTaskImpl> get copyWith =>
+      __$$AddTaskImplCopyWithImpl<_$AddTaskImpl>(this, _$identity);
+
+  @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int month, int year, List<CalendarDay> days,
-            CalendarDay? selectedDay, bool canCleanShiftTypes)
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
+    required TResult Function(CalendarDay day) selectDay,
+    required TResult Function(DateTime dateTime) changeDate,
+    required TResult Function(bool value) selectShiftTypes,
+    required TResult Function(ShiftType value, CalendarDay calendarDay)
+        addShiftType,
+    required TResult Function() confirmShiftTypesChanges,
+    required TResult Function(
+            List<ShiftType> shiftTypes, DateTime start, DateTime end)
+        getShiftTypes,
+    required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
+  }) {
+    return addTask(task);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
+    TResult? Function(CalendarDay day)? selectDay,
+    TResult? Function(DateTime dateTime)? changeDate,
+    TResult? Function(bool value)? selectShiftTypes,
+    TResult? Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult? Function()? confirmShiftTypesChanges,
+    TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
+  }) {
+    return addTask?.call(task);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
+    TResult Function(CalendarDay day)? selectDay,
+    TResult Function(DateTime dateTime)? changeDate,
+    TResult Function(bool value)? selectShiftTypes,
+    TResult Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult Function()? confirmShiftTypesChanges,
+    TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (addTask != null) {
+      return addTask(task);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
+    required TResult Function(_SelectDay value) selectDay,
+    required TResult Function(_ChangeDate value) changeDate,
+    required TResult Function(_SelectShiftTypes value) selectShiftTypes,
+    required TResult Function(_AddShiftType value) addShiftType,
+    required TResult Function(_ConfirmShiftTypesChanges value)
+        confirmShiftTypesChanges,
+    required TResult Function(_GetShiftTypes value) getShiftTypes,
+    required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
+  }) {
+    return addTask(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
+    TResult? Function(_SelectDay value)? selectDay,
+    TResult? Function(_ChangeDate value)? changeDate,
+    TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult? Function(_AddShiftType value)? addShiftType,
+    TResult? Function(_ConfirmShiftTypesChanges value)?
+        confirmShiftTypesChanges,
+    TResult? Function(_GetShiftTypes value)? getShiftTypes,
+    TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
+  }) {
+    return addTask?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
+    TResult Function(_SelectDay value)? selectDay,
+    TResult Function(_ChangeDate value)? changeDate,
+    TResult Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult Function(_AddShiftType value)? addShiftType,
+    TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
+    TResult Function(_GetShiftTypes value)? getShiftTypes,
+    TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (addTask != null) {
+      return addTask(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddTask implements CalendarEvent {
+  const factory _AddTask(final Task task) = _$AddTaskImpl;
+
+  Task get task;
+  @JsonKey(ignore: true)
+  _$$AddTaskImplCopyWith<_$AddTaskImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddBirthdayImplCopyWith<$Res> {
+  factory _$$AddBirthdayImplCopyWith(
+          _$AddBirthdayImpl value, $Res Function(_$AddBirthdayImpl) then) =
+      __$$AddBirthdayImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Task task});
+
+  $TaskCopyWith<$Res> get task;
+}
+
+/// @nodoc
+class __$$AddBirthdayImplCopyWithImpl<$Res>
+    extends _$CalendarEventCopyWithImpl<$Res, _$AddBirthdayImpl>
+    implements _$$AddBirthdayImplCopyWith<$Res> {
+  __$$AddBirthdayImplCopyWithImpl(
+      _$AddBirthdayImpl _value, $Res Function(_$AddBirthdayImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? task = null,
+  }) {
+    return _then(_$AddBirthdayImpl(
+      null == task
+          ? _value.task
+          : task // ignore: cast_nullable_to_non_nullable
+              as Task,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TaskCopyWith<$Res> get task {
+    return $TaskCopyWith<$Res>(_value.task, (value) {
+      return _then(_value.copyWith(task: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AddBirthdayImpl implements _AddBirthday {
+  const _$AddBirthdayImpl(this.task);
+
+  @override
+  final Task task;
+
+  @override
+  String toString() {
+    return 'CalendarEvent.addBirthday(task: $task)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddBirthdayImpl &&
+            (identical(other.task, task) || other.task == task));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, task);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddBirthdayImplCopyWith<_$AddBirthdayImpl> get copyWith =>
+      __$$AddBirthdayImplCopyWithImpl<_$AddBirthdayImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) fetch,
+    required TResult Function(CalendarEntity calendarEntity) selectCalendar,
+    required TResult Function(YearEntity yearEntity) selectYear,
+    required TResult Function() goToSelectYear,
+    required TResult Function(CalendarDay day) selectDay,
+    required TResult Function(DateTime dateTime) changeDate,
+    required TResult Function(bool value) selectShiftTypes,
+    required TResult Function(ShiftType value, CalendarDay calendarDay)
+        addShiftType,
+    required TResult Function() confirmShiftTypesChanges,
+    required TResult Function(
+            List<ShiftType> shiftTypes, DateTime start, DateTime end)
+        getShiftTypes,
+    required TResult Function() removeAllShiftTypes,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) addBirthday,
+  }) {
+    return addBirthday(task);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? fetch,
+    TResult? Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult? Function(YearEntity yearEntity)? selectYear,
+    TResult? Function()? goToSelectYear,
+    TResult? Function(CalendarDay day)? selectDay,
+    TResult? Function(DateTime dateTime)? changeDate,
+    TResult? Function(bool value)? selectShiftTypes,
+    TResult? Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult? Function()? confirmShiftTypesChanges,
+    TResult? Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult? Function()? removeAllShiftTypes,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? addBirthday,
+  }) {
+    return addBirthday?.call(task);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? fetch,
+    TResult Function(CalendarEntity calendarEntity)? selectCalendar,
+    TResult Function(YearEntity yearEntity)? selectYear,
+    TResult Function()? goToSelectYear,
+    TResult Function(CalendarDay day)? selectDay,
+    TResult Function(DateTime dateTime)? changeDate,
+    TResult Function(bool value)? selectShiftTypes,
+    TResult Function(ShiftType value, CalendarDay calendarDay)? addShiftType,
+    TResult Function()? confirmShiftTypesChanges,
+    TResult Function(List<ShiftType> shiftTypes, DateTime start, DateTime end)?
+        getShiftTypes,
+    TResult Function()? removeAllShiftTypes,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (addBirthday != null) {
+      return addBirthday(task);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_SelectCalendar value) selectCalendar,
+    required TResult Function(_SelectYear value) selectYear,
+    required TResult Function(_GoToSelectYear value) goToSelectYear,
+    required TResult Function(_SelectDay value) selectDay,
+    required TResult Function(_ChangeDate value) changeDate,
+    required TResult Function(_SelectShiftTypes value) selectShiftTypes,
+    required TResult Function(_AddShiftType value) addShiftType,
+    required TResult Function(_ConfirmShiftTypesChanges value)
+        confirmShiftTypesChanges,
+    required TResult Function(_GetShiftTypes value) getShiftTypes,
+    required TResult Function(_RemoveAllShiftTypes value) removeAllShiftTypes,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_AddBirthday value) addBirthday,
+  }) {
+    return addBirthday(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_SelectCalendar value)? selectCalendar,
+    TResult? Function(_SelectYear value)? selectYear,
+    TResult? Function(_GoToSelectYear value)? goToSelectYear,
+    TResult? Function(_SelectDay value)? selectDay,
+    TResult? Function(_ChangeDate value)? changeDate,
+    TResult? Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult? Function(_AddShiftType value)? addShiftType,
+    TResult? Function(_ConfirmShiftTypesChanges value)?
+        confirmShiftTypesChanges,
+    TResult? Function(_GetShiftTypes value)? getShiftTypes,
+    TResult? Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
+  }) {
+    return addBirthday?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_SelectCalendar value)? selectCalendar,
+    TResult Function(_SelectYear value)? selectYear,
+    TResult Function(_GoToSelectYear value)? goToSelectYear,
+    TResult Function(_SelectDay value)? selectDay,
+    TResult Function(_ChangeDate value)? changeDate,
+    TResult Function(_SelectShiftTypes value)? selectShiftTypes,
+    TResult Function(_AddShiftType value)? addShiftType,
+    TResult Function(_ConfirmShiftTypesChanges value)? confirmShiftTypesChanges,
+    TResult Function(_GetShiftTypes value)? getShiftTypes,
+    TResult Function(_RemoveAllShiftTypes value)? removeAllShiftTypes,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_AddBirthday value)? addBirthday,
+    required TResult orElse(),
+  }) {
+    if (addBirthday != null) {
+      return addBirthday(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddBirthday implements CalendarEvent {
+  const factory _AddBirthday(final Task task) = _$AddBirthdayImpl;
+
+  Task get task;
+  @JsonKey(ignore: true)
+  _$$AddBirthdayImplCopyWith<_$AddBirthdayImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$CalendarState {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            int currentCalendar,
+            List<CalendarEntity> calendars,
+            CalendarDay? selectedDay,
+            bool canCleanShiftTypes)
         calendar,
-    required TResult Function(int month, int year, List<CalendarDay> days,
-            List<CalendarDay> changedDays, CalendarDay? selectedDay)
+    required TResult Function(
+            bool loading, int selectedYear, List<YearEntity> years)
+        year,
+    required TResult Function(
+            int currentCalendar,
+            List<CalendarEntity> calendars,
+            List<CalendarDay> changedDays,
+            CalendarDay? selectedDay)
         shiftType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int month, int year, List<CalendarDay> days,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
             CalendarDay? selectedDay, bool canCleanShiftTypes)?
         calendar,
-    TResult? Function(int month, int year, List<CalendarDay> days,
+    TResult? Function(bool loading, int selectedYear, List<YearEntity> years)?
+        year,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int month, int year, List<CalendarDay> days,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
             CalendarDay? selectedDay, bool canCleanShiftTypes)?
         calendar,
-    TResult Function(int month, int year, List<CalendarDay> days,
+    TResult Function(bool loading, int selectedYear, List<YearEntity> years)?
+        year,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
     required TResult orElse(),
@@ -1347,25 +2873,24 @@ mixin _$CalendarState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Calendar value) calendar,
+    required TResult Function(_Year value) year,
     required TResult Function(_ShiftType value) shiftType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Calendar value)? calendar,
+    TResult? Function(_Year value)? year,
     TResult? Function(_ShiftType value)? shiftType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Calendar value)? calendar,
+    TResult Function(_Year value)? year,
     TResult Function(_ShiftType value)? shiftType,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CalendarStateCopyWith<CalendarState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1374,11 +2899,6 @@ abstract class $CalendarStateCopyWith<$Res> {
   factory $CalendarStateCopyWith(
           CalendarState value, $Res Function(CalendarState) then) =
       _$CalendarStateCopyWithImpl<$Res, CalendarState>;
-  @useResult
-  $Res call(
-      {int month, int year, List<CalendarDay> days, CalendarDay? selectedDay});
-
-  $CalendarDayCopyWith<$Res>? get selectedDay;
 }
 
 /// @nodoc
@@ -1390,64 +2910,20 @@ class _$CalendarStateCopyWithImpl<$Res, $Val extends CalendarState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? month = null,
-    Object? year = null,
-    Object? days = null,
-    Object? selectedDay = freezed,
-  }) {
-    return _then(_value.copyWith(
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as int,
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
-              as int,
-      days: null == days
-          ? _value.days
-          : days // ignore: cast_nullable_to_non_nullable
-              as List<CalendarDay>,
-      selectedDay: freezed == selectedDay
-          ? _value.selectedDay
-          : selectedDay // ignore: cast_nullable_to_non_nullable
-              as CalendarDay?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CalendarDayCopyWith<$Res>? get selectedDay {
-    if (_value.selectedDay == null) {
-      return null;
-    }
-
-    return $CalendarDayCopyWith<$Res>(_value.selectedDay!, (value) {
-      return _then(_value.copyWith(selectedDay: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$CalendarImplCopyWith<$Res>
-    implements $CalendarStateCopyWith<$Res> {
+abstract class _$$CalendarImplCopyWith<$Res> {
   factory _$$CalendarImplCopyWith(
           _$CalendarImpl value, $Res Function(_$CalendarImpl) then) =
       __$$CalendarImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
-      {int month,
-      int year,
-      List<CalendarDay> days,
+      {int currentCalendar,
+      List<CalendarEntity> calendars,
       CalendarDay? selectedDay,
       bool canCleanShiftTypes});
 
-  @override
   $CalendarDayCopyWith<$Res>? get selectedDay;
 }
 
@@ -1462,25 +2938,20 @@ class __$$CalendarImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? month = null,
-    Object? year = null,
-    Object? days = null,
+    Object? currentCalendar = null,
+    Object? calendars = null,
     Object? selectedDay = freezed,
     Object? canCleanShiftTypes = null,
   }) {
     return _then(_$CalendarImpl(
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
+      currentCalendar: null == currentCalendar
+          ? _value.currentCalendar
+          : currentCalendar // ignore: cast_nullable_to_non_nullable
               as int,
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
-              as int,
-      days: null == days
-          ? _value._days
-          : days // ignore: cast_nullable_to_non_nullable
-              as List<CalendarDay>,
+      calendars: null == calendars
+          ? _value._calendars
+          : calendars // ignore: cast_nullable_to_non_nullable
+              as List<CalendarEntity>,
       selectedDay: freezed == selectedDay
           ? _value.selectedDay
           : selectedDay // ignore: cast_nullable_to_non_nullable
@@ -1491,29 +2962,38 @@ class __$$CalendarImplCopyWithImpl<$Res>
               as bool,
     ));
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CalendarDayCopyWith<$Res>? get selectedDay {
+    if (_value.selectedDay == null) {
+      return null;
+    }
+
+    return $CalendarDayCopyWith<$Res>(_value.selectedDay!, (value) {
+      return _then(_value.copyWith(selectedDay: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$CalendarImpl implements _Calendar {
   const _$CalendarImpl(
-      {required this.month,
-      required this.year,
-      required final List<CalendarDay> days,
+      {required this.currentCalendar,
+      required final List<CalendarEntity> calendars,
       required this.selectedDay,
       required this.canCleanShiftTypes})
-      : _days = days;
+      : _calendars = calendars;
 
   @override
-  final int month;
+  final int currentCalendar;
+  final List<CalendarEntity> _calendars;
   @override
-  final int year;
-  final List<CalendarDay> _days;
-  @override
-  List<CalendarDay> get days {
-    if (_days is EqualUnmodifiableListView) return _days;
+  List<CalendarEntity> get calendars {
+    if (_calendars is EqualUnmodifiableListView) return _calendars;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_days);
+    return EqualUnmodifiableListView(_calendars);
   }
 
   @override
@@ -1523,7 +3003,7 @@ class _$CalendarImpl implements _Calendar {
 
   @override
   String toString() {
-    return 'CalendarState.calendar(month: $month, year: $year, days: $days, selectedDay: $selectedDay, canCleanShiftTypes: $canCleanShiftTypes)';
+    return 'CalendarState.calendar(currentCalendar: $currentCalendar, calendars: $calendars, selectedDay: $selectedDay, canCleanShiftTypes: $canCleanShiftTypes)';
   }
 
   @override
@@ -1531,9 +3011,10 @@ class _$CalendarImpl implements _Calendar {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CalendarImpl &&
-            (identical(other.month, month) || other.month == month) &&
-            (identical(other.year, year) || other.year == year) &&
-            const DeepCollectionEquality().equals(other._days, _days) &&
+            (identical(other.currentCalendar, currentCalendar) ||
+                other.currentCalendar == currentCalendar) &&
+            const DeepCollectionEquality()
+                .equals(other._calendars, _calendars) &&
             (identical(other.selectedDay, selectedDay) ||
                 other.selectedDay == selectedDay) &&
             (identical(other.canCleanShiftTypes, canCleanShiftTypes) ||
@@ -1543,9 +3024,8 @@ class _$CalendarImpl implements _Calendar {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      month,
-      year,
-      const DeepCollectionEquality().hash(_days),
+      currentCalendar,
+      const DeepCollectionEquality().hash(_calendars),
       selectedDay,
       canCleanShiftTypes);
 
@@ -1558,42 +3038,58 @@ class _$CalendarImpl implements _Calendar {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int month, int year, List<CalendarDay> days,
-            CalendarDay? selectedDay, bool canCleanShiftTypes)
+    required TResult Function(
+            int currentCalendar,
+            List<CalendarEntity> calendars,
+            CalendarDay? selectedDay,
+            bool canCleanShiftTypes)
         calendar,
-    required TResult Function(int month, int year, List<CalendarDay> days,
-            List<CalendarDay> changedDays, CalendarDay? selectedDay)
+    required TResult Function(
+            bool loading, int selectedYear, List<YearEntity> years)
+        year,
+    required TResult Function(
+            int currentCalendar,
+            List<CalendarEntity> calendars,
+            List<CalendarDay> changedDays,
+            CalendarDay? selectedDay)
         shiftType,
   }) {
-    return calendar(month, year, days, selectedDay, canCleanShiftTypes);
+    return calendar(
+        currentCalendar, calendars, selectedDay, canCleanShiftTypes);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int month, int year, List<CalendarDay> days,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
             CalendarDay? selectedDay, bool canCleanShiftTypes)?
         calendar,
-    TResult? Function(int month, int year, List<CalendarDay> days,
+    TResult? Function(bool loading, int selectedYear, List<YearEntity> years)?
+        year,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
   }) {
-    return calendar?.call(month, year, days, selectedDay, canCleanShiftTypes);
+    return calendar?.call(
+        currentCalendar, calendars, selectedDay, canCleanShiftTypes);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int month, int year, List<CalendarDay> days,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
             CalendarDay? selectedDay, bool canCleanShiftTypes)?
         calendar,
-    TResult Function(int month, int year, List<CalendarDay> days,
+    TResult Function(bool loading, int selectedYear, List<YearEntity> years)?
+        year,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
     required TResult orElse(),
   }) {
     if (calendar != null) {
-      return calendar(month, year, days, selectedDay, canCleanShiftTypes);
+      return calendar(
+          currentCalendar, calendars, selectedDay, canCleanShiftTypes);
     }
     return orElse();
   }
@@ -1602,6 +3098,7 @@ class _$CalendarImpl implements _Calendar {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Calendar value) calendar,
+    required TResult Function(_Year value) year,
     required TResult Function(_ShiftType value) shiftType,
   }) {
     return calendar(this);
@@ -1611,6 +3108,7 @@ class _$CalendarImpl implements _Calendar {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Calendar value)? calendar,
+    TResult? Function(_Year value)? year,
     TResult? Function(_ShiftType value)? shiftType,
   }) {
     return calendar?.call(this);
@@ -1620,6 +3118,7 @@ class _$CalendarImpl implements _Calendar {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Calendar value)? calendar,
+    TResult Function(_Year value)? year,
     TResult Function(_ShiftType value)? shiftType,
     required TResult orElse(),
   }) {
@@ -1632,43 +3131,224 @@ class _$CalendarImpl implements _Calendar {
 
 abstract class _Calendar implements CalendarState {
   const factory _Calendar(
-      {required final int month,
-      required final int year,
-      required final List<CalendarDay> days,
+      {required final int currentCalendar,
+      required final List<CalendarEntity> calendars,
       required final CalendarDay? selectedDay,
       required final bool canCleanShiftTypes}) = _$CalendarImpl;
 
-  @override
-  int get month;
-  @override
-  int get year;
-  @override
-  List<CalendarDay> get days;
-  @override
+  int get currentCalendar;
+  List<CalendarEntity> get calendars;
   CalendarDay? get selectedDay;
   bool get canCleanShiftTypes;
-  @override
   @JsonKey(ignore: true)
   _$$CalendarImplCopyWith<_$CalendarImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ShiftTypeImplCopyWith<$Res>
-    implements $CalendarStateCopyWith<$Res> {
+abstract class _$$YearImplCopyWith<$Res> {
+  factory _$$YearImplCopyWith(
+          _$YearImpl value, $Res Function(_$YearImpl) then) =
+      __$$YearImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool loading, int selectedYear, List<YearEntity> years});
+}
+
+/// @nodoc
+class __$$YearImplCopyWithImpl<$Res>
+    extends _$CalendarStateCopyWithImpl<$Res, _$YearImpl>
+    implements _$$YearImplCopyWith<$Res> {
+  __$$YearImplCopyWithImpl(_$YearImpl _value, $Res Function(_$YearImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? loading = null,
+    Object? selectedYear = null,
+    Object? years = null,
+  }) {
+    return _then(_$YearImpl(
+      loading: null == loading
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedYear: null == selectedYear
+          ? _value.selectedYear
+          : selectedYear // ignore: cast_nullable_to_non_nullable
+              as int,
+      years: null == years
+          ? _value._years
+          : years // ignore: cast_nullable_to_non_nullable
+              as List<YearEntity>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$YearImpl implements _Year {
+  const _$YearImpl(
+      {required this.loading,
+      required this.selectedYear,
+      required final List<YearEntity> years})
+      : _years = years;
+
+  @override
+  final bool loading;
+  @override
+  final int selectedYear;
+  final List<YearEntity> _years;
+  @override
+  List<YearEntity> get years {
+    if (_years is EqualUnmodifiableListView) return _years;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_years);
+  }
+
+  @override
+  String toString() {
+    return 'CalendarState.year(loading: $loading, selectedYear: $selectedYear, years: $years)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$YearImpl &&
+            (identical(other.loading, loading) || other.loading == loading) &&
+            (identical(other.selectedYear, selectedYear) ||
+                other.selectedYear == selectedYear) &&
+            const DeepCollectionEquality().equals(other._years, _years));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, loading, selectedYear,
+      const DeepCollectionEquality().hash(_years));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$YearImplCopyWith<_$YearImpl> get copyWith =>
+      __$$YearImplCopyWithImpl<_$YearImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            int currentCalendar,
+            List<CalendarEntity> calendars,
+            CalendarDay? selectedDay,
+            bool canCleanShiftTypes)
+        calendar,
+    required TResult Function(
+            bool loading, int selectedYear, List<YearEntity> years)
+        year,
+    required TResult Function(
+            int currentCalendar,
+            List<CalendarEntity> calendars,
+            List<CalendarDay> changedDays,
+            CalendarDay? selectedDay)
+        shiftType,
+  }) {
+    return year(loading, selectedYear, years);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay, bool canCleanShiftTypes)?
+        calendar,
+    TResult? Function(bool loading, int selectedYear, List<YearEntity> years)?
+        year,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
+            List<CalendarDay> changedDays, CalendarDay? selectedDay)?
+        shiftType,
+  }) {
+    return year?.call(loading, selectedYear, years);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay, bool canCleanShiftTypes)?
+        calendar,
+    TResult Function(bool loading, int selectedYear, List<YearEntity> years)?
+        year,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
+            List<CalendarDay> changedDays, CalendarDay? selectedDay)?
+        shiftType,
+    required TResult orElse(),
+  }) {
+    if (year != null) {
+      return year(loading, selectedYear, years);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Calendar value) calendar,
+    required TResult Function(_Year value) year,
+    required TResult Function(_ShiftType value) shiftType,
+  }) {
+    return year(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Calendar value)? calendar,
+    TResult? Function(_Year value)? year,
+    TResult? Function(_ShiftType value)? shiftType,
+  }) {
+    return year?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Calendar value)? calendar,
+    TResult Function(_Year value)? year,
+    TResult Function(_ShiftType value)? shiftType,
+    required TResult orElse(),
+  }) {
+    if (year != null) {
+      return year(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Year implements CalendarState {
+  const factory _Year(
+      {required final bool loading,
+      required final int selectedYear,
+      required final List<YearEntity> years}) = _$YearImpl;
+
+  bool get loading;
+  int get selectedYear;
+  List<YearEntity> get years;
+  @JsonKey(ignore: true)
+  _$$YearImplCopyWith<_$YearImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ShiftTypeImplCopyWith<$Res> {
   factory _$$ShiftTypeImplCopyWith(
           _$ShiftTypeImpl value, $Res Function(_$ShiftTypeImpl) then) =
       __$$ShiftTypeImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
-      {int month,
-      int year,
-      List<CalendarDay> days,
+      {int currentCalendar,
+      List<CalendarEntity> calendars,
       List<CalendarDay> changedDays,
       CalendarDay? selectedDay});
 
-  @override
   $CalendarDayCopyWith<$Res>? get selectedDay;
 }
 
@@ -1683,25 +3363,20 @@ class __$$ShiftTypeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? month = null,
-    Object? year = null,
-    Object? days = null,
+    Object? currentCalendar = null,
+    Object? calendars = null,
     Object? changedDays = null,
     Object? selectedDay = freezed,
   }) {
     return _then(_$ShiftTypeImpl(
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
+      currentCalendar: null == currentCalendar
+          ? _value.currentCalendar
+          : currentCalendar // ignore: cast_nullable_to_non_nullable
               as int,
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
-              as int,
-      days: null == days
-          ? _value._days
-          : days // ignore: cast_nullable_to_non_nullable
-              as List<CalendarDay>,
+      calendars: null == calendars
+          ? _value._calendars
+          : calendars // ignore: cast_nullable_to_non_nullable
+              as List<CalendarEntity>,
       changedDays: null == changedDays
           ? _value._changedDays
           : changedDays // ignore: cast_nullable_to_non_nullable
@@ -1712,30 +3387,39 @@ class __$$ShiftTypeImplCopyWithImpl<$Res>
               as CalendarDay?,
     ));
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CalendarDayCopyWith<$Res>? get selectedDay {
+    if (_value.selectedDay == null) {
+      return null;
+    }
+
+    return $CalendarDayCopyWith<$Res>(_value.selectedDay!, (value) {
+      return _then(_value.copyWith(selectedDay: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$ShiftTypeImpl implements _ShiftType {
   const _$ShiftTypeImpl(
-      {required this.month,
-      required this.year,
-      required final List<CalendarDay> days,
+      {required this.currentCalendar,
+      required final List<CalendarEntity> calendars,
       required final List<CalendarDay> changedDays,
       required this.selectedDay})
-      : _days = days,
+      : _calendars = calendars,
         _changedDays = changedDays;
 
   @override
-  final int month;
+  final int currentCalendar;
+  final List<CalendarEntity> _calendars;
   @override
-  final int year;
-  final List<CalendarDay> _days;
-  @override
-  List<CalendarDay> get days {
-    if (_days is EqualUnmodifiableListView) return _days;
+  List<CalendarEntity> get calendars {
+    if (_calendars is EqualUnmodifiableListView) return _calendars;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_days);
+    return EqualUnmodifiableListView(_calendars);
   }
 
   final List<CalendarDay> _changedDays;
@@ -1751,7 +3435,7 @@ class _$ShiftTypeImpl implements _ShiftType {
 
   @override
   String toString() {
-    return 'CalendarState.shiftType(month: $month, year: $year, days: $days, changedDays: $changedDays, selectedDay: $selectedDay)';
+    return 'CalendarState.shiftType(currentCalendar: $currentCalendar, calendars: $calendars, changedDays: $changedDays, selectedDay: $selectedDay)';
   }
 
   @override
@@ -1759,9 +3443,10 @@ class _$ShiftTypeImpl implements _ShiftType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ShiftTypeImpl &&
-            (identical(other.month, month) || other.month == month) &&
-            (identical(other.year, year) || other.year == year) &&
-            const DeepCollectionEquality().equals(other._days, _days) &&
+            (identical(other.currentCalendar, currentCalendar) ||
+                other.currentCalendar == currentCalendar) &&
+            const DeepCollectionEquality()
+                .equals(other._calendars, _calendars) &&
             const DeepCollectionEquality()
                 .equals(other._changedDays, _changedDays) &&
             (identical(other.selectedDay, selectedDay) ||
@@ -1771,9 +3456,8 @@ class _$ShiftTypeImpl implements _ShiftType {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      month,
-      year,
-      const DeepCollectionEquality().hash(_days),
+      currentCalendar,
+      const DeepCollectionEquality().hash(_calendars),
       const DeepCollectionEquality().hash(_changedDays),
       selectedDay);
 
@@ -1786,42 +3470,56 @@ class _$ShiftTypeImpl implements _ShiftType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int month, int year, List<CalendarDay> days,
-            CalendarDay? selectedDay, bool canCleanShiftTypes)
+    required TResult Function(
+            int currentCalendar,
+            List<CalendarEntity> calendars,
+            CalendarDay? selectedDay,
+            bool canCleanShiftTypes)
         calendar,
-    required TResult Function(int month, int year, List<CalendarDay> days,
-            List<CalendarDay> changedDays, CalendarDay? selectedDay)
+    required TResult Function(
+            bool loading, int selectedYear, List<YearEntity> years)
+        year,
+    required TResult Function(
+            int currentCalendar,
+            List<CalendarEntity> calendars,
+            List<CalendarDay> changedDays,
+            CalendarDay? selectedDay)
         shiftType,
   }) {
-    return shiftType(month, year, days, changedDays, selectedDay);
+    return shiftType(currentCalendar, calendars, changedDays, selectedDay);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int month, int year, List<CalendarDay> days,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
             CalendarDay? selectedDay, bool canCleanShiftTypes)?
         calendar,
-    TResult? Function(int month, int year, List<CalendarDay> days,
+    TResult? Function(bool loading, int selectedYear, List<YearEntity> years)?
+        year,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
   }) {
-    return shiftType?.call(month, year, days, changedDays, selectedDay);
+    return shiftType?.call(
+        currentCalendar, calendars, changedDays, selectedDay);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int month, int year, List<CalendarDay> days,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
             CalendarDay? selectedDay, bool canCleanShiftTypes)?
         calendar,
-    TResult Function(int month, int year, List<CalendarDay> days,
+    TResult Function(bool loading, int selectedYear, List<YearEntity> years)?
+        year,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
     required TResult orElse(),
   }) {
     if (shiftType != null) {
-      return shiftType(month, year, days, changedDays, selectedDay);
+      return shiftType(currentCalendar, calendars, changedDays, selectedDay);
     }
     return orElse();
   }
@@ -1830,6 +3528,7 @@ class _$ShiftTypeImpl implements _ShiftType {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Calendar value) calendar,
+    required TResult Function(_Year value) year,
     required TResult Function(_ShiftType value) shiftType,
   }) {
     return shiftType(this);
@@ -1839,6 +3538,7 @@ class _$ShiftTypeImpl implements _ShiftType {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Calendar value)? calendar,
+    TResult? Function(_Year value)? year,
     TResult? Function(_ShiftType value)? shiftType,
   }) {
     return shiftType?.call(this);
@@ -1848,6 +3548,7 @@ class _$ShiftTypeImpl implements _ShiftType {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Calendar value)? calendar,
+    TResult Function(_Year value)? year,
     TResult Function(_ShiftType value)? shiftType,
     required TResult orElse(),
   }) {
@@ -1860,22 +3561,15 @@ class _$ShiftTypeImpl implements _ShiftType {
 
 abstract class _ShiftType implements CalendarState {
   const factory _ShiftType(
-      {required final int month,
-      required final int year,
-      required final List<CalendarDay> days,
+      {required final int currentCalendar,
+      required final List<CalendarEntity> calendars,
       required final List<CalendarDay> changedDays,
       required final CalendarDay? selectedDay}) = _$ShiftTypeImpl;
 
-  @override
-  int get month;
-  @override
-  int get year;
-  @override
-  List<CalendarDay> get days;
+  int get currentCalendar;
+  List<CalendarEntity> get calendars;
   List<CalendarDay> get changedDays;
-  @override
   CalendarDay? get selectedDay;
-  @override
   @JsonKey(ignore: true)
   _$$ShiftTypeImplCopyWith<_$ShiftTypeImpl> get copyWith =>
       throw _privateConstructorUsedError;

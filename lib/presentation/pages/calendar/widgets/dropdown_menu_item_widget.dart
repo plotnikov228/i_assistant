@@ -11,10 +11,14 @@ class DropdownMenuItemChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+
       children: [
-        SvgPicture.asset('assets/images/svg/$svgName.svg', height: 24, width: 24, color: AppColors.blue,),
-        const SizedBox(width: 5,),
-        Text(title, style: AppStyles.bodyBlackBold,)
+        SvgPicture.asset('assets/images/svg/$svgName.svg', height: 24, width: 24, color: AppColors.blue,fit: BoxFit.fill,),
+        const SizedBox(width: 15,),
+        Padding(
+          padding:  EdgeInsets.only(top: svgName == 'birthday' ? 5 : 0),
+          child: Text(title, style: AppStyles.bodyBlackBold,),
+        )
       ],
     );
   }

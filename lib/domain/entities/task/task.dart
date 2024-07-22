@@ -11,7 +11,9 @@ class Task with _$Task {
     required final DateTime dateTime,
     required final String name,
     required final String comment,
-    required final bool remind
+    required final DateTime? remindDateTime,
+    required final bool selected
+
   }) = _Task;
 
   const Task._();

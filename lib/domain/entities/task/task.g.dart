@@ -11,7 +11,10 @@ _$TaskImpl _$$TaskImplFromJson(Map<String, dynamic> json) => _$TaskImpl(
       dateTime: DateTime.parse(json['dateTime'] as String),
       name: json['name'] as String,
       comment: json['comment'] as String,
-      remind: json['remind'] as bool,
+      remindDateTime: json['remindDateTime'] == null
+          ? null
+          : DateTime.parse(json['remindDateTime'] as String),
+      selected: json['selected'] as bool,
     );
 
 Map<String, dynamic> _$$TaskImplToJson(_$TaskImpl instance) =>
@@ -20,5 +23,6 @@ Map<String, dynamic> _$$TaskImplToJson(_$TaskImpl instance) =>
       'dateTime': instance.dateTime.toIso8601String(),
       'name': instance.name,
       'comment': instance.comment,
-      'remind': instance.remind,
+      'remindDateTime': instance.remindDateTime?.toIso8601String(),
+      'selected': instance.selected,
     };

@@ -24,7 +24,8 @@ mixin _$Task {
   DateTime get dateTime => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get comment => throw _privateConstructorUsedError;
-  bool get remind => throw _privateConstructorUsedError;
+  DateTime? get remindDateTime => throw _privateConstructorUsedError;
+  bool get selected => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,12 @@ abstract class $TaskCopyWith<$Res> {
       _$TaskCopyWithImpl<$Res, Task>;
   @useResult
   $Res call(
-      {int id, DateTime dateTime, String name, String comment, bool remind});
+      {int id,
+      DateTime dateTime,
+      String name,
+      String comment,
+      DateTime? remindDateTime,
+      bool selected});
 }
 
 /// @nodoc
@@ -57,7 +63,8 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
     Object? dateTime = null,
     Object? name = null,
     Object? comment = null,
-    Object? remind = null,
+    Object? remindDateTime = freezed,
+    Object? selected = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -76,9 +83,13 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String,
-      remind: null == remind
-          ? _value.remind
-          : remind // ignore: cast_nullable_to_non_nullable
+      remindDateTime: freezed == remindDateTime
+          ? _value.remindDateTime
+          : remindDateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      selected: null == selected
+          ? _value.selected
+          : selected // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -92,7 +103,12 @@ abstract class _$$TaskImplCopyWith<$Res> implements $TaskCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id, DateTime dateTime, String name, String comment, bool remind});
+      {int id,
+      DateTime dateTime,
+      String name,
+      String comment,
+      DateTime? remindDateTime,
+      bool selected});
 }
 
 /// @nodoc
@@ -109,7 +125,8 @@ class __$$TaskImplCopyWithImpl<$Res>
     Object? dateTime = null,
     Object? name = null,
     Object? comment = null,
-    Object? remind = null,
+    Object? remindDateTime = freezed,
+    Object? selected = null,
   }) {
     return _then(_$TaskImpl(
       id: null == id
@@ -128,9 +145,13 @@ class __$$TaskImplCopyWithImpl<$Res>
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String,
-      remind: null == remind
-          ? _value.remind
-          : remind // ignore: cast_nullable_to_non_nullable
+      remindDateTime: freezed == remindDateTime
+          ? _value.remindDateTime
+          : remindDateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      selected: null == selected
+          ? _value.selected
+          : selected // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -144,7 +165,8 @@ class _$TaskImpl extends _Task {
       required this.dateTime,
       required this.name,
       required this.comment,
-      required this.remind})
+      required this.remindDateTime,
+      required this.selected})
       : super._();
 
   factory _$TaskImpl.fromJson(Map<String, dynamic> json) =>
@@ -159,11 +181,13 @@ class _$TaskImpl extends _Task {
   @override
   final String comment;
   @override
-  final bool remind;
+  final DateTime? remindDateTime;
+  @override
+  final bool selected;
 
   @override
   String toString() {
-    return 'Task(id: $id, dateTime: $dateTime, name: $name, comment: $comment, remind: $remind)';
+    return 'Task(id: $id, dateTime: $dateTime, name: $name, comment: $comment, remindDateTime: $remindDateTime, selected: $selected)';
   }
 
   @override
@@ -176,13 +200,16 @@ class _$TaskImpl extends _Task {
                 other.dateTime == dateTime) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.comment, comment) || other.comment == comment) &&
-            (identical(other.remind, remind) || other.remind == remind));
+            (identical(other.remindDateTime, remindDateTime) ||
+                other.remindDateTime == remindDateTime) &&
+            (identical(other.selected, selected) ||
+                other.selected == selected));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, dateTime, name, comment, remind);
+  int get hashCode => Object.hash(
+      runtimeType, id, dateTime, name, comment, remindDateTime, selected);
 
   @JsonKey(ignore: true)
   @override
@@ -204,7 +231,8 @@ abstract class _Task extends Task {
       required final DateTime dateTime,
       required final String name,
       required final String comment,
-      required final bool remind}) = _$TaskImpl;
+      required final DateTime? remindDateTime,
+      required final bool selected}) = _$TaskImpl;
   const _Task._() : super._();
 
   factory _Task.fromJson(Map<String, dynamic> json) = _$TaskImpl.fromJson;
@@ -218,7 +246,9 @@ abstract class _Task extends Task {
   @override
   String get comment;
   @override
-  bool get remind;
+  DateTime? get remindDateTime;
+  @override
+  bool get selected;
   @override
   @JsonKey(ignore: true)
   _$$TaskImplCopyWith<_$TaskImpl> get copyWith =>

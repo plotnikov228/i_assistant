@@ -97,6 +97,12 @@ class HiveDBTags {
     calendarDays,
   ];
   static const calendarDays = HiveDBTag('calendar_days');
+  static const notes = HiveDBTag('notes');
+  static const tasks = HiveDBTag('tasks');
+
+  static const birthdays = HiveDBTag('birthdays');
+
+
 }
 
 class HiveDBTag {

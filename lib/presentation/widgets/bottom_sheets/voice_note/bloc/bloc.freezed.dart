@@ -19,32 +19,42 @@ mixin _$VoiceNoteEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() record,
+    required TResult Function(
+            BuildContext context, String text, DateTime dateTime)
+        save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? record,
+    TResult? Function(BuildContext context, String text, DateTime dateTime)?
+        save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? record,
+    TResult Function(BuildContext context, String text, DateTime dateTime)?
+        save,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Record value) record,
+    required TResult Function(_Save value) save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Record value)? record,
+    TResult? Function(_Save value)? save,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Record value)? record,
+    TResult Function(_Save value)? save,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +117,9 @@ class _$RecordImpl implements _Record {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() record,
+    required TResult Function(
+            BuildContext context, String text, DateTime dateTime)
+        save,
   }) {
     return record();
   }
@@ -115,6 +128,8 @@ class _$RecordImpl implements _Record {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? record,
+    TResult? Function(BuildContext context, String text, DateTime dateTime)?
+        save,
   }) {
     return record?.call();
   }
@@ -123,6 +138,8 @@ class _$RecordImpl implements _Record {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? record,
+    TResult Function(BuildContext context, String text, DateTime dateTime)?
+        save,
     required TResult orElse(),
   }) {
     if (record != null) {
@@ -135,6 +152,7 @@ class _$RecordImpl implements _Record {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Record value) record,
+    required TResult Function(_Save value) save,
   }) {
     return record(this);
   }
@@ -143,6 +161,7 @@ class _$RecordImpl implements _Record {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Record value)? record,
+    TResult? Function(_Save value)? save,
   }) {
     return record?.call(this);
   }
@@ -151,6 +170,7 @@ class _$RecordImpl implements _Record {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Record value)? record,
+    TResult Function(_Save value)? save,
     required TResult orElse(),
   }) {
     if (record != null) {
@@ -165,28 +185,187 @@ abstract class _Record implements VoiceNoteEvent {
 }
 
 /// @nodoc
+abstract class _$$SaveImplCopyWith<$Res> {
+  factory _$$SaveImplCopyWith(
+          _$SaveImpl value, $Res Function(_$SaveImpl) then) =
+      __$$SaveImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context, String text, DateTime dateTime});
+}
+
+/// @nodoc
+class __$$SaveImplCopyWithImpl<$Res>
+    extends _$VoiceNoteEventCopyWithImpl<$Res, _$SaveImpl>
+    implements _$$SaveImplCopyWith<$Res> {
+  __$$SaveImplCopyWithImpl(_$SaveImpl _value, $Res Function(_$SaveImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? text = null,
+    Object? dateTime = null,
+  }) {
+    return _then(_$SaveImpl(
+      null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      dateTime: null == dateTime
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveImpl implements _Save {
+  const _$SaveImpl(this.context, {required this.text, required this.dateTime});
+
+  @override
+  final BuildContext context;
+  @override
+  final String text;
+  @override
+  final DateTime dateTime;
+
+  @override
+  String toString() {
+    return 'VoiceNoteEvent.save(context: $context, text: $text, dateTime: $dateTime)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveImpl &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.dateTime, dateTime) ||
+                other.dateTime == dateTime));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, text, dateTime);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveImplCopyWith<_$SaveImpl> get copyWith =>
+      __$$SaveImplCopyWithImpl<_$SaveImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() record,
+    required TResult Function(
+            BuildContext context, String text, DateTime dateTime)
+        save,
+  }) {
+    return save(context, text, dateTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? record,
+    TResult? Function(BuildContext context, String text, DateTime dateTime)?
+        save,
+  }) {
+    return save?.call(context, text, dateTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? record,
+    TResult Function(BuildContext context, String text, DateTime dateTime)?
+        save,
+    required TResult orElse(),
+  }) {
+    if (save != null) {
+      return save(context, text, dateTime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Record value) record,
+    required TResult Function(_Save value) save,
+  }) {
+    return save(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Record value)? record,
+    TResult? Function(_Save value)? save,
+  }) {
+    return save?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Record value)? record,
+    TResult Function(_Save value)? save,
+    required TResult orElse(),
+  }) {
+    if (save != null) {
+      return save(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Save implements VoiceNoteEvent {
+  const factory _Save(final BuildContext context,
+      {required final String text,
+      required final DateTime dateTime}) = _$SaveImpl;
+
+  BuildContext get context;
+  String get text;
+  DateTime get dateTime;
+  @JsonKey(ignore: true)
+  _$$SaveImplCopyWith<_$SaveImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$VoiceNoteState {
   File? get audio => throw _privateConstructorUsedError;
   bool get recording => throw _privateConstructorUsedError;
   Stream<Amplitude> get amplitudeStream => throw _privateConstructorUsedError;
+  bool get canSave => throw _privateConstructorUsedError;
+  bool get started => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            File? audio, bool recording, Stream<Amplitude> amplitudeStream)
+    required TResult Function(File? audio, bool recording,
+            Stream<Amplitude> amplitudeStream, bool canSave, bool started)
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            File? audio, bool recording, Stream<Amplitude> amplitudeStream)?
+    TResult? Function(File? audio, bool recording,
+            Stream<Amplitude> amplitudeStream, bool canSave, bool started)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            File? audio, bool recording, Stream<Amplitude> amplitudeStream)?
+    TResult Function(File? audio, bool recording,
+            Stream<Amplitude> amplitudeStream, bool canSave, bool started)?
         initial,
     required TResult orElse(),
   }) =>
@@ -219,7 +398,12 @@ abstract class $VoiceNoteStateCopyWith<$Res> {
           VoiceNoteState value, $Res Function(VoiceNoteState) then) =
       _$VoiceNoteStateCopyWithImpl<$Res, VoiceNoteState>;
   @useResult
-  $Res call({File? audio, bool recording, Stream<Amplitude> amplitudeStream});
+  $Res call(
+      {File? audio,
+      bool recording,
+      Stream<Amplitude> amplitudeStream,
+      bool canSave,
+      bool started});
 }
 
 /// @nodoc
@@ -238,6 +422,8 @@ class _$VoiceNoteStateCopyWithImpl<$Res, $Val extends VoiceNoteState>
     Object? audio = freezed,
     Object? recording = null,
     Object? amplitudeStream = null,
+    Object? canSave = null,
+    Object? started = null,
   }) {
     return _then(_value.copyWith(
       audio: freezed == audio
@@ -252,6 +438,14 @@ class _$VoiceNoteStateCopyWithImpl<$Res, $Val extends VoiceNoteState>
           ? _value.amplitudeStream
           : amplitudeStream // ignore: cast_nullable_to_non_nullable
               as Stream<Amplitude>,
+      canSave: null == canSave
+          ? _value.canSave
+          : canSave // ignore: cast_nullable_to_non_nullable
+              as bool,
+      started: null == started
+          ? _value.started
+          : started // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -264,7 +458,12 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({File? audio, bool recording, Stream<Amplitude> amplitudeStream});
+  $Res call(
+      {File? audio,
+      bool recording,
+      Stream<Amplitude> amplitudeStream,
+      bool canSave,
+      bool started});
 }
 
 /// @nodoc
@@ -281,6 +480,8 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? audio = freezed,
     Object? recording = null,
     Object? amplitudeStream = null,
+    Object? canSave = null,
+    Object? started = null,
   }) {
     return _then(_$InitialImpl(
       audio: freezed == audio
@@ -295,6 +496,14 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.amplitudeStream
           : amplitudeStream // ignore: cast_nullable_to_non_nullable
               as Stream<Amplitude>,
+      canSave: null == canSave
+          ? _value.canSave
+          : canSave // ignore: cast_nullable_to_non_nullable
+              as bool,
+      started: null == started
+          ? _value.started
+          : started // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -305,7 +514,9 @@ class _$InitialImpl implements _Initial {
   const _$InitialImpl(
       {required this.audio,
       required this.recording,
-      required this.amplitudeStream});
+      required this.amplitudeStream,
+      required this.canSave,
+      required this.started});
 
   @override
   final File? audio;
@@ -313,10 +524,14 @@ class _$InitialImpl implements _Initial {
   final bool recording;
   @override
   final Stream<Amplitude> amplitudeStream;
+  @override
+  final bool canSave;
+  @override
+  final bool started;
 
   @override
   String toString() {
-    return 'VoiceNoteState.initial(audio: $audio, recording: $recording, amplitudeStream: $amplitudeStream)';
+    return 'VoiceNoteState.initial(audio: $audio, recording: $recording, amplitudeStream: $amplitudeStream, canSave: $canSave, started: $started)';
   }
 
   @override
@@ -328,12 +543,14 @@ class _$InitialImpl implements _Initial {
             (identical(other.recording, recording) ||
                 other.recording == recording) &&
             (identical(other.amplitudeStream, amplitudeStream) ||
-                other.amplitudeStream == amplitudeStream));
+                other.amplitudeStream == amplitudeStream) &&
+            (identical(other.canSave, canSave) || other.canSave == canSave) &&
+            (identical(other.started, started) || other.started == started));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, audio, recording, amplitudeStream);
+  int get hashCode => Object.hash(
+      runtimeType, audio, recording, amplitudeStream, canSave, started);
 
   @JsonKey(ignore: true)
   @override
@@ -344,33 +561,33 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            File? audio, bool recording, Stream<Amplitude> amplitudeStream)
+    required TResult Function(File? audio, bool recording,
+            Stream<Amplitude> amplitudeStream, bool canSave, bool started)
         initial,
   }) {
-    return initial(audio, recording, amplitudeStream);
+    return initial(audio, recording, amplitudeStream, canSave, started);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            File? audio, bool recording, Stream<Amplitude> amplitudeStream)?
+    TResult? Function(File? audio, bool recording,
+            Stream<Amplitude> amplitudeStream, bool canSave, bool started)?
         initial,
   }) {
-    return initial?.call(audio, recording, amplitudeStream);
+    return initial?.call(audio, recording, amplitudeStream, canSave, started);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            File? audio, bool recording, Stream<Amplitude> amplitudeStream)?
+    TResult Function(File? audio, bool recording,
+            Stream<Amplitude> amplitudeStream, bool canSave, bool started)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(audio, recording, amplitudeStream);
+      return initial(audio, recording, amplitudeStream, canSave, started);
     }
     return orElse();
   }
@@ -408,7 +625,9 @@ abstract class _Initial implements VoiceNoteState {
   const factory _Initial(
       {required final File? audio,
       required final bool recording,
-      required final Stream<Amplitude> amplitudeStream}) = _$InitialImpl;
+      required final Stream<Amplitude> amplitudeStream,
+      required final bool canSave,
+      required final bool started}) = _$InitialImpl;
 
   @override
   File? get audio;
@@ -416,6 +635,10 @@ abstract class _Initial implements VoiceNoteState {
   bool get recording;
   @override
   Stream<Amplitude> get amplitudeStream;
+  @override
+  bool get canSave;
+  @override
+  bool get started;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

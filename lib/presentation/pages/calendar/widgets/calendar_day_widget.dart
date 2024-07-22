@@ -14,13 +14,16 @@ class CalendarDayWidget extends StatelessWidget {
   final bool selected;
   final bool currentMonth;
   final Function()? onTap;
+  final double size;
+  final double? fontSize;
+  final double circleSize;
 
   const CalendarDayWidget(
       {super.key,
       required this.calendarDay,
       this.selected = false,
       this.currentMonth = true,
-      this.onTap});
+      this.onTap, this.size = 48, this.fontSize, this.circleSize = 4});
 
   Widget _bigCircle(ShiftType shiftType, {required Widget child, bool selected = false}) {
     if (shiftType != ShiftType.both) {
@@ -28,26 +31,29 @@ class CalendarDayWidget extends StatelessWidget {
           ? AppColors.night
           : shiftType == ShiftType.day
               ? AppColors.day
-              : selected ?  AppColors.lightGrey : Colors.white;
+              : selected ?  AppColors.lightGrey : Color(0xffFBFBFB);
       return Container(
-        height: 48,
-        width: 48,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: _color,
-        ),
-        padding: EdgeInsets.all(2),
+
+        height: size,
+        width: size,
         child: Container(
           decoration: BoxDecoration(
-            border: Border.all(
-                color: selected ? Colors.white : Colors.transparent,
-                width: 2),
             shape: BoxShape.circle,
+            color: _color,
           ),
-          width: double.infinity,
-          height: double.infinity,
-          child: Center(
-            child: child,
+          padding: EdgeInsets.all(0),
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                  color: selected ? Colors.white : Colors.transparent,
+                  width: 2),
+              shape: BoxShape.circle,
+            ),
+            width: double.infinity,
+            height: double.infinity,
+            child: Center(
+              child: child,
+            ),
           ),
         ),
       );
@@ -63,10 +69,10 @@ class CalendarDayWidget extends StatelessWidget {
               children: List.generate(2, (index) {
                 return HalfCircle(
                   left: index == 0,
-                  width: 48,
+                  width: size,
                   child: Container(
-                    width: (48 / 2).toDouble(),
-                    height: 48,
+                    width: (size / 2).toDouble(),
+                    height: size,
                     decoration: BoxDecoration(color: [AppColors.day, AppColors.night][index]),
                   ),
                 );
@@ -74,8 +80,7 @@ class CalendarDayWidget extends StatelessWidget {
             ),
           ),
         ),
-        Padding(padding: EdgeInsets.all(3),
-        child: Container(
+        Container(
           decoration: BoxDecoration(
             border: Border.all(
                 color: selected ? Colors.white : Colors.transparent,
@@ -88,7 +93,7 @@ class CalendarDayWidget extends StatelessWidget {
             child: child,
           ),
         ),
-        )
+
       ],
     );
   }
@@ -101,13 +106,61 @@ class CalendarDayWidget extends StatelessWidget {
 
         calendarDay.shiftType,
         selected: selected,
-        child: Text(
-          calendarDay.date.day.toString(),
-          style: AppStyles.bodyBlackBold.copyWith(
-              color: (calendarDay.date.weekday > 5
+        child: Stack(
+          alignment: Alignment.center,
+          clipBehavior: Clip.none,
+          children: [
+            fontSize == null ? Text(
+              calendarDay.date.day.toString(),
+              style: AppStyles.bodyBlackBold.copyWith(
+                  fontSize: fontSize,
+                  color: (calendarDay.date.weekday > 5
                       ? AppColors.red
                       : Colors.black)
-                  .withOpacity(currentMonth ? 1 : 0.25)),
+                      .withOpacity(currentMonth ? 1 : 0.25)),
+            ) :
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                calendarDay.date.day.toString(),
+                style: AppStyles.bodyBlackBold.copyWith(
+                  fontSize: fontSize,
+                    color: (calendarDay.date.weekday > 5
+                            ? AppColors.red
+                            : Colors.black)
+                        .withOpacity(currentMonth ? 1 : 0.25)),
+              ),
+            ),
+            Positioned(
+                bottom: -(circleSize / 2),
+                right: 0,
+                left: 0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if(calendarDay.textNotes.isNotEmpty || calendarDay.voiceNotes.isNotEmpty || calendarDay.tasks.isNotEmpty)
+                      Container(
+                      height: circleSize,
+                      width: circleSize,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.red,
+                      ),
+                    ),
+                    if(calendarDay.birthDays.isNotEmpty && (calendarDay.textNotes.isNotEmpty || calendarDay.voiceNotes.isNotEmpty || calendarDay.tasks.isNotEmpty))
+                      SizedBox(width: circleSize / 3,),
+                    if(calendarDay.birthDays.isNotEmpty)
+                      Container(
+                        height: circleSize,
+                        width: circleSize,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppColors.blue,
+                        ),
+                      ),
+                  ],
+                ))
+          ],
         ),
       ),
     );

@@ -34,7 +34,7 @@ class ShiftScheduleBloc extends Bloc<ShiftScheduleEvent, ShiftScheduleState> {
           startDate: _startDate,
           endDate: _endDate,
           canCalculate: _selectedRow != null &&
-              (_selectedRow! < 4 ||
+              (_selectedRow! < 6 ||
                   _controller.types.where((element) => element == null).length <
                       1),
           controller: _controller));
@@ -53,8 +53,8 @@ class ShiftScheduleBloc extends Bloc<ShiftScheduleEvent, ShiftScheduleState> {
   _select(_Select value) async {
     _selectedRow = value.selectedRow;
 
-    _controller.changeActive(_selectedRow == 4);
-    if(_selectedRow == 4) {
+    _controller.changeActive(_selectedRow == 6);
+    if(_selectedRow == 6) {
       _canCalc = _controller.canComplete.listen((event) {
 
         emit(_Initial(
@@ -62,7 +62,7 @@ class ShiftScheduleBloc extends Bloc<ShiftScheduleEvent, ShiftScheduleState> {
             startDate: _startDate,
             endDate: _endDate,
             canCalculate: _selectedRow != null &&
-                (_selectedRow! < 4 ||
+                (_selectedRow! < 6 ||
                     _controller.types.where((element) => element == null).length <
                         1),
             controller: _controller));
@@ -76,7 +76,7 @@ class ShiftScheduleBloc extends Bloc<ShiftScheduleEvent, ShiftScheduleState> {
         startDate: _startDate,
         endDate: _endDate,
         canCalculate: _selectedRow != null &&
-            (_selectedRow! < 4 ||
+            (_selectedRow! < 6 ||
                 _controller.types.where((element) => element == null).length <
                     1),
         controller: _controller));
@@ -93,7 +93,7 @@ class ShiftScheduleBloc extends Bloc<ShiftScheduleEvent, ShiftScheduleState> {
         startDate: _startDate,
         endDate: _endDate,
         canCalculate: _selectedRow != null &&
-            (_selectedRow! < 4 ||
+            (_selectedRow! < 6 ||
                 _controller.types
                     .where((element) => element == null)
                     .length <
@@ -108,7 +108,7 @@ class ShiftScheduleBloc extends Bloc<ShiftScheduleEvent, ShiftScheduleState> {
           startDate: _startDate,
           endDate: _endDate,
           canCalculate: _selectedRow != null &&
-              (_selectedRow! < 4 ||
+              (_selectedRow! < 6 ||
                   _controller.types.where((element) => element == null).length <
                       1),
           controller: _controller));

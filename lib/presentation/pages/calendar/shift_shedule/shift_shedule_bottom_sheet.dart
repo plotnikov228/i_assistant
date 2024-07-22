@@ -103,21 +103,127 @@ class ShiftScheduleBottomSheet extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      context
-                          .read<ShiftScheduleBloc>()
-                          .add(const ShiftScheduleEvent.select(0));
-                    },
-                    child: SheduleRow(
-                        selected: state.selectedRowIndex == 0,
-                        types: [
-                          ShiftType.night,
-                          ShiftType.night,
-                          ShiftType.empty,
-                          ShiftType.empty
-                        ]),
+                  SizedBox(
+                    height: 300,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              context
+                                  .read<ShiftScheduleBloc>()
+                                  .add(const ShiftScheduleEvent.select(0));
+                            },
+                            child: SheduleRow(
+                                selected: state.selectedRowIndex == 0,
+                                types: [
+                                  ShiftType.night,
+                                  ShiftType.night,
+                                  ShiftType.empty,
+                                  ShiftType.empty
+                                ]),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              context
+                                  .read<ShiftScheduleBloc>()
+                                  .add(const ShiftScheduleEvent.select(1));
+                            },
+                            child: SheduleRow(
+                                selected: state.selectedRowIndex == 1,
+                                types: [
+                                  ShiftType.night,
+                                  ShiftType.night,
+                                  ShiftType.night,
+                                  ShiftType.empty,
+                                  ShiftType.empty,
+                                  ShiftType.empty
+                                ]),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              context
+                                  .read<ShiftScheduleBloc>()
+                                  .add(const ShiftScheduleEvent.select(2));
+                            },
+                            child: SheduleRow(
+                                selected: state.selectedRowIndex == 2,
+                                types: [
+                                  ShiftType.day,
+                                  ShiftType.night,
+                                  ShiftType.empty,
+                                  ShiftType.empty
+                                ]),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              context
+                                  .read<ShiftScheduleBloc>()
+                                  .add(const ShiftScheduleEvent.select(3));
+                            },
+                            child: SheduleRow(
+                                selected: state.selectedRowIndex == 3,
+                                types: [
+                                  ShiftType.day,
+                                  ShiftType.night,
+                                  ShiftType.day,
+                                  ShiftType.empty,
+                                  ShiftType.empty,
+                                  ShiftType.empty
+                                ]),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              context
+                                  .read<ShiftScheduleBloc>()
+                                  .add(const ShiftScheduleEvent.select(4));
+                            },
+                            child: SheduleRow(
+                                selected: state.selectedRowIndex == 4,
+                                types: [
+                                  ShiftType.day,
+                                  ShiftType.day,
+                                  ShiftType.empty,
+                                  ShiftType.empty
+                                ]),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              context
+                                  .read<ShiftScheduleBloc>()
+                                  .add(const ShiftScheduleEvent.select(5));
+                            },
+                            child: SheduleRow(
+                                selected: state.selectedRowIndex == 5,
+                                types: [
+                                  ShiftType.day,
+                                  ShiftType.day,
+                                  ShiftType.day,
+                                  ShiftType.empty,
+                                  ShiftType.empty,
+                                  ShiftType.empty
+                                ]),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
+
                   const SizedBox(
                     height: 10,
                   ),
@@ -125,68 +231,10 @@ class ShiftScheduleBottomSheet extends StatelessWidget {
                     onTap: () {
                       context
                           .read<ShiftScheduleBloc>()
-                          .add(const ShiftScheduleEvent.select(1));
-                    },
-                    child: SheduleRow(
-                        selected: state.selectedRowIndex == 1,
-                        types: [
-                          ShiftType.night,
-                          ShiftType.night,
-                          ShiftType.night,
-                          ShiftType.empty,
-                          ShiftType.empty,
-                          ShiftType.empty
-                        ]),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      context
-                          .read<ShiftScheduleBloc>()
-                          .add(const ShiftScheduleEvent.select(2));
-                    },
-                    child: SheduleRow(
-                        selected: state.selectedRowIndex == 2,
-                        types: [
-                          ShiftType.day,
-                          ShiftType.night,
-                          ShiftType.empty,
-                          ShiftType.empty
-                        ]),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      context
-                          .read<ShiftScheduleBloc>()
-                          .add(const ShiftScheduleEvent.select(3));
-                    },
-                    child: SheduleRow(
-                        selected: state.selectedRowIndex == 3,
-                        types: [
-                          ShiftType.day,
-                          ShiftType.night,
-                          ShiftType.day,
-                          ShiftType.empty,
-                          ShiftType.empty,
-                          ShiftType.empty
-                        ]),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      context
-                          .read<ShiftScheduleBloc>()
-                          .add(const ShiftScheduleEvent.select(4));
+                          .add(const ShiftScheduleEvent.select(6));
                     },
                     child: EmptyScheduleRow(
-                        selected: state.selectedRowIndex == 4,
+                        selected: state.selectedRowIndex == 6,
                         controller: state.controller),
                   ),
                   const SizedBox(
@@ -313,6 +361,22 @@ class ShiftScheduleBottomSheet extends StatelessWidget {
                                         return [
                                           ShiftType.day,
                                           ShiftType.night,
+                                          ShiftType.day,
+                                          ShiftType.empty,
+                                          ShiftType.empty,
+                                          ShiftType.empty
+                                        ];
+                                      case 4:
+                                        return [
+                                          ShiftType.day,
+                                          ShiftType.day,
+                                          ShiftType.empty,
+                                          ShiftType.empty
+                                        ];
+                                      case 5:
+                                        return [
+                                          ShiftType.day,
+                                          ShiftType.day,
                                           ShiftType.day,
                                           ShiftType.empty,
                                           ShiftType.empty,

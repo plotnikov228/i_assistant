@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:i_assistant/domain/entities/note/voice_note/voice_note.dart';
 import 'package:i_assistant/presentation/resources/app_colors.dart';
 import 'package:i_assistant/presentation/resources/app_styles.dart';
 import 'package:i_assistant/presentation/widgets/bottom_sheets/voice_note/bloc/bloc.dart';
@@ -16,7 +17,8 @@ import 'package:intl/intl.dart';
 import '../../dialogs/date_picker_dialog.dart';
 
 class VoiceNoteBottomSheet extends StatefulWidget {
-  const VoiceNoteBottomSheet({super.key});
+  final DateTime? dateTime;
+  const VoiceNoteBottomSheet({super.key, this.dateTime});
 
   @override
   State<VoiceNoteBottomSheet> createState() => _VoiceNoteBottomSheetState();
@@ -24,6 +26,7 @@ class VoiceNoteBottomSheet extends StatefulWidget {
 
 class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
   final nameController = TextEditingController();
+
   DateTime? dateTime;
   @override
   Widget build(BuildContext context) {
@@ -66,6 +69,7 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
+                          if(widget.dateTime == null)
                           Row(
                             children: [
                               SvgPicture.asset(
@@ -121,7 +125,7 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                           SizedBox(
                               width: 260,
                               child: Text(
-                                'Нажмите на микрофон, чтобы\nначать запись',
+                                state.recording ? 'Идет запись. Нажмите еще раз,\nкогда закончите говорить' : state.started ? 'Успешно! Чтобы продолжить запись, нажмите на микрофон' : 'Нажмите на микрофон, чтобы\nначать запись',
                                 style:
                                     AppStyles.body.copyWith(color: Colors.black),
                                 textAlign: TextAlign.center,
@@ -164,7 +168,7 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                                   context.read<VoiceNoteBloc>().add(const VoiceNoteEvent.record());
                                 },
                                 child: SvgPicture.asset(
-                                  'assets/images/svg/voice.svg',
+                                  'assets/images/svg/${state.recording ? 'pause' : state.started ? 'play' : 'voice'}.svg',
                                   height: 44,
                                   color: Colors.white,
                                 ),
@@ -197,14 +201,12 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                                 SizedBox(
                                   width: 20,
                                 ),
-                              if (state.audio != null)
+                              if (state.canSave && (widget.dateTime ?? dateTime) != null && nameController.text.isNotEmpty)
                                 Expanded(
                                   child: CustomButton(
                                     title: 'Сохранить',
                                     onTap: () {
-                                            Navigator.of(context,
-                                                    rootNavigator: true)
-                                                .pop();
+                                            context.read<VoiceNoteBloc>().add(VoiceNoteEvent.save(context, text: nameController.text, dateTime: (widget.dateTime ?? dateTime)!));
                                           },
                                   ),
                                 )

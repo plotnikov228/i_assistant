@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:i_assistant/presentation/resources/app_styles.dart';
 import 'package:i_assistant/utils/constants/shift_type.dart';
 
 import '../../../resources/app_colors.dart';
@@ -11,6 +12,7 @@ class ShiftWidget extends StatelessWidget {
   final double? size;
   final bool showSvg;
   final bool showBorder;
+  final bool showText;
 
   const ShiftWidget(
       {super.key,
@@ -19,7 +21,7 @@ class ShiftWidget extends StatelessWidget {
       this.showSvg = true,
       this.size,
       this.showBorder = true,
-      this.selected = false});
+      this.selected = false, this.showText = false});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,6 @@ class ShiftWidget extends StatelessWidget {
       return <Color>[Colors.white];
     }();
     if (svgPaths.length > 1) {
-      debugPrint('more');
       return GestureDetector(
         onTap: onTap,
         child: Row(
@@ -97,7 +98,6 @@ class ShiftWidget extends StatelessWidget {
       );
     }
     if (colors.length > 1) {
-      debugPrint('colors.length > 1');
 
       return GestureDetector(
         onTap: onTap,
@@ -132,23 +132,33 @@ class ShiftWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: _size,
+        width: showText ? _size * 2 : _size,
         height: _size,
         decoration: BoxDecoration(
             color: colors[0],
-            shape: BoxShape.circle,
+            borderRadius: BorderRadius.circular(100),
             border: selected
                 ? Border.all(color: AppColors.blue)
                 : showBorder
                     ? Border.all(color: AppColors.dividerGrey)
                     : null),
-        child: shiftType == ShiftType.empty
-            ? null
-            : Center(
-                child: SvgPicture.asset(
-                svgPaths[0],
-                height: 22,
-              )),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            shiftType == ShiftType.empty
+                ? Container()
+                : Center(
+                    child: SvgPicture.asset(
+                    svgPaths[0],
+                    height: 22,
+                  )),
+            if(showText)
+            Padding(
+              padding: const EdgeInsets.only(left: 5),
+              child: Text(shiftType.title, style: AppStyles.body.copyWith(color: shiftType.color),),
+            )
+          ],
+        ),
       ),
     );
   }

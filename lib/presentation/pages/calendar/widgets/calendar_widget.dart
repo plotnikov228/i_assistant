@@ -17,25 +17,24 @@ class CalendarWidget extends StatelessWidget {
     List<CalendarDay> _days = activeCalendarDays == null ? calendarDays : calendarDays.map((e) => activeCalendarDays!.firstWhere((element) => element.date == e.date, orElse: () => e)).toList();
     return Padding(
       padding: const EdgeInsets.symmetric(
-          vertical: 20, horizontal: 20),
+          vertical: 0, horizontal: 20),
       child: Center(
         child: GridView.count(
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           crossAxisCount: 7,
-          children: ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']
-              .map<Widget>((e) => SizedBox(
-            height: 47,
-            width: 47,
-            child: Center(
-              child: Text(
-                e,
-                style: AppStyles.bodyBlackBold,
-              ),
-            ),
-          ))
-              .toList() +
+          children:
               _days
-                  .map<Widget>((e) => CalendarDayWidget(
+                  .map<Widget>((e) => e.date.month != month ? SizedBox(
+                height: 47.5,
+                width: 47.5,
+                child: Center(
+                  child: Text(
+                    '',
+                    style: AppStyles.bodyBlackBold,
+                  ),
+                ),
+              ) : CalendarDayWidget(
                 onTap: () {
                   onTap?.call(e);
                   //context.read<CalendarBloc>().add(

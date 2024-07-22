@@ -11,10 +11,13 @@ import 'package:i_assistant/presentation/widgets/text_fields/custom_text_field.d
 import 'package:i_assistant/utils/size_utils.dart';
 import 'package:intl/intl.dart';
 
+import '../../../domain/entities/task/task.dart';
 import '../dialogs/date_picker_dialog.dart';
+import '../remind_container.dart';
 
 class TaskBottomSheet extends StatefulWidget {
-  const TaskBottomSheet({super.key});
+  final DateTime? dateTime;
+  const TaskBottomSheet({super.key, this.dateTime});
 
   @override
   State<TaskBottomSheet> createState() => _TaskBottomSheetState();
@@ -24,8 +27,16 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
   final nameController = TextEditingController();
   final descriptionController = TextEditingController();
   DateTime? dateTime;
-  bool remind = false;
-
+  DateTime? dateTimeRemind ;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    dateTime = widget.dateTime;
+  }
+  bool validate() {
+    return nameController.text.isNotEmpty  && dateTime !=null;
+  }
   @override
   Widget build(BuildContext context) {
     final bottom = MediaQuery.of(context).viewInsets.bottom;
@@ -109,6 +120,11 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                         CustomTextField(
                             controller: descriptionController,
                             hint: 'Введите комментарий',
+                            onChanged: (_) {
+                              setState(() {
+
+                              });
+                            },
                             maxLength: 300,
                             minLines: 5,
                             maxLines: 5,
@@ -118,95 +134,50 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                     ),
                   ),
                 ),
-                if (bottom <= 0)
+                if(bottom <= 0)
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: Column(
-                      mainAxisSize: MainAxisSize.min,
+                      mainAxisSize: MainAxisSize.max,
                       children: [
-                        Divider(
-                          indent: 0,
-                          endIndent: 0,
-                          height: 1,
-                          thickness: 1,
-                          color: AppColors.lightGrey,
+                        RemindContainer(
+                          initialDateTime: dateTimeRemind,
+                          onModeSwitch: (_) {
+                            if(!_) {
+                              dateTimeRemind = null;
+                            }
+                          },
+                          onSwitch: (_) {
+                            dateTimeRemind = _;
+                          },
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
+                        Padding(padding: EdgeInsets.all(20),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  SvgPicture.asset(
-                                    'assets/images/svg/clock.svg',
-                                    height: 20,
-                                    width: 20,
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Напоминание',
-                                    style: AppStyles.mediumHead
-                                        .copyWith(color: Colors.black),
-                                  )
-                                ],
-                              ),
-                              SizedBox(
-                                width: 40,
-                                height: 24,
-                                child: CustomSwitch(
-                                  value: remind,
-                                  onChange: (val) {
-                                    remind = val;
-                                  },
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(20),
-                          child: Row(
+
                             children: [
                               Expanded(
-                                child: CustomButton(
-                                  title: 'Отмена',
-                                  onTap: () {
-                                    Navigator.of(context, rootNavigator: true)
-                                        .pop();
-                                  },
+                                child: CustomButton(title: 'Отмена', onTap: (){
+                                  Navigator.of(context, rootNavigator: true).pop();
+                                },
                                   bg: Colors.white,
                                   textColor: Colors.black,
                                 ),
                               ),
-                              SizedBox(
-                                width: 20,
-                              ),
+                              SizedBox(width: 20,),
                               Expanded(
-                                child: CustomButton(
-                                  title: 'Сохранить',
-                                  active: nameController.text.isNotEmpty,
-                                  onTap: nameController.text.isNotEmpty
-                                      ? () {
-                                          Navigator.of(context,
-                                                  rootNavigator: true)
-                                              .pop();
-                                        }
-                                      : null,
-                                  textColor: nameController.text.isEmpty
-                                      ? Colors.black
-                                      : null,
+                                child: CustomButton(title: 'Сохранить', active: validate(), onTap: validate() ? () {
+
+                                  final task = Task(id: -1, dateTime: dateTime!, name: nameController.text, comment: descriptionController.text, remindDateTime: dateTimeRemind, selected: false);
+                                  Navigator.of(context, rootNavigator: true).pop(task);
+
+                                } : null,
+                                  textColor: !validate() ? Colors.black : null,
                                 ),
                               )
                             ],
                           ),
                         ),
-                        SizedBox(
-                          height: 10,
-                        )
+                        SizedBox(height: 10,)
                       ],
                     ),
                   )

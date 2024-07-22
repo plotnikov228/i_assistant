@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:i_assistant/presentation/resources/app_colors.dart';
 
 enum ShiftType {
-  night,
-  day,
-  both,
-  empty;
+  night(title: 'Ночь', color: AppColors.nightText),
+  day(title: 'День', color: AppColors.dayText),
+  both(title: 'Целый день', color: Colors.black),
+  empty(title: 'Пусто', color: Colors.black);
+
+  final String title;
+  final Color color;
 
   @override
   String toString() => name;
@@ -18,4 +23,6 @@ enum ShiftType {
       return ShiftType.empty;
     });
   }
+
+  const ShiftType({required this.title, required this.color});
 }

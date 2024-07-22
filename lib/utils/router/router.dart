@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:i_assistant/domain/entities/calendar_day/calendar_day.dart';
+import 'package:i_assistant/presentation/pages/day/day_page.dart';
+import 'package:i_assistant/presentation/pages/notes/notes_page.dart';
+import 'package:i_assistant/presentation/pages/notes_and_tasks/notes_and_tasks_page.dart';
 import 'package:i_assistant/utils/router/routes.dart';
 
 import '../../presentation/pages/calendar/calendar_page.dart';
@@ -38,8 +42,37 @@ class AppRouter {
                 parentNavigatorKey: NavigatorKeys.calendar,
                 path: AppRoutes.calendar.toPath,
                 name: AppRoutes.calendar.toName,
+                routes: [
+                  GoRoute(
+                      path: AppRoutes.day.toPath,
+                      name: AppRoutes.day.toName,
+                      builder: (context, state) {
+                        final CalendarDay calendarDay = state.extra is Map<String, dynamic> ? CalendarDay.fromJson(state.extra as Map<String, dynamic>) : state.extra as CalendarDay;
+                        return DayPage(calendarDay: calendarDay );
+                      }),
+                ],
                 builder: (context, state) {
                   return const CalendarPage();
+                }),
+
+
+
+          ]),
+          StatefulShellBranch(navigatorKey: NavigatorKeys.notes, routes: [
+            GoRoute(
+                parentNavigatorKey: NavigatorKeys.notes,
+                path: AppRoutes.notesAndTasks.toPath,
+                name: AppRoutes.notesAndTasks.toName,
+                routes: [
+                  GoRoute(
+                      path: AppRoutes.notes.toPath,
+                      name: AppRoutes.notes.toName,
+                      builder: (context, state) {
+                        return const NotesPage();
+                      })
+                ],
+                builder: (context, state) {
+                  return const NotesAndTasksPage();
                 })
           ]),
         ]),

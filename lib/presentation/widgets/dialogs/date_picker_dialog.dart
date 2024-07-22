@@ -1,11 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:i_assistant/presentation/resources/app_colors.dart';
 import 'package:i_assistant/presentation/widgets/buttons/custom_button.dart';
+
+import 'date_picker.dart';
 
 class CustomDatePickerDialog extends StatelessWidget {
   final DateTime? initialDate;
   final bool selectFullDate;
-  const CustomDatePickerDialog({super.key, this.initialDate, this.selectFullDate = true});
+  final bool canSelectFuture;
+  const CustomDatePickerDialog({super.key, this.initialDate, this.selectFullDate = true, this.canSelectFuture = true});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,6 @@ class CustomDatePickerDialog extends StatelessWidget {
       child: Container(
         height: 300,
         width: 300,
-        padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(40)
@@ -25,19 +27,32 @@ class CustomDatePickerDialog extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
-                height: 180,
-                child: CupertinoDatePicker(
-                  mode: selectFullDate ? CupertinoDatePickerMode.date : CupertinoDatePickerMode.monthYear,
-                  initialDateTime: initialDate,
-                  onDateTimeChanged: (DateTime value) {
-                   dateTime = value;
-                },),
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    height: 35,
+                    color: AppColors.blue.withOpacity(0.1),
+                  ),
+                  SizedBox(
+                    height: 180,
+                    child: CupertinoDatePicker(
+                      use24hFormat: false,
+                      mode: selectFullDate ? CupertinoDatePickerMode.date : CupertinoDatePickerMode.monthYear,
+                      initialDateTime: initialDate,
+                      maximumDate: canSelectFuture ? null : DateTime.now(),
+                      onDateTimeChanged: (DateTime value) {
+                       dateTime = value;
+                    },),
+                  ),
+                ],
               ),
-              SizedBox(height: 10,),
-              CustomButton(title: 'Принять', onTap: () {
-                Navigator.pop(context, dateTime);
-              },)
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: CustomButton(title: 'Принять', onTap: () {
+                  Navigator.pop(context, dateTime);
+                },),
+              )
             ],
           ),
         ),
