@@ -13,6 +13,7 @@ import '../../../widgets/bottom_sheets/text_note_bottom_sheet.dart';
 import '../../../widgets/bottom_sheets/voice_note/voice_note_bottom_sheet.dart';
 import '../../../widgets/dialogs/date_picker_dialog.dart';
 import '../../notes/bloc/bloc.dart';
+import '../../tasks/bloc/bloc.dart';
 import '../bloc/bloc.dart';
 import 'dropdown_menu_item_widget.dart';
 
@@ -69,6 +70,10 @@ class CalendarAppBar extends StatelessWidget {
                           context
                               .read<CalendarBloc>()
                               .add(CalendarEvent.addTask(value));
+                          Future.delayed(Duration(seconds: 2), () {
+                            context.read<TasksBloc>().add(TasksEvent.fetch());
+
+                          });
                         }
                       });
                     case 1:
@@ -145,20 +150,20 @@ class CalendarAppBar extends StatelessWidget {
                               offset: const Offset(0, 10))
                         ],
                         borderRadius: BorderRadius.circular(40),
-                        color: Colors.white,
+                        color: AppColors.white,
                         border: Border.all(
                             color: AppColors.lightGrey))),
                 customButton: Container(
                   height: 56,
                   width: 56,
-                  decoration: const BoxDecoration(
+                  decoration:  BoxDecoration(
                       shape: BoxShape.circle,
-                      color: AppColors.blue),
-                  child: const Center(
+                      color: AppColors.blueButton),
+                  child:  Center(
                     child: Icon(
                       Icons.add,
                       size: 24,
-                      color: AppColors.white,
+                      color: Colors.white,
                     ),
                   ),
                 ),

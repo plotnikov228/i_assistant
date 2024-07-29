@@ -4,6 +4,9 @@ import 'package:i_assistant/domain/entities/calendar_day/calendar_day.dart';
 import 'package:i_assistant/presentation/pages/day/day_page.dart';
 import 'package:i_assistant/presentation/pages/notes/notes_page.dart';
 import 'package:i_assistant/presentation/pages/notes_and_tasks/notes_and_tasks_page.dart';
+import 'package:i_assistant/presentation/pages/services/services_page.dart';
+import 'package:i_assistant/presentation/pages/tasks/tasks_page.dart';
+import 'package:i_assistant/presentation/pages/theme/theme_page.dart';
 import 'package:i_assistant/utils/router/routes.dart';
 
 import '../../presentation/pages/calendar/calendar_page.dart';
@@ -69,10 +72,38 @@ class AppRouter {
                       name: AppRoutes.notes.toName,
                       builder: (context, state) {
                         return const NotesPage();
+                      }),
+                  GoRoute(
+                      path: AppRoutes.tasks.toPath,
+                      name: AppRoutes.tasks.toName,
+                      builder: (context, state) {
+                        return const TasksPage();
                       })
                 ],
                 builder: (context, state) {
                   return const NotesAndTasksPage();
+                })
+          ]),
+          StatefulShellBranch(navigatorKey: NavigatorKeys.services, routes: [
+            GoRoute(
+                parentNavigatorKey: NavigatorKeys.services,
+                path: AppRoutes.services.toPath,
+                name: AppRoutes.services.toName,
+                routes: [
+                ],
+                builder: (context, state) {
+                  return const ServicesPage();
+                })
+          ]),
+          StatefulShellBranch(navigatorKey: NavigatorKeys.settings, routes: [
+            GoRoute(
+                parentNavigatorKey: NavigatorKeys.settings,
+                path: AppRoutes.settings.toPath,
+                name: AppRoutes.settings.toName,
+                routes: [
+                ],
+                builder: (context, state) {
+                  return const ThemePage();
                 })
           ]),
         ]),

@@ -45,8 +45,8 @@ class CustomButton extends StatelessWidget {
                   title,
                   style: AppStyles.body.copyWith(
                       color: active
-                          ? textColor
-                          : (textColor ?? AppStyles.body.color)!
+                          ? textColor ?? Colors.white
+                          : (textColor ?? Colors.white ?? AppStyles.body.color)!
                               .withOpacity(0.5)),
                 ),
               ],

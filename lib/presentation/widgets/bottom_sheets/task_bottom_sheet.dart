@@ -49,8 +49,8 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
           elevation: 0,
           color: Colors.transparent,
           child: Container(
-            decoration: const BoxDecoration(
-                color: Colors.white,
+            decoration: BoxDecoration(
+                color: AppColors.white,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40))),
@@ -116,7 +116,7 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                             hint: 'Новая задача',
                             maxLength: 20,
                             textStyle: AppStyles.mediumHead
-                                .copyWith(color: Colors.black)),
+                                .copyWith(color: AppColors.black)),
                         CustomTextField(
                             controller: descriptionController,
                             hint: 'Введите комментарий',
@@ -129,7 +129,7 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                             minLines: 5,
                             maxLines: 5,
                             textStyle:
-                                AppStyles.body.copyWith(color: Colors.black))
+                                AppStyles.body.copyWith(color: AppColors.black))
                       ],
                     ),
                   ),
@@ -159,8 +159,8 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                                 child: CustomButton(title: 'Отмена', onTap: (){
                                   Navigator.of(context, rootNavigator: true).pop();
                                 },
-                                  bg: Colors.white,
-                                  textColor: Colors.black,
+                                  bg: AppColors.white,
+                                  textColor: AppColors.black,
                                 ),
                               ),
                               SizedBox(width: 20,),
@@ -171,7 +171,7 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                                   Navigator.of(context, rootNavigator: true).pop(task);
 
                                 } : null,
-                                  textColor: !validate() ? Colors.black : null,
+                                  textColor: !validate() ? AppColors.black : null,
                                 ),
                               )
                             ],

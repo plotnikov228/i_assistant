@@ -44,8 +44,8 @@ class ShiftScheduleBottomSheet extends StatelessWidget {
             elevation: 0,
             color: Colors.transparent,
             child: Container(
-                decoration: const BoxDecoration(
-                    color: Colors.white,
+                decoration:  BoxDecoration(
+                    color: AppColors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(40),
                         topRight: Radius.circular(40))),
@@ -79,7 +79,7 @@ class ShiftScheduleBottomSheet extends StatelessWidget {
                       Text(
                         'Составить график',
                         style:
-                            AppStyles.mediumHead.copyWith(color: Colors.black),
+                            AppStyles.mediumHead.copyWith(color: AppColors.black),
                       ),
                       if (onDelete != null)
                         SizedBox(
@@ -88,14 +88,14 @@ class ShiftScheduleBottomSheet extends StatelessWidget {
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 padding: EdgeInsets.zero,
-                                  backgroundColor: Colors.white,elevation: 0),
+                                  backgroundColor: AppColors.white,elevation: 0),
                               onPressed: () {
                                 Navigator.pop(context);
                                 onDelete?.call(state);
                               },
                               child: SizedBox(height: 20,
                                 child: SvgPicture.asset(
-                                    'assets/images/svg/trash.svg', color: Colors.black, height: 20, fit: BoxFit.contain,),
+                                    'assets/images/svg/trash.svg', color: AppColors.black, height: 20, fit: BoxFit.contain,),
                               )),
                         ),
                     ],
@@ -273,7 +273,7 @@ class ShiftScheduleBottomSheet extends StatelessWidget {
                                 color: AppColors.containerGrey),
                             padding: const EdgeInsets.all(20),
                             child: Text(DateFormat('dd.MM.yyyy')
-                                .format(state.startDate)),
+                                .format(state.startDate), style: AppStyles.bodyBlack,),
                           ),
                         ),
                       ),
@@ -303,7 +303,8 @@ class ShiftScheduleBottomSheet extends StatelessWidget {
                                 color: AppColors.containerGrey),
                             padding: const EdgeInsets.all(20),
                             child: Text(
-                                DateFormat('dd.MM.yyyy').format(state.endDate)),
+                                DateFormat('dd.MM.yyyy').format(state.endDate),
+                            style: AppStyles.bodyBlack,),
                           ),
                         ),
                       ),
@@ -317,8 +318,8 @@ class ShiftScheduleBottomSheet extends StatelessWidget {
                       Expanded(
                           child: CustomButton(
                         title: 'Отмена',
-                        bg: Colors.white,
-                        textColor: Colors.black,
+                        bg: AppColors.white,
+                        textColor: AppColors.black,
                         onTap: () {
                           Navigator.pop(context);
                         },

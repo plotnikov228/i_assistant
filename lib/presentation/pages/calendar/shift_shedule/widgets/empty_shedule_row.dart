@@ -54,7 +54,7 @@ class EmptyScheduleRow extends StatelessWidget {
                     border: Border.all(
                         color: (selected || active)
                             ? AppColors.blue
-                            : AppColors.dividerGrey),
+                            : AppColors.circleBorder),
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: IgnorePointer(
@@ -82,7 +82,7 @@ class EmptyScheduleRow extends StatelessWidget {
                                           color: position == index &&
                                                   (selected || active)
                                               ? AppColors.blue
-                                              : AppColors.dividerGrey,
+                                              : AppColors.circleBorder,
                                           child: Container(
                                             height: 44,
                                             width: 44,
@@ -95,7 +95,7 @@ class EmptyScheduleRow extends StatelessWidget {
                                                 color: position == index &&
                                                         (selected || active)
                                                     ? AppColors.blue
-                                                    : AppColors.dividerGrey,
+                                                    : AppColors.circleBorder,
                                               ),
                                             ),
                                           ),
@@ -159,7 +159,7 @@ class EmptyScheduleRow extends StatelessWidget {
                         spreadRadius: 10,
                         blurRadius: 10)
                   ],
-                  color: Colors.white,
+                  color: AppColors.white,
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: Row(
@@ -201,7 +201,7 @@ class EmptyScheduleRow extends StatelessWidget {
                                   width: 56,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: Colors.white,
+                                    color: AppColors.white,
                                   ),
                                   child: SizedBox(
                                     height: 42,
@@ -210,6 +210,7 @@ class EmptyScheduleRow extends StatelessWidget {
                                       child: SvgPicture.asset(
                                         'assets/images/svg/trash.svg',
                                         fit: BoxFit.fill,
+                                        color: AppColors.black,
                                       ),
                                     ),
                                   ),

@@ -114,7 +114,7 @@ class _YearsCarouselState extends State<YearsCarousel> {
                   );
                 }),
               ),
-              Divider(indent: 0, endIndent: 0, color: Color(0xffCDCDCD),)
+              Divider(indent: 0, endIndent: 0, color: AppColors.white,)
 
             ],
           );

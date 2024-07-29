@@ -27,7 +27,7 @@ class DayNoteWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(32),
-        color: Colors.white,
+        color: AppColors.white,
       ),
       child: Column(
         children: [
@@ -41,16 +41,14 @@ class DayNoteWidget extends StatelessWidget {
               SizedBox(
                 height: 56,
                 width: 56,
-                child: ElevatedButton(
-
+                child:  ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.lightBlue,
+                        backgroundColor: AppColors.blue,
                         shape: const CircleBorder(),
                         elevation: 0,
                         padding: EdgeInsets.zero
                     ),
-                    onPressed: onAdd, child: SvgPicture.asset('assets/images/svg/plus.svg', color: AppColors.blue)),
-              )
+                    onPressed: onAdd, child: SvgPicture.asset('assets/images/svg/plus.svg', color: Colors.white)) )
             ],
           ),
           if(notes.isNotEmpty)

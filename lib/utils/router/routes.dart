@@ -1,12 +1,15 @@
 // ignore_for_file: camel_case_types
 
 enum AppRoutes {
-  calendar,
   note,
   notes,
+  tasks,
   day,
-  notesAndTasks,
 
+  settings,
+  calendar,
+  notesAndTasks,
+  services,
 }
 
 extension AppPageExtension on AppRoutes {
@@ -16,6 +19,14 @@ extension AppPageExtension on AppRoutes {
         return "/calendar";
       case AppRoutes.notes:
         return "notes";
+      case AppRoutes.tasks:
+        return "tasks";
+
+      case AppRoutes.settings:
+        return "/settings";
+
+      case AppRoutes.services:
+        return "/services";
       case AppRoutes.notesAndTasks:
         return "/notesAndTasks";
       case AppRoutes.note:
@@ -34,6 +45,12 @@ extension AppPageExtension on AppRoutes {
       case AppRoutes.note:
         return "note";
 
+      case AppRoutes.settings:
+        return "settings";
+      case AppRoutes.services:
+        return "services";
+      case AppRoutes.tasks:
+        return "tasks";
       case AppRoutes.notesAndTasks:
         return "notesAndTasks";
       case AppRoutes.notes:

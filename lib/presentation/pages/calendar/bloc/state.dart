@@ -21,4 +21,11 @@ class CalendarState with _$CalendarState {
         required List<CalendarDay> changedDays,
         required CalendarDay? selectedDay,
       }) = _ShiftType;
+
+  const factory CalendarState.loading(
+      {
+        required int currentCalendar,
+        required List<CalendarEntity> calendars,
+        required CalendarDay? selectedDay,
+      }) = _Loading;
 }

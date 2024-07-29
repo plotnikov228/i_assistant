@@ -15,7 +15,7 @@ class NotesAndChaptersButton extends StatelessWidget {
       child: Container(
         height: 66,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.white,
           borderRadius: BorderRadius.circular(20),
 
         ),

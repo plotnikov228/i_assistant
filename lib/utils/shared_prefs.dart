@@ -51,6 +51,16 @@ class SharedPrefs {
     }
   }
 
+  /// Ключ для theme
+  static bool get isThemeDark => sharedPreferences.getBool(SharedPrefsNames.themeDark) ?? false;
+
+  static set setThemeDark(bool? value) =>sharedPreferences.setBool(SharedPrefsNames.themeDark, value ?? false);
+
+
+  /// Ключ для autoTheme
+  static bool get isAutoTheme => sharedPreferences.getBool(SharedPrefsNames.autoTheme) ?? false;
+
+  static set setAutoTheme(bool? value) =>sharedPreferences.setBool(SharedPrefsNames.autoTheme, value ?? false);
 
 
   /// Ключ для сервера
@@ -92,6 +102,8 @@ class SharedPrefsNames {
   static String showWelcome = 'showWelcome';
 
   static String themeDark = 'themeDark';
+  static String autoTheme = 'autoTheme';
+
   static String isProdApi = 'isProdApi';
   static String currentBuildNumber = 'currentBuildNumber'; //последняя версия приложения
 }

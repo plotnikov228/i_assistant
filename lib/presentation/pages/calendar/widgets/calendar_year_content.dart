@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:i_assistant/presentation/pages/calendar/bloc/bloc.dart';
 import 'package:i_assistant/presentation/pages/calendar/widgets/calendar_app_bar.dart';
 import 'package:i_assistant/presentation/pages/calendar/widgets/years_carousel.dart';
+import 'package:i_assistant/presentation/resources/app_colors.dart';
 
 import '../../../../utils/size_utils.dart';
 import '../bloc/models/year_entity.dart';
@@ -43,7 +44,7 @@ class CalendarYearContent extends StatelessWidget {
               child: Container(
                 width: size.width,
 
-                decoration: BoxDecoration(color: Color(0xffFBFBFB)),
+                decoration: BoxDecoration(color: AppColors.calendarBg),
             child: loading ? Center(
               child: CircularProgressIndicator(),
 

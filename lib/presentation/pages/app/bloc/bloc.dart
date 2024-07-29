@@ -9,7 +9,7 @@ part 'state.dart';
 part 'bloc.freezed.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
-  AppBloc() : super(const _Welcome()) {
+  AppBloc() : super(const _Loading()) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp
     ]);
@@ -17,7 +17,10 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       SharedPrefs.sharedPreferences = value;
       if(SharedPrefs.showWelcome) emit(_Welcome());
       else {
-        add(AppEvent.checkAuth());
+        Future.delayed(Duration(milliseconds: 800), () {
+          add(AppEvent.checkAuth());
+
+        });
 
       }
     });

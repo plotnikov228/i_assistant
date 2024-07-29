@@ -18,15 +18,15 @@ class ShiftTypeBottomSheet extends StatelessWidget {
             elevation: 0,
             color: Colors.transparent,
             child: Container(
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(40),
                         topRight: Radius.circular(40))),
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
                   Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: Container(
                       height: 5,
                       width: 84,
@@ -50,7 +50,7 @@ class ShiftTypeBottomSheet extends StatelessWidget {
                     ),
                   ),
                   if(Platform.isIOS)
-                    SizedBox(height: 40,)
+                    const SizedBox(height: 40,)
                 ]))));
   }
 }

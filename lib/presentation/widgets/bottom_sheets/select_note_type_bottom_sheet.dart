@@ -33,9 +33,9 @@ class _SelectNoteTypeBottomSheetState extends State<SelectNoteTypeBottomSheet> {
           elevation: 0,
           color: Colors.transparent,
           child: Container(
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(40), topRight: Radius.circular(40))),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -43,7 +43,7 @@ class _SelectNoteTypeBottomSheetState extends State<SelectNoteTypeBottomSheet> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: Container(
                       height: 5,
                       width: 84,
@@ -78,7 +78,7 @@ class _SelectNoteTypeBottomSheetState extends State<SelectNoteTypeBottomSheet> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   )
                 ],

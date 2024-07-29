@@ -46,16 +46,16 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
               elevation: 0,
               color: Colors.transparent,
               child: Container(
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(40),
                         topRight: Radius.circular(40))),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: Container(
                         height: 5,
                         width: 84,
@@ -65,7 +65,7 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -78,7 +78,7 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                                 width: 24,
                                 color: AppColors.blue,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               GestureDetector(
@@ -119,7 +119,7 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                                   hint: 'Название аудиозаметки',
                                   maxLength: 20,
                                   textStyle: AppStyles.mediumHead
-                                      .copyWith(color: Colors.black)),
+                                      .copyWith(color: AppColors.black)),
                             ),
                           ),
                           SizedBox(
@@ -127,7 +127,7 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                               child: Text(
                                 state.recording ? 'Идет запись. Нажмите еще раз,\nкогда закончите говорить' : state.started ? 'Успешно! Чтобы продолжить запись, нажмите на микрофон' : 'Нажмите на микрофон, чтобы\nначать запись',
                                 style:
-                                    AppStyles.body.copyWith(color: Colors.black),
+                                    AppStyles.body.copyWith(color: AppColors.black),
                                 textAlign: TextAlign.center,
                               ))
                         ],
@@ -150,7 +150,7 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                                   height: state.recording ?  90 +  volume : 80 ,
                                   width: state.recording ?  90 +  volume : 80,
 
-                                  duration: Duration(milliseconds: 50),
+                                  duration: const Duration(milliseconds: 50),
                                 decoration: BoxDecoration(
                                   color: AppColors.lightBlue,
                                   shape: BoxShape.circle
@@ -162,7 +162,7 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                               height: 80,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  shape: CircleBorder(),
+                                  shape: const CircleBorder(),
                                     backgroundColor: AppColors.blue),
                                 onPressed: () {
                                   context.read<VoiceNoteBloc>().add(const VoiceNoteEvent.record());
@@ -182,7 +182,7 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(20),
+                          padding: const EdgeInsets.all(20),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -193,12 +193,12 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                                     Navigator.of(context, rootNavigator: true)
                                         .pop();
                                   },
-                                  bg: Colors.white,
-                                  textColor: Colors.black,
+                                  bg: AppColors.white,
+                                  textColor: AppColors.black,
                                 ),
                               ),
                               if (state.audio != null)
-                                SizedBox(
+                                const SizedBox(
                                   width: 20,
                                 ),
                               if (state.canSave && (widget.dateTime ?? dateTime) != null && nameController.text.isNotEmpty)
@@ -213,7 +213,7 @@ class _VoiceNoteBottomSheetState extends State<VoiceNoteBottomSheet> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         )
                       ],

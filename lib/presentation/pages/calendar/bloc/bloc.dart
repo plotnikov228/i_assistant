@@ -20,7 +20,7 @@ part 'state.dart';
 part 'bloc.freezed.dart';
 
 class CalendarBloc extends Bloc<CalendarEvent, CalendarState> {
-  CalendarBloc() : super( _Calendar(currentCalendar: 1, calendars: [CalendarEntity(year: DateTime.now().year, month: DateTime.now().month, days: []), CalendarEntity(year: DateTime.now().year, month: DateTime.now().month + 1, days: [])], selectedDay: null, canCleanShiftTypes: false)) {
+  CalendarBloc() : super( _Loading(currentCalendar: 1, calendars: [CalendarEntity(year: DateTime.now().year, month: DateTime.now().month, days: []), CalendarEntity(year: DateTime.now().year, month: DateTime.now().month + 1, days: [])], selectedDay: null)) {
     _initialize();
     on<CalendarEvent>((events, emit) async {
        events.map(selectDay: _selectDay, changeDate: _changeDate, selectShiftTypes: _selectShiftTypes, addShiftType: _addShiftType, confirmShiftTypesChanges: _confirmShiftTypesChanges, getShiftTypes: _getShiftTypes, removeAllShiftTypes: _removeAllShiftTypes, fetch: _fetch, addTask: _addTask, addBirthday: _addBirthday, selectCalendar: _selectCalendar, selectYear: _selectYear, goToSelectYear: _goToSelectYear);
@@ -57,6 +57,10 @@ class CalendarBloc extends Bloc<CalendarEvent, CalendarState> {
 
       _selectedYear = 1;
       print('end -');
+
+      if(state is! _Year) {
+        return;
+      }
       emit(_Year(selectedYear: _selectedYear, years: _years, loading: false));
 
     });
@@ -94,6 +98,9 @@ class CalendarBloc extends Bloc<CalendarEvent, CalendarState> {
       _years.insert(0, YearEntity(year: date.year - 1, calendars: monthList));
 
       _selectedYear = 1;
+    }
+    if(state is! _Year) {
+      return;
     }
     emit(_Year(selectedYear: _selectedYear, years: _years, loading: true));
     emit(_Year(selectedYear: _selectedYear, years: _years, loading: false));

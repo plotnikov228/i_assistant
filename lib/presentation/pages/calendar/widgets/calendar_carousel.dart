@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -26,16 +28,29 @@ class CalendarCarousel extends StatefulWidget {
 class _CalendarCarouselState extends State<CalendarCarousel> {
     final controller = CarouselController();
 
+    int page = 2;
+    bool toDown = false;
 
+    bool listen = false;
+
+    ScrollPhysics physics = PageScrollPhysics();
     void check (int needPage) {
-      Future.delayed(Duration(milliseconds: 200), () {
+      page  = needPage;
+      if(!listen && (toDown && page == widget.calendars.length - 2) || (!toDown && page == 1)) {
+     listen = true;
+          setState(() {
+            physics = NeverScrollableScrollPhysics();
+          });
+    }
+
+    Future.delayed(Duration(milliseconds: 200), () {
         if(controller.page == needPage) {
+          physics = PageScrollPhysics();
+          listen = false;
           context
               .read<CalendarBloc>()
               .add(CalendarEvent.selectCalendar(widget.calendars[needPage]));
-
         } else {
-          print(controller.page);
           check(needPage);
         }
       });
@@ -43,14 +58,15 @@ class _CalendarCarouselState extends State<CalendarCarousel> {
 
     @override
     Widget build(BuildContext context) {
+      page = widget.page;
 
-
-      if(controller.state != null && controller.page < 2 &&  widget.page == 2) {
+      if(controller.state != null && !listen && controller.page < 2 &&  widget.page == 2) {
         controller.jumpToPage(2);
       }
 
 
       return CarouselSlider.builder(
+
           disableGesture: false,
           carouselController: controller,
           itemCount: widget.calendars.length,
@@ -78,22 +94,24 @@ class _CalendarCarouselState extends State<CalendarCarousel> {
                   height: 1,
                     color:  index < widget.page ? Colors.transparent : Color(0xffCDCDCD)
                 ),*/
-                Divider(indent: 0, endIndent: 0, color: Color(0xffCDCDCD),)
+                Divider(indent: 0, endIndent: 0, color: AppColors.white,)
               ],
             );
           },
           options: CarouselOptions(
+            scrollPhysics: physics,
               scrollDirection: Axis.vertical,
               initialPage: widget.page == 0 ? 1 : widget.page,
               pageSnapping: true,
               padEnds: false,
               disableCenter: true,
               enableInfiniteScroll: false,
-              onPageChanged: (page, _) {
-                print('page $page');
-                check(page);
+              onPageChanged: (_page, _) {
+                toDown = page < _page;
+                print('page $_page');
+                check(_page);
               },
-              viewportFraction: ((size.height / 1.5) / size.height),
+              viewportFraction: ((size.height / 1.4) / size.height),
               aspectRatio: 375 / 540));
     }
 }

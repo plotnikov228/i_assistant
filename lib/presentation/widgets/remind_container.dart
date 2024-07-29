@@ -13,9 +13,10 @@ class RemindContainer extends StatefulWidget {
   final DateTime? initialDateTime;
   final Function(bool)? onModeSwitch;
   final Function(DateTime)? onSwitch;
+  final bool closed;
 
   const RemindContainer(
-      {super.key, this.initialDateTime, this.onModeSwitch, this.onSwitch});
+      {super.key, this.initialDateTime, this.onModeSwitch, this.onSwitch, this.closed = true});
 
   @override
   State<RemindContainer> createState() => _RemindContainerState();
@@ -37,10 +38,19 @@ class _RemindContainerState extends State<RemindContainer>
   void initState() {
     // TODO: implement initState
     super.initState();
+    remind = !widget.closed;
     _sizeController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 300));
     _fadeController  = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 300));
+    if(remind) {
+      Future.delayed(Duration(milliseconds: 700), () {
+        _sizeController.animateTo(1).then((value) {
+          _fadeController.animateTo(1);
+        });
+      });
+
+    }
     _sizeController..addListener(() {
       setState(() {
 
@@ -56,12 +66,12 @@ class _RemindContainerState extends State<RemindContainer>
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          const Divider(
+          Divider(
             indent: 0,
             endIndent: 0,
             height: 1,
             thickness: 1,
-            color: AppColors.lightGrey,
+            color: AppColors.dividerGrey,
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
@@ -81,7 +91,7 @@ class _RemindContainerState extends State<RemindContainer>
                     ),
                     Text(
                       'Напоминание',
-                      style: AppStyles.mediumHead.copyWith(color: Colors.black),
+                      style: AppStyles.mediumHead.copyWith(color: AppColors.black),
                     )
                   ],
                 ),
@@ -119,16 +129,17 @@ class _RemindContainerState extends State<RemindContainer>
               opacity: _fadeAnim,
               child: SizedBox(
                   height: 180,
-                  width: double.infinity,
+                  width: size.width,
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
                       Container(
-                        decoration: BoxDecoration(color: Color(0xffEEF4FF)),
+                        decoration: BoxDecoration(color: AppColors.lightBlue),
                         height: 30,
-                        width: double.infinity,
+                        width: size.width,
                       ),
                       CupertinoDatePicker(
+                        backgroundColor: Colors.transparent,
                         mode: CupertinoDatePickerMode.time,
                         initialDateTime: widget.initialDateTime,
                         onDateTimeChanged: (DateTime value) {

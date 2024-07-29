@@ -5,6 +5,8 @@ import 'package:i_assistant/presentation/resources/app_colors.dart';
 import 'package:i_assistant/presentation/resources/app_styles.dart';
 import 'package:i_assistant/utils/constants/shift_type.dart';
 
+import '../../../../utils/shared_prefs.dart';
+
 class DayShiftTypeWidget extends StatelessWidget {
   final ShiftType shiftType;
   final Function()? onDelete;
@@ -20,7 +22,7 @@ class DayShiftTypeWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(32),
-        color: Colors.white,
+        color: AppColors.white,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,12 +36,12 @@ class DayShiftTypeWidget extends StatelessWidget {
             width: 56,
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.lightBlue,
+                  backgroundColor: AppColors.blue,
                   shape: const CircleBorder(),
                   elevation: 0,
                   padding: EdgeInsets.zero
                 ),
-                onPressed: onAdd, child: SvgPicture.asset('assets/images/svg/plus.svg', color: AppColors.blue)),
+                onPressed: onAdd, child: SvgPicture.asset('assets/images/svg/plus.svg', color: Colors.white)),
           ) : Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -52,12 +54,15 @@ class DayShiftTypeWidget extends StatelessWidget {
                 width: 56,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
+                        backgroundColor: AppColors.white,
                         elevation: 0,
                         shape: const CircleBorder(),
                         padding: EdgeInsets.zero
                     ),
-                    onPressed: onDelete, child: SvgPicture.asset('assets/images/svg/trash.svg')),
+                    onPressed: onDelete, child: SvgPicture.asset(
+                    color: SharedPrefs.isThemeDark ? AppColors.black : null,
+
+                    'assets/images/svg/trash.svg')),
               )
 
             ],

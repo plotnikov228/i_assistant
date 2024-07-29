@@ -2843,6 +2843,9 @@ mixin _$CalendarState {
             List<CalendarDay> changedDays,
             CalendarDay? selectedDay)
         shiftType,
+    required TResult Function(int currentCalendar,
+            List<CalendarEntity> calendars, CalendarDay? selectedDay)
+        loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2855,6 +2858,9 @@ mixin _$CalendarState {
     TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay)?
+        loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2867,6 +2873,9 @@ mixin _$CalendarState {
     TResult Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay)?
+        loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -2875,6 +2884,7 @@ mixin _$CalendarState {
     required TResult Function(_Calendar value) calendar,
     required TResult Function(_Year value) year,
     required TResult Function(_ShiftType value) shiftType,
+    required TResult Function(_Loading value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2882,6 +2892,7 @@ mixin _$CalendarState {
     TResult? Function(_Calendar value)? calendar,
     TResult? Function(_Year value)? year,
     TResult? Function(_ShiftType value)? shiftType,
+    TResult? Function(_Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2889,6 +2900,7 @@ mixin _$CalendarState {
     TResult Function(_Calendar value)? calendar,
     TResult Function(_Year value)? year,
     TResult Function(_ShiftType value)? shiftType,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3053,6 +3065,9 @@ class _$CalendarImpl implements _Calendar {
             List<CalendarDay> changedDays,
             CalendarDay? selectedDay)
         shiftType,
+    required TResult Function(int currentCalendar,
+            List<CalendarEntity> calendars, CalendarDay? selectedDay)
+        loading,
   }) {
     return calendar(
         currentCalendar, calendars, selectedDay, canCleanShiftTypes);
@@ -3069,6 +3084,9 @@ class _$CalendarImpl implements _Calendar {
     TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay)?
+        loading,
   }) {
     return calendar?.call(
         currentCalendar, calendars, selectedDay, canCleanShiftTypes);
@@ -3085,6 +3103,9 @@ class _$CalendarImpl implements _Calendar {
     TResult Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay)?
+        loading,
     required TResult orElse(),
   }) {
     if (calendar != null) {
@@ -3100,6 +3121,7 @@ class _$CalendarImpl implements _Calendar {
     required TResult Function(_Calendar value) calendar,
     required TResult Function(_Year value) year,
     required TResult Function(_ShiftType value) shiftType,
+    required TResult Function(_Loading value) loading,
   }) {
     return calendar(this);
   }
@@ -3110,6 +3132,7 @@ class _$CalendarImpl implements _Calendar {
     TResult? Function(_Calendar value)? calendar,
     TResult? Function(_Year value)? year,
     TResult? Function(_ShiftType value)? shiftType,
+    TResult? Function(_Loading value)? loading,
   }) {
     return calendar?.call(this);
   }
@@ -3120,6 +3143,7 @@ class _$CalendarImpl implements _Calendar {
     TResult Function(_Calendar value)? calendar,
     TResult Function(_Year value)? year,
     TResult Function(_ShiftType value)? shiftType,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (calendar != null) {
@@ -3250,8 +3274,11 @@ class _$YearImpl implements _Year {
             List<CalendarDay> changedDays,
             CalendarDay? selectedDay)
         shiftType,
+    required TResult Function(int currentCalendar,
+            List<CalendarEntity> calendars, CalendarDay? selectedDay)
+        loading,
   }) {
-    return year(loading, selectedYear, years);
+    return year(this.loading, selectedYear, years);
   }
 
   @override
@@ -3265,8 +3292,11 @@ class _$YearImpl implements _Year {
     TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay)?
+        loading,
   }) {
-    return year?.call(loading, selectedYear, years);
+    return year?.call(this.loading, selectedYear, years);
   }
 
   @override
@@ -3280,10 +3310,13 @@ class _$YearImpl implements _Year {
     TResult Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay)?
+        loading,
     required TResult orElse(),
   }) {
     if (year != null) {
-      return year(loading, selectedYear, years);
+      return year(this.loading, selectedYear, years);
     }
     return orElse();
   }
@@ -3294,6 +3327,7 @@ class _$YearImpl implements _Year {
     required TResult Function(_Calendar value) calendar,
     required TResult Function(_Year value) year,
     required TResult Function(_ShiftType value) shiftType,
+    required TResult Function(_Loading value) loading,
   }) {
     return year(this);
   }
@@ -3304,6 +3338,7 @@ class _$YearImpl implements _Year {
     TResult? Function(_Calendar value)? calendar,
     TResult? Function(_Year value)? year,
     TResult? Function(_ShiftType value)? shiftType,
+    TResult? Function(_Loading value)? loading,
   }) {
     return year?.call(this);
   }
@@ -3314,6 +3349,7 @@ class _$YearImpl implements _Year {
     TResult Function(_Calendar value)? calendar,
     TResult Function(_Year value)? year,
     TResult Function(_ShiftType value)? shiftType,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (year != null) {
@@ -3485,6 +3521,9 @@ class _$ShiftTypeImpl implements _ShiftType {
             List<CalendarDay> changedDays,
             CalendarDay? selectedDay)
         shiftType,
+    required TResult Function(int currentCalendar,
+            List<CalendarEntity> calendars, CalendarDay? selectedDay)
+        loading,
   }) {
     return shiftType(currentCalendar, calendars, changedDays, selectedDay);
   }
@@ -3500,6 +3539,9 @@ class _$ShiftTypeImpl implements _ShiftType {
     TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay)?
+        loading,
   }) {
     return shiftType?.call(
         currentCalendar, calendars, changedDays, selectedDay);
@@ -3516,6 +3558,9 @@ class _$ShiftTypeImpl implements _ShiftType {
     TResult Function(int currentCalendar, List<CalendarEntity> calendars,
             List<CalendarDay> changedDays, CalendarDay? selectedDay)?
         shiftType,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay)?
+        loading,
     required TResult orElse(),
   }) {
     if (shiftType != null) {
@@ -3530,6 +3575,7 @@ class _$ShiftTypeImpl implements _ShiftType {
     required TResult Function(_Calendar value) calendar,
     required TResult Function(_Year value) year,
     required TResult Function(_ShiftType value) shiftType,
+    required TResult Function(_Loading value) loading,
   }) {
     return shiftType(this);
   }
@@ -3540,6 +3586,7 @@ class _$ShiftTypeImpl implements _ShiftType {
     TResult? Function(_Calendar value)? calendar,
     TResult? Function(_Year value)? year,
     TResult? Function(_ShiftType value)? shiftType,
+    TResult? Function(_Loading value)? loading,
   }) {
     return shiftType?.call(this);
   }
@@ -3550,6 +3597,7 @@ class _$ShiftTypeImpl implements _ShiftType {
     TResult Function(_Calendar value)? calendar,
     TResult Function(_Year value)? year,
     TResult Function(_ShiftType value)? shiftType,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (shiftType != null) {
@@ -3572,5 +3620,230 @@ abstract class _ShiftType implements CalendarState {
   CalendarDay? get selectedDay;
   @JsonKey(ignore: true)
   _$$ShiftTypeImplCopyWith<_$ShiftTypeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {int currentCalendar,
+      List<CalendarEntity> calendars,
+      CalendarDay? selectedDay});
+
+  $CalendarDayCopyWith<$Res>? get selectedDay;
+}
+
+/// @nodoc
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$CalendarStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentCalendar = null,
+    Object? calendars = null,
+    Object? selectedDay = freezed,
+  }) {
+    return _then(_$LoadingImpl(
+      currentCalendar: null == currentCalendar
+          ? _value.currentCalendar
+          : currentCalendar // ignore: cast_nullable_to_non_nullable
+              as int,
+      calendars: null == calendars
+          ? _value._calendars
+          : calendars // ignore: cast_nullable_to_non_nullable
+              as List<CalendarEntity>,
+      selectedDay: freezed == selectedDay
+          ? _value.selectedDay
+          : selectedDay // ignore: cast_nullable_to_non_nullable
+              as CalendarDay?,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CalendarDayCopyWith<$Res>? get selectedDay {
+    if (_value.selectedDay == null) {
+      return null;
+    }
+
+    return $CalendarDayCopyWith<$Res>(_value.selectedDay!, (value) {
+      return _then(_value.copyWith(selectedDay: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl(
+      {required this.currentCalendar,
+      required final List<CalendarEntity> calendars,
+      required this.selectedDay})
+      : _calendars = calendars;
+
+  @override
+  final int currentCalendar;
+  final List<CalendarEntity> _calendars;
+  @override
+  List<CalendarEntity> get calendars {
+    if (_calendars is EqualUnmodifiableListView) return _calendars;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_calendars);
+  }
+
+  @override
+  final CalendarDay? selectedDay;
+
+  @override
+  String toString() {
+    return 'CalendarState.loading(currentCalendar: $currentCalendar, calendars: $calendars, selectedDay: $selectedDay)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingImpl &&
+            (identical(other.currentCalendar, currentCalendar) ||
+                other.currentCalendar == currentCalendar) &&
+            const DeepCollectionEquality()
+                .equals(other._calendars, _calendars) &&
+            (identical(other.selectedDay, selectedDay) ||
+                other.selectedDay == selectedDay));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, currentCalendar,
+      const DeepCollectionEquality().hash(_calendars), selectedDay);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
+      __$$LoadingImplCopyWithImpl<_$LoadingImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            int currentCalendar,
+            List<CalendarEntity> calendars,
+            CalendarDay? selectedDay,
+            bool canCleanShiftTypes)
+        calendar,
+    required TResult Function(
+            bool loading, int selectedYear, List<YearEntity> years)
+        year,
+    required TResult Function(
+            int currentCalendar,
+            List<CalendarEntity> calendars,
+            List<CalendarDay> changedDays,
+            CalendarDay? selectedDay)
+        shiftType,
+    required TResult Function(int currentCalendar,
+            List<CalendarEntity> calendars, CalendarDay? selectedDay)
+        loading,
+  }) {
+    return loading(currentCalendar, calendars, selectedDay);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay, bool canCleanShiftTypes)?
+        calendar,
+    TResult? Function(bool loading, int selectedYear, List<YearEntity> years)?
+        year,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
+            List<CalendarDay> changedDays, CalendarDay? selectedDay)?
+        shiftType,
+    TResult? Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay)?
+        loading,
+  }) {
+    return loading?.call(currentCalendar, calendars, selectedDay);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay, bool canCleanShiftTypes)?
+        calendar,
+    TResult Function(bool loading, int selectedYear, List<YearEntity> years)?
+        year,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
+            List<CalendarDay> changedDays, CalendarDay? selectedDay)?
+        shiftType,
+    TResult Function(int currentCalendar, List<CalendarEntity> calendars,
+            CalendarDay? selectedDay)?
+        loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(currentCalendar, calendars, selectedDay);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Calendar value) calendar,
+    required TResult Function(_Year value) year,
+    required TResult Function(_ShiftType value) shiftType,
+    required TResult Function(_Loading value) loading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Calendar value)? calendar,
+    TResult? Function(_Year value)? year,
+    TResult? Function(_ShiftType value)? shiftType,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Calendar value)? calendar,
+    TResult Function(_Year value)? year,
+    TResult Function(_ShiftType value)? shiftType,
+    TResult Function(_Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading implements CalendarState {
+  const factory _Loading(
+      {required final int currentCalendar,
+      required final List<CalendarEntity> calendars,
+      required final CalendarDay? selectedDay}) = _$LoadingImpl;
+
+  int get currentCalendar;
+  List<CalendarEntity> get calendars;
+  CalendarDay? get selectedDay;
+  @JsonKey(ignore: true)
+  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

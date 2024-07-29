@@ -52,15 +52,15 @@ class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
           color: Colors.transparent,
           child: Container(
 
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(40), topRight: Radius.circular(40))),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
                     height: 5,
                     width: 84,
@@ -71,7 +71,7 @@ class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -84,7 +84,7 @@ class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
                               color: AppColors.blue,
 
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             GestureDetector(
@@ -122,7 +122,7 @@ class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
                             hint: 'День рождения',
                             maxLength: 20,
                             textStyle:
-                                AppStyles.mediumHead.copyWith(color: Colors.black)),
+                                AppStyles.mediumHead.copyWith(color: AppColors.black)),
                         CustomTextField(
                             controller: descriptionController,
                             onChanged: (_) {
@@ -134,7 +134,7 @@ class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
                             maxLength: 300,
                             minLines: 4,
                             maxLines: 4,
-                            textStyle: AppStyles.body.copyWith(color: Colors.black))
+                            textStyle: AppStyles.body.copyWith(color: AppColors.black))
                       ],
                     ),
                   ),
@@ -156,7 +156,7 @@ class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
                           dateTimeRemind = _;
                         },
                       ),
-                      Padding(padding: EdgeInsets.all(20),
+                      Padding(padding: const EdgeInsets.all(20),
                       child: Row(
 
                         children: [
@@ -164,11 +164,11 @@ class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
                             child: CustomButton(title: 'Отмена', onTap: (){
                               Navigator.of(context, rootNavigator: true).pop();
                             },
-                            bg: Colors.white,
-                              textColor: Colors.black,
+                            bg: AppColors.white,
+                              textColor: AppColors.black,
                             ),
                           ),
-                          SizedBox(width: 20,),
+                          const SizedBox(width: 20,),
                           Expanded(
                             child: CustomButton(title: 'Сохранить', active: validate(), onTap: validate() ? () {
                               
@@ -182,7 +182,7 @@ class _BirthdayBottomSheetState extends State<BirthdayBottomSheet> {
                         ],
                       ),
                       ),
-                      SizedBox(height: 10,)
+                      const SizedBox(height: 10,)
                     ],
                   ),
                 )

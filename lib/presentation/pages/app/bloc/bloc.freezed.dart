@@ -284,6 +284,7 @@ mixin _$AppState {
     required TResult Function() welcome,
     required TResult Function() authorized,
     required TResult Function() notAuthorized,
+    required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -291,6 +292,7 @@ mixin _$AppState {
     TResult? Function()? welcome,
     TResult? Function()? authorized,
     TResult? Function()? notAuthorized,
+    TResult? Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -298,6 +300,7 @@ mixin _$AppState {
     TResult Function()? welcome,
     TResult Function()? authorized,
     TResult Function()? notAuthorized,
+    TResult Function()? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -306,6 +309,7 @@ mixin _$AppState {
     required TResult Function(_Welcome value) welcome,
     required TResult Function(_Authorized value) authorized,
     required TResult Function(_NotAuthorized value) notAuthorized,
+    required TResult Function(_Loading value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -313,6 +317,7 @@ mixin _$AppState {
     TResult? Function(_Welcome value)? welcome,
     TResult? Function(_Authorized value)? authorized,
     TResult? Function(_NotAuthorized value)? notAuthorized,
+    TResult? Function(_Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -320,6 +325,7 @@ mixin _$AppState {
     TResult Function(_Welcome value)? welcome,
     TResult Function(_Authorized value)? authorized,
     TResult Function(_NotAuthorized value)? notAuthorized,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -383,6 +389,7 @@ class _$WelcomeImpl implements _Welcome {
     required TResult Function() welcome,
     required TResult Function() authorized,
     required TResult Function() notAuthorized,
+    required TResult Function() loading,
   }) {
     return welcome();
   }
@@ -393,6 +400,7 @@ class _$WelcomeImpl implements _Welcome {
     TResult? Function()? welcome,
     TResult? Function()? authorized,
     TResult? Function()? notAuthorized,
+    TResult? Function()? loading,
   }) {
     return welcome?.call();
   }
@@ -403,6 +411,7 @@ class _$WelcomeImpl implements _Welcome {
     TResult Function()? welcome,
     TResult Function()? authorized,
     TResult Function()? notAuthorized,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (welcome != null) {
@@ -417,6 +426,7 @@ class _$WelcomeImpl implements _Welcome {
     required TResult Function(_Welcome value) welcome,
     required TResult Function(_Authorized value) authorized,
     required TResult Function(_NotAuthorized value) notAuthorized,
+    required TResult Function(_Loading value) loading,
   }) {
     return welcome(this);
   }
@@ -427,6 +437,7 @@ class _$WelcomeImpl implements _Welcome {
     TResult? Function(_Welcome value)? welcome,
     TResult? Function(_Authorized value)? authorized,
     TResult? Function(_NotAuthorized value)? notAuthorized,
+    TResult? Function(_Loading value)? loading,
   }) {
     return welcome?.call(this);
   }
@@ -437,6 +448,7 @@ class _$WelcomeImpl implements _Welcome {
     TResult Function(_Welcome value)? welcome,
     TResult Function(_Authorized value)? authorized,
     TResult Function(_NotAuthorized value)? notAuthorized,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (welcome != null) {
@@ -491,6 +503,7 @@ class _$AuthorizedImpl implements _Authorized {
     required TResult Function() welcome,
     required TResult Function() authorized,
     required TResult Function() notAuthorized,
+    required TResult Function() loading,
   }) {
     return authorized();
   }
@@ -501,6 +514,7 @@ class _$AuthorizedImpl implements _Authorized {
     TResult? Function()? welcome,
     TResult? Function()? authorized,
     TResult? Function()? notAuthorized,
+    TResult? Function()? loading,
   }) {
     return authorized?.call();
   }
@@ -511,6 +525,7 @@ class _$AuthorizedImpl implements _Authorized {
     TResult Function()? welcome,
     TResult Function()? authorized,
     TResult Function()? notAuthorized,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (authorized != null) {
@@ -525,6 +540,7 @@ class _$AuthorizedImpl implements _Authorized {
     required TResult Function(_Welcome value) welcome,
     required TResult Function(_Authorized value) authorized,
     required TResult Function(_NotAuthorized value) notAuthorized,
+    required TResult Function(_Loading value) loading,
   }) {
     return authorized(this);
   }
@@ -535,6 +551,7 @@ class _$AuthorizedImpl implements _Authorized {
     TResult? Function(_Welcome value)? welcome,
     TResult? Function(_Authorized value)? authorized,
     TResult? Function(_NotAuthorized value)? notAuthorized,
+    TResult? Function(_Loading value)? loading,
   }) {
     return authorized?.call(this);
   }
@@ -545,6 +562,7 @@ class _$AuthorizedImpl implements _Authorized {
     TResult Function(_Welcome value)? welcome,
     TResult Function(_Authorized value)? authorized,
     TResult Function(_NotAuthorized value)? notAuthorized,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (authorized != null) {
@@ -599,6 +617,7 @@ class _$NotAuthorizedImpl implements _NotAuthorized {
     required TResult Function() welcome,
     required TResult Function() authorized,
     required TResult Function() notAuthorized,
+    required TResult Function() loading,
   }) {
     return notAuthorized();
   }
@@ -609,6 +628,7 @@ class _$NotAuthorizedImpl implements _NotAuthorized {
     TResult? Function()? welcome,
     TResult? Function()? authorized,
     TResult? Function()? notAuthorized,
+    TResult? Function()? loading,
   }) {
     return notAuthorized?.call();
   }
@@ -619,6 +639,7 @@ class _$NotAuthorizedImpl implements _NotAuthorized {
     TResult Function()? welcome,
     TResult Function()? authorized,
     TResult Function()? notAuthorized,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (notAuthorized != null) {
@@ -633,6 +654,7 @@ class _$NotAuthorizedImpl implements _NotAuthorized {
     required TResult Function(_Welcome value) welcome,
     required TResult Function(_Authorized value) authorized,
     required TResult Function(_NotAuthorized value) notAuthorized,
+    required TResult Function(_Loading value) loading,
   }) {
     return notAuthorized(this);
   }
@@ -643,6 +665,7 @@ class _$NotAuthorizedImpl implements _NotAuthorized {
     TResult? Function(_Welcome value)? welcome,
     TResult? Function(_Authorized value)? authorized,
     TResult? Function(_NotAuthorized value)? notAuthorized,
+    TResult? Function(_Loading value)? loading,
   }) {
     return notAuthorized?.call(this);
   }
@@ -653,6 +676,7 @@ class _$NotAuthorizedImpl implements _NotAuthorized {
     TResult Function(_Welcome value)? welcome,
     TResult Function(_Authorized value)? authorized,
     TResult Function(_NotAuthorized value)? notAuthorized,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (notAuthorized != null) {
@@ -664,4 +688,118 @@ class _$NotAuthorizedImpl implements _NotAuthorized {
 
 abstract class _NotAuthorized implements AppState {
   const factory _NotAuthorized() = _$NotAuthorizedImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl();
+
+  @override
+  String toString() {
+    return 'AppState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() welcome,
+    required TResult Function() authorized,
+    required TResult Function() notAuthorized,
+    required TResult Function() loading,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? welcome,
+    TResult? Function()? authorized,
+    TResult? Function()? notAuthorized,
+    TResult? Function()? loading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? welcome,
+    TResult Function()? authorized,
+    TResult Function()? notAuthorized,
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Welcome value) welcome,
+    required TResult Function(_Authorized value) authorized,
+    required TResult Function(_NotAuthorized value) notAuthorized,
+    required TResult Function(_Loading value) loading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Welcome value)? welcome,
+    TResult? Function(_Authorized value)? authorized,
+    TResult? Function(_NotAuthorized value)? notAuthorized,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Welcome value)? welcome,
+    TResult Function(_Authorized value)? authorized,
+    TResult Function(_NotAuthorized value)? notAuthorized,
+    TResult Function(_Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading implements AppState {
+  const factory _Loading() = _$LoadingImpl;
 }

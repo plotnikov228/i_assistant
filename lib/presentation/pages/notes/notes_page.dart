@@ -14,6 +14,7 @@ import 'package:i_assistant/presentation/widgets/buttons/custom_button.dart';
 import 'package:i_assistant/utils/size_utils.dart';
 
 import '../../../utils/bottom_sheet_handler.dart';
+import '../../../utils/shared_prefs.dart';
 import '../../widgets/bottom_sheets/note_view_bottom_sheet.dart';
 import '../../widgets/bottom_sheets/select_note_type_bottom_sheet.dart';
 import '../../widgets/bottom_sheets/text_note_bottom_sheet.dart';
@@ -57,6 +58,8 @@ class NotesPage extends StatelessWidget {
                                             backgroundColor: AppColors.dividerGrey),
                                         child: SvgPicture.asset(
                                           'assets/images/svg/pop.svg',
+                                          color: SharedPrefs.isThemeDark ? AppColors.black : null,
+
                                           height: 24,
                                         )),
                                     AnimatedOpacity(
@@ -81,7 +84,7 @@ class NotesPage extends StatelessWidget {
                                 Text(
                                   'Заметки',
                                   style: AppStyles.mediumTitle
-                                      .copyWith(color: Colors.black),
+                                      .copyWith(color:AppColors.black),
                                 ),
                               ]),
                         ),
@@ -189,6 +192,7 @@ class NotesPage extends StatelessWidget {
                               useRootNavigator: true);
                         },
                         title: 'Создать заметку',
+
                         suffix: const Icon(
                           Icons.add,
                           size: 18,
@@ -205,7 +209,7 @@ class NotesPage extends StatelessWidget {
                               },
                               title: 'Отменить',
                               bg: AppColors.dividerGrey,
-                              textColor: Colors.black,
+                              textColor: AppColors.black,
                             ),
                           ),
                           const SizedBox(width: 10,),

@@ -16,8 +16,8 @@ class DeleteAllShiftBottomSheet extends StatelessWidget {
         elevation: 0,
         color: Colors.transparent,
         child: Container(
-            decoration: const BoxDecoration(
-                color: Colors.white,
+            decoration: BoxDecoration(
+                color: AppColors.white,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40))),
@@ -37,7 +37,7 @@ class DeleteAllShiftBottomSheet extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 child: Text(
                   'Вы уверены, что хотите удалить все смены?',
-                  style: AppStyles.mediumHead.copyWith(color: Colors.black),
+                  style: AppStyles.mediumHead.copyWith(color: AppColors.black),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -46,8 +46,8 @@ class DeleteAllShiftBottomSheet extends StatelessWidget {
                   Expanded(
                       child: CustomButton(
                     title: 'Отмена',
-                    bg: Colors.white,
-                    textColor: Colors.black,
+                    bg: AppColors.white,
+                    textColor: AppColors.black,
                     onTap: () {
                       Navigator.pop(context);
                       onCancel?.call();
@@ -64,7 +64,7 @@ class DeleteAllShiftBottomSheet extends StatelessWidget {
 
                         onOk?.call();
                       },
-                      bg: Colors.red,
+                      bg: AppColors.red,
                     ),
                   ),
                 ],

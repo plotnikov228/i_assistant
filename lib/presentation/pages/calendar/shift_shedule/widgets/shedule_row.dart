@@ -21,7 +21,7 @@ class SheduleRow extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       decoration: BoxDecoration(
         border:
-            Border.all(color: selected ? AppColors.blue : AppColors.dividerGrey),
+            Border.all(color: selected ? AppColors.blue : AppColors.circleBorder),
         borderRadius: BorderRadius.circular(100),
       ),
       child: Row(

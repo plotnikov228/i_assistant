@@ -31,7 +31,7 @@ class CalendarDayWidget extends StatelessWidget {
           ? AppColors.night
           : shiftType == ShiftType.day
               ? AppColors.day
-              : selected ?  AppColors.lightGrey : Color(0xffFBFBFB);
+              : selected ?  AppColors.lightGrey : AppColors.dividerGrey;
       return Container(
 
         height: size,
@@ -116,7 +116,7 @@ class CalendarDayWidget extends StatelessWidget {
                   fontSize: fontSize,
                   color: (calendarDay.date.weekday > 5
                       ? AppColors.red
-                      : Colors.black)
+                      : AppColors.black)
                       .withOpacity(currentMonth ? 1 : 0.25)),
             ) :
             FittedBox(
@@ -127,7 +127,7 @@ class CalendarDayWidget extends StatelessWidget {
                   fontSize: fontSize,
                     color: (calendarDay.date.weekday > 5
                             ? AppColors.red
-                            : Colors.black)
+                            : AppColors.black)
                         .withOpacity(currentMonth ? 1 : 0.25)),
               ),
             ),

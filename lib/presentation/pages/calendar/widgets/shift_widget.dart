@@ -51,7 +51,7 @@ class ShiftWidget extends StatelessWidget {
       if (shiftType == ShiftType.both) {
         return [AppColors.day, AppColors.night];
       }
-      return <Color>[Colors.white];
+      return <Color>[AppColors.white];
     }();
     if (svgPaths.length > 1) {
       return GestureDetector(
@@ -90,6 +90,7 @@ class ShiftWidget extends StatelessWidget {
               child: Center(
                   child: SvgPicture.asset(
                 svgPaths[index],
+                color: shiftType.fromType(),
                 height: 22,
               )),
             );
@@ -140,7 +141,7 @@ class ShiftWidget extends StatelessWidget {
             border: selected
                 ? Border.all(color: AppColors.blue)
                 : showBorder
-                    ? Border.all(color: AppColors.dividerGrey)
+                    ? Border.all(color: AppColors.circleBorder)
                     : null),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -150,12 +151,13 @@ class ShiftWidget extends StatelessWidget {
                 : Center(
                     child: SvgPicture.asset(
                     svgPaths[0],
+                    color: shiftType.fromType(),
                     height: 22,
                   )),
             if(showText)
             Padding(
               padding: const EdgeInsets.only(left: 5),
-              child: Text(shiftType.title, style: AppStyles.body.copyWith(color: shiftType.color),),
+              child: Text(shiftType.title, style: AppStyles.body.copyWith(color:  shiftType.fromType()),),
             )
           ],
         ),

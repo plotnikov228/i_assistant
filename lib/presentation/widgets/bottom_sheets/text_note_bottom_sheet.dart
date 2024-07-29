@@ -51,8 +51,8 @@ class _TextNoteBottomSheetState extends State<TextNoteBottomSheet> {
           color: Colors.transparent,
           child: Container(
 
-            decoration: const BoxDecoration(
-                color: Colors.white,
+            decoration: BoxDecoration(
+                color: AppColors.white,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40), topRight: Radius.circular(40))),
             child: Column(
@@ -120,7 +120,7 @@ class _TextNoteBottomSheetState extends State<TextNoteBottomSheet> {
                             hint: 'Новая заметка',
                             maxLength: 20,
                             textStyle:
-                            AppStyles.mediumHead.copyWith(color: Colors.black)),
+                            AppStyles.mediumHead.copyWith(color: AppColors.black)),
                         CustomTextField(
                             controller: descriptionController,
                             onChanged: (_) {
@@ -132,7 +132,7 @@ class _TextNoteBottomSheetState extends State<TextNoteBottomSheet> {
                             maxLength: 300,
                             minLines: 5,
                             maxLines: 5,
-                            textStyle: AppStyles.body.copyWith(color: Colors.black))
+                            textStyle: AppStyles.body.copyWith(color: AppColors.black))
                       ],
                     ),
                   ),
@@ -151,8 +151,8 @@ class _TextNoteBottomSheetState extends State<TextNoteBottomSheet> {
                               child: CustomButton(title: 'Отмена', onTap: (){
                                 Navigator.of(context, rootNavigator: true).pop();
                               },
-                                bg: Colors.white,
-                                textColor: Colors.black,
+                                bg: AppColors.white,
+                                textColor: AppColors.black,
                               ),
                             ),
                             SizedBox(width: 20,),

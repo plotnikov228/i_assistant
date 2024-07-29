@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:i_assistant/blocs/theme/bloc.dart';
 import 'package:i_assistant/presentation/pages/navigator_handler/bloc/bloc.dart';
 import 'package:i_assistant/utils/extensions/go_router_extension.dart';
 
@@ -70,7 +71,7 @@ class ScaffoldWithBottomNavBarState extends State<ScaffoldWithBottomNavBar> {
                 width: 20,
                 color: widget.navigationShell.currentIndex == index
                     ? AppColors.blue
-                    : Colors.black,
+                    : AppColors.black,
                 fit: BoxFit.contain,
               ),
             )),
@@ -95,68 +96,72 @@ class ScaffoldWithBottomNavBarState extends State<ScaffoldWithBottomNavBar> {
         },
         child: BlocBuilder<NavigatorBloc, NavigatorViewState>(
             builder: (context, state) {
-          return Scaffold(
-            key: navigationHandlerScaffoldKey,
-            backgroundColor: AppColors.blue,
-            body: Stack(
-              children: [
-                Column(
+          return  BlocBuilder<ThemeBloc,ThemeState>(
+              builder: (context, themeState) {
+              return Scaffold(
+                key: navigationHandlerScaffoldKey,
+                backgroundColor: AppColors.white,
+                body: Stack(
                   children: [
-                    Expanded(child: widget.navigationShell),
-                    SizedBox(
-                      height: state.maybeWhen(orElse: () {
-                        return Platform.isIOS ?  45 : 35;
-                      }, hide: () {
-                        return 0;
-                      }),
-                    )
+                    Column(
+                      children: [
+                        Expanded(child: widget.navigationShell),
+                        SizedBox(
+                          height: state.maybeWhen(orElse: () {
+                            return Platform.isIOS ?  45 : 35;
+                          }, hide: () {
+                            return 0;
+                          }),
+                        )
+                      ],
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: SizedBox(
+                        height: state.maybeWhen(orElse: () {
+                          return null;
+                        }, hide: () {
+                          return 0;
+                        }),
+                        child: ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(40),
+                                topLeft: Radius.circular(40)),
+                            child: Theme(
+                              data: ThemeData(
+                                splashColor: Colors.transparent,
+                                highlightColor: AppColors.lightBlue,
+                              ),
+                              child: BottomNavigationBar(
+                                selectedFontSize: 0,
+                                unselectedFontSize: 0,
+
+                                type: BottomNavigationBarType.fixed,
+                                showSelectedLabels: false,
+                                showUnselectedLabels: false,
+
+                                unselectedItemColor: Colors.black,
+                                landscapeLayout:
+                                    BottomNavigationBarLandscapeLayout.centered,
+
+                                selectedItemColor: AppColors.blue,
+                                backgroundColor: AppColors.white,
+                                currentIndex: widget.navigationShell.currentIndex,
+                                items: [
+                                  _item(0, 'calendar'),
+                                  _item(1, 'notes'),
+                                  _item(2, 'menu'),
+                                  _item(3, 'settings'),
+                                ],
+                                onTap: (index) => _chandeIndex(index),
+                              ),
+                            )),
+                      ),
+                    ),
                   ],
                 ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: SizedBox(
-                    height: state.maybeWhen(orElse: () {
-                      return null;
-                    }, hide: () {
-                      return 0;
-                    }),
-                    child: ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(40),
-                            topLeft: Radius.circular(40)),
-                        child: Theme(
-                          data: ThemeData(
-                            splashColor: Colors.transparent,
-                            highlightColor: AppColors.lightBlue,
-                          ),
-                          child: BottomNavigationBar(
-                            selectedFontSize: 0,
-                            unselectedFontSize: 0,
-
-                            type: BottomNavigationBarType.fixed,
-                            showSelectedLabels: false,
-                            showUnselectedLabels: false,
-
-                            unselectedItemColor: Colors.black,
-                            landscapeLayout:
-                                BottomNavigationBarLandscapeLayout.centered,
-
-                            selectedItemColor: AppColors.blue,
-                            backgroundColor: Colors.white,
-                            currentIndex: widget.navigationShell.currentIndex,
-                            items: [
-                              _item(0, 'calendar'),
-                              _item(1, 'notes'),
-                              _item(2, 'menu'),
-                              _item(3, 'settings'),
-                            ],
-                            onTap: (index) => _chandeIndex(index),
-                          ),
-                        )),
-                  ),
-                ),
-              ],
-            ),
+              );
+            }
           );
         }),
       ),

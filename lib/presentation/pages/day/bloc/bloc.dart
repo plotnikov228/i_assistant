@@ -20,7 +20,7 @@ part 'event.dart';
 
 part 'state.dart';
 
-part 'bloc.freeze.dart';
+part 'bloc.freezed.dart';
 
 class DayBloc extends Bloc<DayEvent, DayState> {
   final CalendarDay day;
@@ -44,7 +44,7 @@ class DayBloc extends Bloc<DayEvent, DayState> {
           removeNote: _removeVoiceNote,
           addTask: _addTask,
           addBirthday: _addBirthday,
-          selectTask: _selectTask, removeTask: _removeTask, removeBirthday: _removeBirthday);
+          selectTask: _selectTask, removeTask: _removeTask, removeBirthday: _removeBirthday, removeAllData: _removeAllData);
     });
   }
 
@@ -52,6 +52,19 @@ class DayBloc extends Bloc<DayEvent, DayState> {
   final _calendarRepo = CalendarRepositoryImpl();
   final _taskRepo = TasksRepositoryImpl(hiveDBTag: HiveDBTags.tasks);
   final _birthdayRepo = TasksRepositoryImpl(hiveDBTag: HiveDBTags.birthdays);
+
+
+  _removeAllData (_RemoveAllData value) async {
+      await _taskRepo.removeTasks(_tasks.map((e) => e.id).toList());
+      await _notesRepo.removeNotes(_textNotes .map((e) => e.id).toList() + _audioNotes .map((e) => e.id).toList());
+      await _birthdayRepo.removeTasks(_birthdays.map((e) => e.id).toList());
+      await _taskRepo.removeTasks(_tasks.map((e) => e.id).toList());
+      _tasks = [];
+      _textNotes = [];
+      _audioNotes = [];
+      _birthdays = [];
+      add(DayEvent.selectShiftType(ShiftType.empty));
+  }
 
   _removeBirthday (_RemoveBirthday value) async {
     await _birthdayRepo.removeTasks(

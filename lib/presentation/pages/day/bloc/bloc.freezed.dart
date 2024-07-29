@@ -28,6 +28,7 @@ mixin _$DayEvent {
     required TResult Function(Task task) removeTask,
     required TResult Function(Task task) addBirthday,
     required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +43,7 @@ mixin _$DayEvent {
     TResult? Function(Task task)? removeTask,
     TResult? Function(Task task)? addBirthday,
     TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +58,7 @@ mixin _$DayEvent {
     TResult Function(Task task)? removeTask,
     TResult Function(Task task)? addBirthday,
     TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,6 +74,7 @@ mixin _$DayEvent {
     required TResult Function(_RemoveTask value) removeTask,
     required TResult Function(_AddBirthday value) addBirthday,
     required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,6 +89,7 @@ mixin _$DayEvent {
     TResult? Function(_RemoveTask value)? removeTask,
     TResult? Function(_AddBirthday value)? addBirthday,
     TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,6 +104,7 @@ mixin _$DayEvent {
     TResult Function(_RemoveTask value)? removeTask,
     TResult Function(_AddBirthday value)? addBirthday,
     TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -177,7 +183,7 @@ class _$AddTextNoteImpl implements _AddTextNote {
 
   @override
   bool operator ==(Object other) {
-    return false ?? identical(this, other) ||
+    return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddTextNoteImpl &&
             (identical(other.text, text) || other.text == text));
@@ -205,6 +211,7 @@ class _$AddTextNoteImpl implements _AddTextNote {
     required TResult Function(Task task) removeTask,
     required TResult Function(Task task) addBirthday,
     required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
   }) {
     return addTextNote(text);
   }
@@ -222,6 +229,7 @@ class _$AddTextNoteImpl implements _AddTextNote {
     TResult? Function(Task task)? removeTask,
     TResult? Function(Task task)? addBirthday,
     TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
   }) {
     return addTextNote?.call(text);
   }
@@ -239,6 +247,7 @@ class _$AddTextNoteImpl implements _AddTextNote {
     TResult Function(Task task)? removeTask,
     TResult Function(Task task)? addBirthday,
     TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
     required TResult orElse(),
   }) {
     if (addTextNote != null) {
@@ -260,6 +269,7 @@ class _$AddTextNoteImpl implements _AddTextNote {
     required TResult Function(_RemoveTask value) removeTask,
     required TResult Function(_AddBirthday value) addBirthday,
     required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
   }) {
     return addTextNote(this);
   }
@@ -277,6 +287,7 @@ class _$AddTextNoteImpl implements _AddTextNote {
     TResult? Function(_RemoveTask value)? removeTask,
     TResult? Function(_AddBirthday value)? addBirthday,
     TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
   }) {
     return addTextNote?.call(this);
   }
@@ -294,6 +305,7 @@ class _$AddTextNoteImpl implements _AddTextNote {
     TResult Function(_RemoveTask value)? removeTask,
     TResult Function(_AddBirthday value)? addBirthday,
     TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
     required TResult orElse(),
   }) {
     if (addTextNote != null) {
@@ -368,7 +380,7 @@ class _$AddVoiceNoteImpl implements _AddVoiceNote {
 
   @override
   bool operator ==(Object other) {
-    return false ?? identical(this, other) ||
+    return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddVoiceNoteImpl &&
             (identical(other.voiceNote, voiceNote) ||
@@ -397,6 +409,7 @@ class _$AddVoiceNoteImpl implements _AddVoiceNote {
     required TResult Function(Task task) removeTask,
     required TResult Function(Task task) addBirthday,
     required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
   }) {
     return addVoiceNote(voiceNote);
   }
@@ -414,6 +427,7 @@ class _$AddVoiceNoteImpl implements _AddVoiceNote {
     TResult? Function(Task task)? removeTask,
     TResult? Function(Task task)? addBirthday,
     TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
   }) {
     return addVoiceNote?.call(voiceNote);
   }
@@ -431,6 +445,7 @@ class _$AddVoiceNoteImpl implements _AddVoiceNote {
     TResult Function(Task task)? removeTask,
     TResult Function(Task task)? addBirthday,
     TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
     required TResult orElse(),
   }) {
     if (addVoiceNote != null) {
@@ -452,6 +467,7 @@ class _$AddVoiceNoteImpl implements _AddVoiceNote {
     required TResult Function(_RemoveTask value) removeTask,
     required TResult Function(_AddBirthday value) addBirthday,
     required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
   }) {
     return addVoiceNote(this);
   }
@@ -469,6 +485,7 @@ class _$AddVoiceNoteImpl implements _AddVoiceNote {
     TResult? Function(_RemoveTask value)? removeTask,
     TResult? Function(_AddBirthday value)? addBirthday,
     TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
   }) {
     return addVoiceNote?.call(this);
   }
@@ -486,6 +503,7 @@ class _$AddVoiceNoteImpl implements _AddVoiceNote {
     TResult Function(_RemoveTask value)? removeTask,
     TResult Function(_AddBirthday value)? addBirthday,
     TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
     required TResult orElse(),
   }) {
     if (addVoiceNote != null) {
@@ -560,7 +578,7 @@ class _$RemoveVoiceNoteImpl implements _RemoveVoiceNote {
 
   @override
   bool operator ==(Object other) {
-    return false ?? identical(this, other) ||
+    return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoveVoiceNoteImpl &&
             (identical(other.note, note) || other.note == note));
@@ -589,6 +607,7 @@ class _$RemoveVoiceNoteImpl implements _RemoveVoiceNote {
     required TResult Function(Task task) removeTask,
     required TResult Function(Task task) addBirthday,
     required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
   }) {
     return removeNote(note);
   }
@@ -606,6 +625,7 @@ class _$RemoveVoiceNoteImpl implements _RemoveVoiceNote {
     TResult? Function(Task task)? removeTask,
     TResult? Function(Task task)? addBirthday,
     TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
   }) {
     return removeNote?.call(note);
   }
@@ -623,6 +643,7 @@ class _$RemoveVoiceNoteImpl implements _RemoveVoiceNote {
     TResult Function(Task task)? removeTask,
     TResult Function(Task task)? addBirthday,
     TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
     required TResult orElse(),
   }) {
     if (removeNote != null) {
@@ -644,6 +665,7 @@ class _$RemoveVoiceNoteImpl implements _RemoveVoiceNote {
     required TResult Function(_RemoveTask value) removeTask,
     required TResult Function(_AddBirthday value) addBirthday,
     required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
   }) {
     return removeNote(this);
   }
@@ -661,6 +683,7 @@ class _$RemoveVoiceNoteImpl implements _RemoveVoiceNote {
     TResult? Function(_RemoveTask value)? removeTask,
     TResult? Function(_AddBirthday value)? addBirthday,
     TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
   }) {
     return removeNote?.call(this);
   }
@@ -678,6 +701,7 @@ class _$RemoveVoiceNoteImpl implements _RemoveVoiceNote {
     TResult Function(_RemoveTask value)? removeTask,
     TResult Function(_AddBirthday value)? addBirthday,
     TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
     required TResult orElse(),
   }) {
     if (removeNote != null) {
@@ -742,7 +766,7 @@ class _$GoToTodayImpl implements _GoToToday {
 
   @override
   bool operator ==(Object other) {
-    return false ?? identical(this, other) ||
+    return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GoToTodayImpl &&
             (identical(other.nextOrPrev, nextOrPrev) ||
@@ -771,6 +795,7 @@ class _$GoToTodayImpl implements _GoToToday {
     required TResult Function(Task task) removeTask,
     required TResult Function(Task task) addBirthday,
     required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
   }) {
     return goToDay(nextOrPrev);
   }
@@ -788,6 +813,7 @@ class _$GoToTodayImpl implements _GoToToday {
     TResult? Function(Task task)? removeTask,
     TResult? Function(Task task)? addBirthday,
     TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
   }) {
     return goToDay?.call(nextOrPrev);
   }
@@ -805,6 +831,7 @@ class _$GoToTodayImpl implements _GoToToday {
     TResult Function(Task task)? removeTask,
     TResult Function(Task task)? addBirthday,
     TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
     required TResult orElse(),
   }) {
     if (goToDay != null) {
@@ -826,6 +853,7 @@ class _$GoToTodayImpl implements _GoToToday {
     required TResult Function(_RemoveTask value) removeTask,
     required TResult Function(_AddBirthday value) addBirthday,
     required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
   }) {
     return goToDay(this);
   }
@@ -843,6 +871,7 @@ class _$GoToTodayImpl implements _GoToToday {
     TResult? Function(_RemoveTask value)? removeTask,
     TResult? Function(_AddBirthday value)? addBirthday,
     TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
   }) {
     return goToDay?.call(this);
   }
@@ -860,6 +889,7 @@ class _$GoToTodayImpl implements _GoToToday {
     TResult Function(_RemoveTask value)? removeTask,
     TResult Function(_AddBirthday value)? addBirthday,
     TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
     required TResult orElse(),
   }) {
     if (goToDay != null) {
@@ -924,7 +954,7 @@ class _$SelectShiftTypeImpl implements _SelectShiftType {
 
   @override
   bool operator ==(Object other) {
-    return false ?? identical(this, other) ||
+    return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SelectShiftTypeImpl &&
             (identical(other.shiftType, shiftType) ||
@@ -954,6 +984,7 @@ class _$SelectShiftTypeImpl implements _SelectShiftType {
     required TResult Function(Task task) removeTask,
     required TResult Function(Task task) addBirthday,
     required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
   }) {
     return selectShiftType(shiftType);
   }
@@ -971,6 +1002,7 @@ class _$SelectShiftTypeImpl implements _SelectShiftType {
     TResult? Function(Task task)? removeTask,
     TResult? Function(Task task)? addBirthday,
     TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
   }) {
     return selectShiftType?.call(shiftType);
   }
@@ -988,6 +1020,7 @@ class _$SelectShiftTypeImpl implements _SelectShiftType {
     TResult Function(Task task)? removeTask,
     TResult Function(Task task)? addBirthday,
     TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
     required TResult orElse(),
   }) {
     if (selectShiftType != null) {
@@ -1009,6 +1042,7 @@ class _$SelectShiftTypeImpl implements _SelectShiftType {
     required TResult Function(_RemoveTask value) removeTask,
     required TResult Function(_AddBirthday value) addBirthday,
     required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
   }) {
     return selectShiftType(this);
   }
@@ -1026,6 +1060,7 @@ class _$SelectShiftTypeImpl implements _SelectShiftType {
     TResult? Function(_RemoveTask value)? removeTask,
     TResult? Function(_AddBirthday value)? addBirthday,
     TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
   }) {
     return selectShiftType?.call(this);
   }
@@ -1043,6 +1078,7 @@ class _$SelectShiftTypeImpl implements _SelectShiftType {
     TResult Function(_RemoveTask value)? removeTask,
     TResult Function(_AddBirthday value)? addBirthday,
     TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
     required TResult orElse(),
   }) {
     if (selectShiftType != null) {
@@ -1118,7 +1154,7 @@ class _$AddTaskImpl implements _AddTask {
 
   @override
   bool operator ==(Object other) {
-    return false ?? identical(this, other) ||
+    return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddTaskImpl &&
             (identical(other.task, task) || other.task == task));
@@ -1146,6 +1182,7 @@ class _$AddTaskImpl implements _AddTask {
     required TResult Function(Task task) removeTask,
     required TResult Function(Task task) addBirthday,
     required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
   }) {
     return addTask(task);
   }
@@ -1163,6 +1200,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult? Function(Task task)? removeTask,
     TResult? Function(Task task)? addBirthday,
     TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
   }) {
     return addTask?.call(task);
   }
@@ -1180,6 +1218,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult Function(Task task)? removeTask,
     TResult Function(Task task)? addBirthday,
     TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
     required TResult orElse(),
   }) {
     if (addTask != null) {
@@ -1201,6 +1240,7 @@ class _$AddTaskImpl implements _AddTask {
     required TResult Function(_RemoveTask value) removeTask,
     required TResult Function(_AddBirthday value) addBirthday,
     required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
   }) {
     return addTask(this);
   }
@@ -1218,6 +1258,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult? Function(_RemoveTask value)? removeTask,
     TResult? Function(_AddBirthday value)? addBirthday,
     TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
   }) {
     return addTask?.call(this);
   }
@@ -1235,6 +1276,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult Function(_RemoveTask value)? removeTask,
     TResult Function(_AddBirthday value)? addBirthday,
     TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
     required TResult orElse(),
   }) {
     if (addTask != null) {
@@ -1309,7 +1351,7 @@ class _$SelectTaskImpl implements _SelectTask {
 
   @override
   bool operator ==(Object other) {
-    return false ?? identical(this, other) ||
+    return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SelectTaskImpl &&
             (identical(other.task, task) || other.task == task));
@@ -1337,6 +1379,7 @@ class _$SelectTaskImpl implements _SelectTask {
     required TResult Function(Task task) removeTask,
     required TResult Function(Task task) addBirthday,
     required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
   }) {
     return selectTask(task);
   }
@@ -1354,6 +1397,7 @@ class _$SelectTaskImpl implements _SelectTask {
     TResult? Function(Task task)? removeTask,
     TResult? Function(Task task)? addBirthday,
     TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
   }) {
     return selectTask?.call(task);
   }
@@ -1371,6 +1415,7 @@ class _$SelectTaskImpl implements _SelectTask {
     TResult Function(Task task)? removeTask,
     TResult Function(Task task)? addBirthday,
     TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
     required TResult orElse(),
   }) {
     if (selectTask != null) {
@@ -1392,6 +1437,7 @@ class _$SelectTaskImpl implements _SelectTask {
     required TResult Function(_RemoveTask value) removeTask,
     required TResult Function(_AddBirthday value) addBirthday,
     required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
   }) {
     return selectTask(this);
   }
@@ -1409,6 +1455,7 @@ class _$SelectTaskImpl implements _SelectTask {
     TResult? Function(_RemoveTask value)? removeTask,
     TResult? Function(_AddBirthday value)? addBirthday,
     TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
   }) {
     return selectTask?.call(this);
   }
@@ -1426,6 +1473,7 @@ class _$SelectTaskImpl implements _SelectTask {
     TResult Function(_RemoveTask value)? removeTask,
     TResult Function(_AddBirthday value)? addBirthday,
     TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
     required TResult orElse(),
   }) {
     if (selectTask != null) {
@@ -1500,7 +1548,7 @@ class _$RemoveTaskImpl implements _RemoveTask {
 
   @override
   bool operator ==(Object other) {
-    return false ?? identical(this, other) ||
+    return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoveTaskImpl &&
             (identical(other.task, task) || other.task == task));
@@ -1528,6 +1576,7 @@ class _$RemoveTaskImpl implements _RemoveTask {
     required TResult Function(Task task) removeTask,
     required TResult Function(Task task) addBirthday,
     required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
   }) {
     return removeTask(task);
   }
@@ -1545,6 +1594,7 @@ class _$RemoveTaskImpl implements _RemoveTask {
     TResult? Function(Task task)? removeTask,
     TResult? Function(Task task)? addBirthday,
     TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
   }) {
     return removeTask?.call(task);
   }
@@ -1562,6 +1612,7 @@ class _$RemoveTaskImpl implements _RemoveTask {
     TResult Function(Task task)? removeTask,
     TResult Function(Task task)? addBirthday,
     TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
     required TResult orElse(),
   }) {
     if (removeTask != null) {
@@ -1583,6 +1634,7 @@ class _$RemoveTaskImpl implements _RemoveTask {
     required TResult Function(_RemoveTask value) removeTask,
     required TResult Function(_AddBirthday value) addBirthday,
     required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
   }) {
     return removeTask(this);
   }
@@ -1600,6 +1652,7 @@ class _$RemoveTaskImpl implements _RemoveTask {
     TResult? Function(_RemoveTask value)? removeTask,
     TResult? Function(_AddBirthday value)? addBirthday,
     TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
   }) {
     return removeTask?.call(this);
   }
@@ -1617,6 +1670,7 @@ class _$RemoveTaskImpl implements _RemoveTask {
     TResult Function(_RemoveTask value)? removeTask,
     TResult Function(_AddBirthday value)? addBirthday,
     TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
     required TResult orElse(),
   }) {
     if (removeTask != null) {
@@ -1691,7 +1745,7 @@ class _$AddBirthdayImpl implements _AddBirthday {
 
   @override
   bool operator ==(Object other) {
-    return false ?? identical(this, other) ||
+    return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddBirthdayImpl &&
             (identical(other.task, task) || other.task == task));
@@ -1719,6 +1773,7 @@ class _$AddBirthdayImpl implements _AddBirthday {
     required TResult Function(Task task) removeTask,
     required TResult Function(Task task) addBirthday,
     required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
   }) {
     return addBirthday(task);
   }
@@ -1736,6 +1791,7 @@ class _$AddBirthdayImpl implements _AddBirthday {
     TResult? Function(Task task)? removeTask,
     TResult? Function(Task task)? addBirthday,
     TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
   }) {
     return addBirthday?.call(task);
   }
@@ -1753,6 +1809,7 @@ class _$AddBirthdayImpl implements _AddBirthday {
     TResult Function(Task task)? removeTask,
     TResult Function(Task task)? addBirthday,
     TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
     required TResult orElse(),
   }) {
     if (addBirthday != null) {
@@ -1774,6 +1831,7 @@ class _$AddBirthdayImpl implements _AddBirthday {
     required TResult Function(_RemoveTask value) removeTask,
     required TResult Function(_AddBirthday value) addBirthday,
     required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
   }) {
     return addBirthday(this);
   }
@@ -1791,6 +1849,7 @@ class _$AddBirthdayImpl implements _AddBirthday {
     TResult? Function(_RemoveTask value)? removeTask,
     TResult? Function(_AddBirthday value)? addBirthday,
     TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
   }) {
     return addBirthday?.call(this);
   }
@@ -1808,6 +1867,7 @@ class _$AddBirthdayImpl implements _AddBirthday {
     TResult Function(_RemoveTask value)? removeTask,
     TResult Function(_AddBirthday value)? addBirthday,
     TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
     required TResult orElse(),
   }) {
     if (addBirthday != null) {
@@ -1882,7 +1942,7 @@ class _$RemoveBirthdayImpl implements _RemoveBirthday {
 
   @override
   bool operator ==(Object other) {
-    return false ?? identical(this, other) ||
+    return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoveBirthdayImpl &&
             (identical(other.task, task) || other.task == task));
@@ -1911,6 +1971,7 @@ class _$RemoveBirthdayImpl implements _RemoveBirthday {
     required TResult Function(Task task) removeTask,
     required TResult Function(Task task) addBirthday,
     required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
   }) {
     return removeBirthday(task);
   }
@@ -1928,6 +1989,7 @@ class _$RemoveBirthdayImpl implements _RemoveBirthday {
     TResult? Function(Task task)? removeTask,
     TResult? Function(Task task)? addBirthday,
     TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
   }) {
     return removeBirthday?.call(task);
   }
@@ -1945,6 +2007,7 @@ class _$RemoveBirthdayImpl implements _RemoveBirthday {
     TResult Function(Task task)? removeTask,
     TResult Function(Task task)? addBirthday,
     TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
     required TResult orElse(),
   }) {
     if (removeBirthday != null) {
@@ -1966,6 +2029,7 @@ class _$RemoveBirthdayImpl implements _RemoveBirthday {
     required TResult Function(_RemoveTask value) removeTask,
     required TResult Function(_AddBirthday value) addBirthday,
     required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
   }) {
     return removeBirthday(this);
   }
@@ -1983,6 +2047,7 @@ class _$RemoveBirthdayImpl implements _RemoveBirthday {
     TResult? Function(_RemoveTask value)? removeTask,
     TResult? Function(_AddBirthday value)? addBirthday,
     TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
   }) {
     return removeBirthday?.call(this);
   }
@@ -2000,6 +2065,7 @@ class _$RemoveBirthdayImpl implements _RemoveBirthday {
     TResult Function(_RemoveTask value)? removeTask,
     TResult Function(_AddBirthday value)? addBirthday,
     TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
     required TResult orElse(),
   }) {
     if (removeBirthday != null) {
@@ -2016,6 +2082,162 @@ abstract class _RemoveBirthday implements DayEvent {
   @JsonKey(ignore: true)
   _$$RemoveBirthdayImplCopyWith<_$RemoveBirthdayImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveAllDataImplCopyWith<$Res> {
+  factory _$$RemoveAllDataImplCopyWith(
+          _$RemoveAllDataImpl value, $Res Function(_$RemoveAllDataImpl) then) =
+      __$$RemoveAllDataImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RemoveAllDataImplCopyWithImpl<$Res>
+    extends _$DayEventCopyWithImpl<$Res, _$RemoveAllDataImpl>
+    implements _$$RemoveAllDataImplCopyWith<$Res> {
+  __$$RemoveAllDataImplCopyWithImpl(
+      _$RemoveAllDataImpl _value, $Res Function(_$RemoveAllDataImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RemoveAllDataImpl implements _RemoveAllData {
+  const _$RemoveAllDataImpl();
+
+  @override
+  String toString() {
+    return 'DayEvent.removeAllData()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RemoveAllDataImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TextNote text) addTextNote,
+    required TResult Function(VoiceNote voiceNote) addVoiceNote,
+    required TResult Function(Note note) removeNote,
+    required TResult Function(bool? nextOrPrev) goToDay,
+    required TResult Function(ShiftType shiftType) selectShiftType,
+    required TResult Function(Task task) addTask,
+    required TResult Function(Task task) selectTask,
+    required TResult Function(Task task) removeTask,
+    required TResult Function(Task task) addBirthday,
+    required TResult Function(Task task) removeBirthday,
+    required TResult Function() removeAllData,
+  }) {
+    return removeAllData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(TextNote text)? addTextNote,
+    TResult? Function(VoiceNote voiceNote)? addVoiceNote,
+    TResult? Function(Note note)? removeNote,
+    TResult? Function(bool? nextOrPrev)? goToDay,
+    TResult? Function(ShiftType shiftType)? selectShiftType,
+    TResult? Function(Task task)? addTask,
+    TResult? Function(Task task)? selectTask,
+    TResult? Function(Task task)? removeTask,
+    TResult? Function(Task task)? addBirthday,
+    TResult? Function(Task task)? removeBirthday,
+    TResult? Function()? removeAllData,
+  }) {
+    return removeAllData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TextNote text)? addTextNote,
+    TResult Function(VoiceNote voiceNote)? addVoiceNote,
+    TResult Function(Note note)? removeNote,
+    TResult Function(bool? nextOrPrev)? goToDay,
+    TResult Function(ShiftType shiftType)? selectShiftType,
+    TResult Function(Task task)? addTask,
+    TResult Function(Task task)? selectTask,
+    TResult Function(Task task)? removeTask,
+    TResult Function(Task task)? addBirthday,
+    TResult Function(Task task)? removeBirthday,
+    TResult Function()? removeAllData,
+    required TResult orElse(),
+  }) {
+    if (removeAllData != null) {
+      return removeAllData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AddTextNote value) addTextNote,
+    required TResult Function(_AddVoiceNote value) addVoiceNote,
+    required TResult Function(_RemoveVoiceNote value) removeNote,
+    required TResult Function(_GoToToday value) goToDay,
+    required TResult Function(_SelectShiftType value) selectShiftType,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_SelectTask value) selectTask,
+    required TResult Function(_RemoveTask value) removeTask,
+    required TResult Function(_AddBirthday value) addBirthday,
+    required TResult Function(_RemoveBirthday value) removeBirthday,
+    required TResult Function(_RemoveAllData value) removeAllData,
+  }) {
+    return removeAllData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AddTextNote value)? addTextNote,
+    TResult? Function(_AddVoiceNote value)? addVoiceNote,
+    TResult? Function(_RemoveVoiceNote value)? removeNote,
+    TResult? Function(_GoToToday value)? goToDay,
+    TResult? Function(_SelectShiftType value)? selectShiftType,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_SelectTask value)? selectTask,
+    TResult? Function(_RemoveTask value)? removeTask,
+    TResult? Function(_AddBirthday value)? addBirthday,
+    TResult? Function(_RemoveBirthday value)? removeBirthday,
+    TResult? Function(_RemoveAllData value)? removeAllData,
+  }) {
+    return removeAllData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AddTextNote value)? addTextNote,
+    TResult Function(_AddVoiceNote value)? addVoiceNote,
+    TResult Function(_RemoveVoiceNote value)? removeNote,
+    TResult Function(_GoToToday value)? goToDay,
+    TResult Function(_SelectShiftType value)? selectShiftType,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_SelectTask value)? selectTask,
+    TResult Function(_RemoveTask value)? removeTask,
+    TResult Function(_AddBirthday value)? addBirthday,
+    TResult Function(_RemoveBirthday value)? removeBirthday,
+    TResult Function(_RemoveAllData value)? removeAllData,
+    required TResult orElse(),
+  }) {
+    if (removeAllData != null) {
+      return removeAllData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveAllData implements DayEvent {
+  const factory _RemoveAllData() = _$RemoveAllDataImpl;
 }
 
 /// @nodoc
@@ -2289,7 +2511,7 @@ class _$LoadedImpl implements _Loaded {
 
   @override
   bool operator ==(Object other) {
-    return false ?? identical(this, other) ||
+    return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
             (identical(other.dateTime, dateTime) ||

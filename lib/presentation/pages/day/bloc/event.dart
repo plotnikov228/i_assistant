@@ -13,6 +13,8 @@ class DayEvent with _$DayEvent {
 
   const factory DayEvent.addBirthday(Task task) = _AddBirthday;
   const factory DayEvent.removeBirthday(Task task) = _RemoveBirthday;
+  const factory DayEvent.removeAllData() = _RemoveAllData;
+
 
 
 }

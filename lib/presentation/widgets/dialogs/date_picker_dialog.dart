@@ -20,7 +20,7 @@ class CustomDatePickerDialog extends StatelessWidget {
         height: 300,
         width: 300,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.white,
           borderRadius: BorderRadius.circular(40)
         ),
         child: Center(
@@ -51,7 +51,9 @@ class CustomDatePickerDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: CustomButton(title: 'Принять', onTap: () {
                   Navigator.pop(context, dateTime);
-                },),
+                },
+                textColor: Colors.white,
+                ),
               )
             ],
           ),

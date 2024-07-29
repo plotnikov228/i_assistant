@@ -15,6 +15,7 @@ import 'package:i_assistant/presentation/widgets/text_fields/custom_text_field.d
 import 'package:i_assistant/utils/size_utils.dart';
 import 'package:intl/intl.dart';
 
+import '../../../utils/shared_prefs.dart';
 import '../dialogs/date_picker_dialog.dart';
 
 class NoteViewBottomSheet extends StatefulWidget {
@@ -56,8 +57,8 @@ class _NoteViewBottomSheetState extends State<NoteViewBottomSheet> {
                 color: Colors.transparent,
                 child: Container(
 
-                  decoration: const BoxDecoration(
-                      color: Colors.white,
+                  decoration: BoxDecoration(
+                      color: AppColors.white,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(40), topRight: Radius.circular(40))),
                   child: Column(
@@ -110,7 +111,7 @@ class _NoteViewBottomSheetState extends State<NoteViewBottomSheet> {
                                     hint: 'Новая заметка',
                                     maxLength: 20,
                                     textStyle:
-                                    AppStyles.mediumHead.copyWith(color: Colors.black)),
+                                    AppStyles.mediumHead.copyWith(color: AppColors.black)),
                               ),
                           state.maybeWhen(orElse: () {
                             return IgnorePointer(
@@ -120,7 +121,7 @@ class _NoteViewBottomSheetState extends State<NoteViewBottomSheet> {
                                   maxLength: 300,
                                   minLines: 5,
                                   maxLines: 5,
-                                  textStyle: AppStyles.body.copyWith(color: Colors.black)),
+                                  textStyle: AppStyles.body.copyWith(color: AppColors.black)),
                             );
                           }, audio: (playing, player,stream) {
                             return SizedBox(
@@ -160,7 +161,7 @@ class _NoteViewBottomSheetState extends State<NoteViewBottomSheet> {
                                   child: SvgPicture.asset(
                                     'assets/images/svg/${playing ? 'pause' : 'play'}.svg',
                                     height: 44,
-                                    color: Colors.white,
+                                    color: AppColors.white,
                                   ),
                                 ),
                               ),
@@ -181,13 +182,15 @@ class _NoteViewBottomSheetState extends State<NoteViewBottomSheet> {
                               child: CustomButton(
                                 suffix: SvgPicture.asset(
                                   'assets/images/svg/trash.svg',
+                                  color: SharedPrefs.isThemeDark ? AppColors.black : null,
+
                                   height: 20,
                                   width: 20,
 
                                 ),
                                 title: 'Удалить заметку',
-                                bg: Colors.white,
-                                textColor: Colors.black,
+                                bg: AppColors.white,
+                                textColor: AppColors.black,
                                 onTap:() {
                                   Navigator.pop(context);
                                   widget.onDelete?.call();
