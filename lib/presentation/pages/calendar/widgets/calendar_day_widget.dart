@@ -31,7 +31,7 @@ class CalendarDayWidget extends StatelessWidget {
           ? AppColors.night
           : shiftType == ShiftType.day
               ? AppColors.day
-              : selected ?  AppColors.lightGrey : AppColors.dividerGrey;
+              : selected ?  AppColors.lightGrey : AppColors.calendarBg;
       return Container(
 
         height: size,
@@ -45,7 +45,7 @@ class CalendarDayWidget extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(
-                  color: selected ? Colors.white : Colors.transparent,
+                  color: selected ? AppColors.calendarBg : Colors.transparent,
                   width: 2),
               shape: BoxShape.circle,
             ),

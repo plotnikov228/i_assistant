@@ -35,6 +35,7 @@ class _CalendarCarouselState extends State<CalendarCarousel> {
 
     ScrollPhysics physics = PageScrollPhysics();
     void check (int needPage) {
+
       page  = needPage;
       if(!listen && (toDown && page == widget.calendars.length - 2) || (!toDown && page == 1)) {
      listen = true;
@@ -45,8 +46,11 @@ class _CalendarCarouselState extends State<CalendarCarousel> {
 
     Future.delayed(Duration(milliseconds: 200), () {
         if(controller.page == needPage) {
-          physics = PageScrollPhysics();
-          listen = false;
+          setState(() {
+
+            physics = PageScrollPhysics();
+            listen = false;
+          });
           context
               .read<CalendarBloc>()
               .add(CalendarEvent.selectCalendar(widget.calendars[needPage]));

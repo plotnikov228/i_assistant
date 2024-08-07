@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_assistant/utils/extensions/date_extension.dart';
 
 import '../../../../domain/entities/calendar_day/calendar_day.dart';
 import '../../../resources/app_styles.dart';
@@ -41,8 +42,8 @@ class CalendarWidget extends StatelessWidget {
                   //    CalendarEvent.selectDay(e));
                 },
                 calendarDay: e,
-                selected:
-                selected?.date == e.date,
+                selected: selected == null  ?  e.date.equalDate(DateTime.now()) :
+                selected?.date.equalDate(e.date),
                 currentMonth:
                 e.date.month == month,
               ))

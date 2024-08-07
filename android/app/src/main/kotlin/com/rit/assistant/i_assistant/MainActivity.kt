@@ -1,4 +1,4 @@
-package com.rit.assistant.i_assistant
+package com.rit.assistant
 
 import io.flutter.embedding.android.FlutterActivity
 

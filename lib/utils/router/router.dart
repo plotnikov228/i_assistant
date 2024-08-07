@@ -5,8 +5,8 @@ import 'package:i_assistant/presentation/pages/day/day_page.dart';
 import 'package:i_assistant/presentation/pages/notes/notes_page.dart';
 import 'package:i_assistant/presentation/pages/notes_and_tasks/notes_and_tasks_page.dart';
 import 'package:i_assistant/presentation/pages/services/services_page.dart';
+import 'package:i_assistant/presentation/pages/settings/settings_page.dart';
 import 'package:i_assistant/presentation/pages/tasks/tasks_page.dart';
-import 'package:i_assistant/presentation/pages/theme/theme_page.dart';
 import 'package:i_assistant/utils/router/routes.dart';
 
 import '../../presentation/pages/calendar/calendar_page.dart';
@@ -103,7 +103,7 @@ class AppRouter {
                 routes: [
                 ],
                 builder: (context, state) {
-                  return const ThemePage();
+                  return const SettingsPage();
                 })
           ]),
         ]),

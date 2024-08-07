@@ -27,10 +27,11 @@ class YearsCarousel extends StatefulWidget {
 class _YearsCarouselState extends State<YearsCarousel> {
   final controller = CarouselController();
 
+bool toDown = false;
 
   void check (int needPage) {
     Future.delayed(Duration(milliseconds: 200), () {
-      if(controller.page == needPage) {
+      if(controller.page == needPage || toDown) {
         context
             .read<CalendarBloc>()
             .add(CalendarEvent.selectYear(widget.years[needPage]));
@@ -128,6 +129,7 @@ class _YearsCarouselState extends State<YearsCarousel> {
             enableInfiniteScroll: false,
             onPageChanged: (page, _) {
               print('page $page');
+              toDown = widget.page < page;
               check(page);
             },
             viewportFraction: 800 / size.height,

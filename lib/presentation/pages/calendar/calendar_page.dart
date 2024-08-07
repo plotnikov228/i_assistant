@@ -31,6 +31,7 @@ import 'package:i_assistant/utils/bottom_sheet_handler.dart';
 import 'package:i_assistant/utils/constants/shift_type.dart';
 import 'package:i_assistant/utils/extensions/date_extension.dart';
 import 'package:i_assistant/utils/router/routes.dart';
+import 'package:i_assistant/utils/shared_prefs.dart';
 
 import '../../../utils/size_utils.dart';
 import '../../resources/app_colors.dart';
@@ -200,10 +201,13 @@ class CalendarPage extends StatelessWidget {
                               const SizedBox(
                                 height: 10,
                               ),
-                              Text(
-                                'Отметить смену',
-                                style: AppStyles.mediumHead.copyWith(
-                                  color: AppColors.black
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 20),
+                                child: Text(
+                                  'Отметить смену',
+                                  style: AppStyles.mediumHead.copyWith(
+                                    color: AppColors.black
+                                  ),
                                 ),
                               ),
                               const SizedBox(
@@ -244,9 +248,9 @@ class CalendarPage extends StatelessWidget {
                                           child: Container(
                                             height: 56,
                                             width: 56,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               shape: BoxShape.circle,
-                                              color: Colors.white,
+                                              color: AppColors.white,
                                             ),
                                             child: SizedBox(
                                               height: 42,
@@ -255,6 +259,7 @@ class CalendarPage extends StatelessWidget {
                                                 child: SvgPicture.asset(
                                                   'assets/images/svg/trash.svg',
                                                   fit: BoxFit.fill,
+                                                  color: SharedPrefs.isThemeDark ? AppColors.black : null,
                                                 ),
                                               ),
                                             ),
@@ -273,7 +278,7 @@ class CalendarPage extends StatelessWidget {
                                     Expanded(
                                       child: CustomButton(
                                         title: 'Отменить',
-                                        bg: Colors.white,
+                                        bg: AppColors.white,
                                         textColor: AppColors.black,
                                         onTap: () {
                                           context.read<CalendarBloc>().add(

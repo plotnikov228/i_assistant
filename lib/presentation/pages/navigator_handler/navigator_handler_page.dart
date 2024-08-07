@@ -96,74 +96,74 @@ class ScaffoldWithBottomNavBarState extends State<ScaffoldWithBottomNavBar> {
         },
         child: BlocBuilder<NavigatorBloc, NavigatorViewState>(
             builder: (context, state) {
-          return  BlocBuilder<ThemeBloc,ThemeState>(
-              builder: (context, themeState) {
-              return Scaffold(
-                key: navigationHandlerScaffoldKey,
-                backgroundColor: AppColors.white,
-                body: Stack(
-                  children: [
-                    Column(
-                      children: [
-                        Expanded(child: widget.navigationShell),
-                        SizedBox(
-                          height: state.maybeWhen(orElse: () {
-                            return Platform.isIOS ?  45 : 35;
-                          }, hide: () {
-                            return 0;
-                          }),
-                        )
-                      ],
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: SizedBox(
-                        height: state.maybeWhen(orElse: () {
-                          return null;
-                        }, hide: () {
-                          return 0;
-                        }),
-                        child: ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(40),
-                                topLeft: Radius.circular(40)),
-                            child: Theme(
-                              data: ThemeData(
-                                splashColor: Colors.transparent,
-                                highlightColor: AppColors.lightBlue,
-                              ),
-                              child: BottomNavigationBar(
-                                selectedFontSize: 0,
-                                unselectedFontSize: 0,
+              return  BlocBuilder<ThemeBloc,ThemeState>(
+                  builder: (context, themeState) {
+                    return Scaffold(
+                      key: navigationHandlerScaffoldKey,
+                      backgroundColor: AppColors.white,
+                      body: Stack(
+                        children: [
+                          Column(
+                            children: [
+                              Expanded(child: widget.navigationShell),
+                              SizedBox(
+                                height: state.maybeWhen(orElse: () {
+                                  return Platform.isIOS ?  45 : 35;
+                                }, hide: () {
+                                  return 0;
+                                }),
+                              )
+                            ],
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: SizedBox(
+                              height: state.maybeWhen(orElse: () {
+                                return null;
+                              }, hide: () {
+                                return 0;
+                              }),
+                              child: ClipRRect(
+                                  borderRadius: const BorderRadius.only(
+                                      topRight: Radius.circular(40),
+                                      topLeft: Radius.circular(40)),
+                                  child: Theme(
+                                    data: ThemeData(
+                                      splashColor: Colors.transparent,
+                                      highlightColor: AppColors.lightBlue,
+                                    ),
+                                    child: BottomNavigationBar(
+                                      selectedFontSize: 0,
+                                      unselectedFontSize: 0,
 
-                                type: BottomNavigationBarType.fixed,
-                                showSelectedLabels: false,
-                                showUnselectedLabels: false,
+                                      type: BottomNavigationBarType.fixed,
+                                      showSelectedLabels: false,
+                                      showUnselectedLabels: false,
 
-                                unselectedItemColor: Colors.black,
-                                landscapeLayout:
-                                    BottomNavigationBarLandscapeLayout.centered,
+                                      unselectedItemColor: Colors.black,
+                                      landscapeLayout:
+                                      BottomNavigationBarLandscapeLayout.centered,
 
-                                selectedItemColor: AppColors.blue,
-                                backgroundColor: AppColors.white,
-                                currentIndex: widget.navigationShell.currentIndex,
-                                items: [
-                                  _item(0, 'calendar'),
-                                  _item(1, 'notes'),
-                                  _item(2, 'menu'),
-                                  _item(3, 'settings'),
-                                ],
-                                onTap: (index) => _chandeIndex(index),
-                              ),
-                            )),
+                                      selectedItemColor: AppColors.blue,
+                                      backgroundColor: AppColors.white,
+                                      currentIndex: widget.navigationShell.currentIndex,
+                                      items: [
+                                        _item(0, 'calendar'),
+                                        _item(1, 'notes'),
+                                        _item(2, 'menu'),
+                                        _item(3, 'settings'),
+                                      ],
+                                      onTap: (index) => _chandeIndex(index),
+                                    ),
+                                  )),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
+                    );
+                  }
               );
-            }
-          );
-        }),
+            }),
       ),
     );
   }

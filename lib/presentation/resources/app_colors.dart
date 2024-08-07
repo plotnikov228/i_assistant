@@ -20,7 +20,7 @@ class AppColors {
   static Color get dividerGrey =>  SharedPrefs.isThemeDark ? Color(0xff15181E) : Color(0xffECECEC);
   static Color get calendarBg =>  SharedPrefs.isThemeDark ? Color(0xff15181E) : Color(0xffFBFBFB);
 
-  static const Color lightGrey = Color(0xffF1F1F1);
+  static Color get lightGrey => SharedPrefs.isThemeDark ? Color(0xff3A4151) : Color(0xffF1F1F1);
   static Color get containerGrey => SharedPrefs.isThemeDark ? Color(0xff3A4151) : Color(0xffF4F4F4);
 
   static const Color red = Color(0xffFF5353);

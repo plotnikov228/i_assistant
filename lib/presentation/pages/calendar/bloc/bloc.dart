@@ -107,30 +107,37 @@ class CalendarBloc extends Bloc<CalendarEvent, CalendarState> {
   }
 
   _selectCalendar (_SelectCalendar value) async {
-
     try {
-      _selectedCalendar = _calendars.indexOf(
-          _calendars.firstWhere((element) => value.calendarEntity.month ==
-              element.month && value.calendarEntity.year == element.year));
-    }  catch (_) {
-      _selectedCalendar = -1;
+      try {
+        _selectedCalendar = _calendars.indexOf(
+            _calendars.firstWhere((element) =>
+            value.calendarEntity.month ==
+                element.month && value.calendarEntity.year == element.year));
+      } catch (_) {
+        _selectedCalendar = -1;
+      }
+
+      int index = _selectedCalendar;
+      if (index == _calendars.length - 2) {
+        final date = DateTime(_calendars[index].year, _calendars[index].month);
+        _calendars.add(await _init(DateTime(date.year, date.month + 2, 1).month,
+            (DateTime(date.year, date.month + 2, 1).year)));
+      } else if (index == 1) {
+        final date = DateTime(_calendars[index].year, _calendars[index].month);
+        _calendars.insert(0, await _init(
+            DateTime(date.year, date.month - 2, 1).month,
+            DateTime(date.year, date.month - 2, 1).year));
+
+        _selectedCalendar = 2;
+      } else if (index == -1) {
+        _initialize(
+            DateTime(value.calendarEntity.year, value.calendarEntity.month));
+        return;
+      }
+      await _checkIfCanCleanShiftTypes();
+    } catch (_) {
+      print('select calendar error - $_');
     }
-
-    int index = _selectedCalendar;
-    if(index == _calendars.length - 2) {
-      final date = DateTime(_calendars[index].year, _calendars[index].month);
-      _calendars.add(await _init(DateTime(date.year, date.month + 2, 1).month, (DateTime(date.year, date.month + 2, 1).year)));
-
-    } else if(index == 1) {
-      final date = DateTime(_calendars[index].year, _calendars[index].month);
-      _calendars.insert(0, await _init(DateTime(date.year, date.month - 2, 1).month, DateTime(date.year, date.month - 2, 1).year));
-
-      _selectedCalendar = 2;
-    } else if (index == -1) {
-      _initialize(DateTime(value.calendarEntity.year, value.calendarEntity.month));
-      return;
-    }
-    await _checkIfCanCleanShiftTypes();
 
     emit(_Calendar(currentCalendar: _selectedCalendar, calendars: _calendars, selectedDay: _selectedDay, canCleanShiftTypes: _canCleanShiftTypes));
   }
@@ -171,6 +178,9 @@ class CalendarBloc extends Bloc<CalendarEvent, CalendarState> {
     _calendars.add(await _init(DateTime(date.year, date.month + 1, 1).month, DateTime(date.year, date.month + 1, 1).year));
     _calendars.add(await _init(DateTime(date.year, date.month + 2, 1).month, DateTime(date.year, date.month + 2, 1).year));
     _selectedCalendar = 2;
+
+    _selectedDay = null;
+
     await _checkIfCanCleanShiftTypes();
     emit(_Calendar(currentCalendar: _selectedCalendar, calendars: _calendars, selectedDay: _selectedDay, canCleanShiftTypes: _canCleanShiftTypes));
 
@@ -289,7 +299,6 @@ class CalendarBloc extends Bloc<CalendarEvent, CalendarState> {
           voiceNotes: notes.where((element) => !element.isText()).toList().map((e) => e.voice()).toList(), textNotes: notes.where((element) => element.isText()).toList().map((e) => e.text()).toList());
 
     }
-    _selectedDay = _days.firstWhere((element) => element.date.day == DateTime.now().day);
 
 
     return CalendarEntity(year: _year, month: _monthIndex, days: _days);

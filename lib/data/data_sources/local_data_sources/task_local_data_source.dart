@@ -43,7 +43,6 @@ class TasksLocalDataSourceImpl extends TasksLocalDataSource {
   Future<List<Task>> getTasksByDate(DateTime dateTime) async{
     await HiveDatabase.openBox(hiveDBTag);
     final list = (await HiveDatabase.getBox(hiveDBTag)).map((e) => TaskMapper.fromModel(TaskModel.fromJson(jsonDecode(e)))).toList();
-    print(list.length);
     return (list.where((element) => element.dateTime.equalDate(dateTime))
     .toList());
   }
